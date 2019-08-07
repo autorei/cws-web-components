@@ -19,7 +19,8 @@
     "docs": "stencil build --docs-readme",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll"
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "st:generate": "node scripts/st-generate.js"
   },
   "devDependencies": {
     "@stencil/core": "1.2.3",
