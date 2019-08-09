@@ -10,11 +10,29 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface CwsButton {
+    /**
+    * Autofocus state
+    */
     'autofocus': boolean;
+    /**
+    * Disabled state, not applicable if the component receive the `href` prop
+    */
     'disabled': boolean;
+    /**
+    * href to redirect user. It render an anchor tag (`<a></a>`) instead of a button one
+    */
     'href'?: string;
+    /**
+    * Button size
+    */
     'size': 'lg' | 'md' | 'sm';
+    /**
+    * Button type, not applicable if the component receive `href` prop
+    */
     'type': 'button' | 'submit' | 'reset';
+    /**
+    * Button style
+    */
     'variant': 'primary' | 'secondary';
   }
   interface MyComponent {
@@ -55,11 +73,29 @@ declare global {
 
 declare namespace LocalJSX {
   interface CwsButton extends JSXBase.HTMLAttributes<HTMLCwsButtonElement> {
+    /**
+    * Autofocus state
+    */
     'autofocus'?: boolean;
+    /**
+    * Disabled state, not applicable if the component receive the `href` prop
+    */
     'disabled'?: boolean;
+    /**
+    * href to redirect user. It render an anchor tag (`<a></a>`) instead of a button one
+    */
     'href'?: string;
+    /**
+    * Button size
+    */
     'size'?: 'lg' | 'md' | 'sm';
+    /**
+    * Button type, not applicable if the component receive `href` prop
+    */
     'type'?: 'button' | 'submit' | 'reset';
+    /**
+    * Button style
+    */
     'variant'?: 'primary' | 'secondary';
   }
   interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {

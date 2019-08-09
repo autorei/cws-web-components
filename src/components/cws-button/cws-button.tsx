@@ -7,12 +7,35 @@ import classNames from 'classnames'
 })
 
 export class CwsButton {
+  /**
+   * Button style
+   */
   @Prop() variant: 'primary' | 'secondary' = 'primary';
+
+  /**
+   * Button size
+   */
   @Prop() size: 'lg' | 'md' | 'sm' = 'md';
+
+  /**
+   * Button type, not applicable if the component receive `href` prop
+   */
   @Prop() type: 'button' | 'submit' | 'reset' = 'button';
-  @Prop() href?: string;
+
+  /**
+   * Disabled state, not applicable if the component receive the `href` prop
+   */
   @Prop() disabled: boolean = false;
+
+  /**
+   * Autofocus state
+   */
   @Prop() autofocus: boolean = false;
+
+  /**
+   * href to redirect user. It render an anchor tag (`<a></a>`) instead of a button one
+   */
+  @Prop() href?: string;
 
   render() {
     const TagType = this.href ? 'a' : 'button'

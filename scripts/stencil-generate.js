@@ -24,7 +24,7 @@ import { Component, Prop, h } from '@stencil/core';
 
 export class ${componentClassName} {
   /**
-   * The first name
+   * The first name <-- this commentary is necessary to generate docs
    */
   @Prop() name: string;
 
