@@ -12,6 +12,10 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/cws-web-components/cws-web-components.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/autorei/cws-web-components.git"
+  },
   "files": [
     "dist/",
     "loader/"
