@@ -9,10 +9,79 @@
   <script type="module" src="/build/cws-web-components.esm.js"></script>
   <script nomodule src="/build/cws-web-components.js"></script>
 
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
 </head>
 <body>
+  <div class="component-container">
+    <h1>cws-button</h1>
+    <a target="_blank" href="http://github.com/autorei/cws-web-components/src/components/cws-button">src/components/cws-button</a>
 
-  <cws-button type="button">Click me</cws-button>
+    <h2>Variant: primary</h2>
 
+    <div class="component-variant">
+      <div class="component-block">
+        <h3>Size: LG</h3>
+        <div class="component-examples">
+          <cws-button size="lg" type="button">Add to cart</cws-button>
+          <cws-button size="lg" type="button" disabled>Disabled button</cws-button>
+          <cws-button size="lg" href="https://google.com">Go to google</cws-button>
+        </div>
+      </div>
+
+      <div class="component-block">
+        <h3>Size: MD</h3>
+        <div class="component-examples">
+          <cws-button size="md" type="button">Add to cart</cws-button>
+          <cws-button size="md" type="button" disabled>Disabled button</cws-button>
+          <cws-button size="md" href="https://google.com">Go to google</cws-button>
+        </div>
+      </div>
+
+      <div class="component-block">
+        <h3>Size: SM</h3>
+        <div class="component-examples">
+          <cws-button size="sm" type="button">Add to cart</cws-button>
+          <cws-button size="sm" type="button" disabled>Disabled button</cws-button>
+          <cws-button size="sm" href="https://google.com">Go to google</cws-button>
+        </div>
+      </div>
+    </div>
+
+    <h2>Variant: secondary</h2>
+    <div class="component-variant">
+      <div class="component-block">
+        <h3>Size: LG</h3>
+        <div class="component-examples">
+          <cws-button variant="secondary" size="lg" type="button">Add to cart</cws-button>
+          <cws-button variant="secondary" size="lg" type="button" disabled>Disabled button</cws-button>
+          <cws-button variant="secondary" size="lg" href="https://google.com">Go to google</cws-button>
+        </div>
+      </div>
+
+      <div class="component-block">
+        <h3>Size: MD</h3>
+        <div class="component-examples">
+          <cws-button variant="secondary" size="md" type="button">Add to cart</cws-button>
+          <cws-button variant="secondary" size="md" type="button" disabled>Disabled button</cws-button>
+          <cws-button variant="secondary" size="md" href="https://google.com">Go to google</cws-button>
+        </div>
+      </div>
+
+      <div class="component-block">
+        <h3>Size: SM</h3>
+        <div class="component-examples">
+          <cws-button variant="secondary" size="sm" type="button">Add to cart</cws-button>
+          <cws-button variant="secondary" size="sm" type="button" disabled>Disabled button</cws-button>
+          <cws-button variant="secondary" size="sm" href="https://google.com">Go to google</cws-button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

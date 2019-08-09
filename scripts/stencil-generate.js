@@ -20,8 +20,8 @@ import { Component, Prop, h } from '@stencil/core';
 @Component({
   tag: '${name}',
   styleUrl: '${name}.css',
-  shadow: true
 })
+
 export class ${componentClassName} {
   /**
    * The first name

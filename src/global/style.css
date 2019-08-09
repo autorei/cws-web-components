@@ -1,0 +1,49 @@
+html,
+body {
+  font-family: var(--font-family-1);
+}
+
+h1, h2, h3, h4, h5 {
+  margin: var(--spacing-stack-xxs) 0 var(--spacing-stack-xxxs);
+}
+
+h1 {
+  font-size: var(--font-size-xxl);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+}
+
+h4 {
+  font-size: var(--font-size-md);
+}
+
+h5 {
+  font-size: var(--font-size-sm);
+}
+
+.component-container {
+  padding: var(--spacing-stack-xxs);
+}
+
+.component-variant {
+  display: grid;
+  grid-gap: var(--spacing-stack-xxs);
+  grid-auto-flow: column;
+  margin-bottom: var(--spacing-stack-md)
+}
+
+.component-block {
+  border: 1px dashed #c6c6c6;
+  padding: var(--spacing-stack-xxs);
+}
+
+.component-examples {
+  display: grid;
+  grid-gap: var(--spacing-stack-xxs);
+}

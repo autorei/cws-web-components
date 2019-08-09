@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'cws-web-components',
-  globalStyle: 'src/global/tokens.css',
+  globalStyle: 'src/global/index.css',
   outputTargets: [
     {
       type: 'dist',

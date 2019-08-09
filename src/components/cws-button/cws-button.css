@@ -1,0 +1,86 @@
+.cws-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--border-radius-xs);
+  border-width: var(--border-width-none);
+  font-family: var(--font-family-1);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cws-button:disabled,
+.cws-button--disabled {
+  pointer-events: none;
+  opacity: var(--opacity-4);
+}
+
+.cws-button:focus {
+  outline: none;
+}
+
+.cws-button--primary {
+  background-color: var(--color-primary-500);
+  color: var(--color-primary-500-contrast);
+}
+
+.cws-button--primary:hover {
+  background-color: var(--color-primary-400);
+  color: var(--color-primary-400-contrast);
+}
+
+.cws-button--primary:focus {
+  background-color: var(--color-primary-400);
+  color: var(--color-primary-400-contrast);
+  box-shadow: var(--shadow-inset-1);
+}
+
+.cws-button--primary:active {
+  background-color: var(--color-primary-300);
+  color: var(--color-primary-300-contrast);
+}
+
+.cws-button--secondary {
+  background-color: var(--color-secondary-500);
+  color: var(--color-secondary-500-contrast);
+}
+
+.cws-button--secondary:hover {
+  background-color: var(--color-secondary-400);
+  color: var(--color-secondary-400-contrast);
+}
+
+.cws-button--secondary:focus {
+  background-color: var(--color-secondary-400);
+  color: var(--color-secondary-400-contrast);
+  box-shadow: var(--shadow-inset-1);
+}
+
+.cws-button--secondary:active {
+  background-color: var(--color-secondary-300);
+  color: var(--color-secondary-300-contrast);
+}
+
+.cws-button--sm {
+  min-width: var(--button-width-sm);
+  height: var(--button-height-sm);
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-inset-xs);
+}
+
+.cws-button--md {
+  min-width: var(--button-width-md);
+  height: var(--button-height-md);
+  font-size: var(--font-size-md);
+  padding: var(--spacing-squish-sm);
+}
+
+.cws-button--lg {
+  min-width: var(--button-width-lg);
+  height: var(--button-height-lg);
+  font-size: var(--font-size-md);
+  padding: var(--spacing-squish-md);
+}

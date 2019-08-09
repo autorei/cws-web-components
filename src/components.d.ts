@@ -9,11 +9,13 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface FooBar {
-    /**
-    * The first name
-    */
-    'name': string;
+  interface CwsButton {
+    'autofocus': boolean;
+    'disabled': boolean;
+    'href'?: string;
+    'size': 'lg' | 'md' | 'sm';
+    'type': 'button' | 'submit' | 'reset';
+    'variant': 'primary' | 'secondary';
   }
   interface MyComponent {
     /**
@@ -34,10 +36,10 @@ export namespace Components {
 declare global {
 
 
-  interface HTMLFooBarElement extends Components.FooBar, HTMLStencilElement {}
-  var HTMLFooBarElement: {
-    prototype: HTMLFooBarElement;
-    new (): HTMLFooBarElement;
+  interface HTMLCwsButtonElement extends Components.CwsButton, HTMLStencilElement {}
+  var HTMLCwsButtonElement: {
+    prototype: HTMLCwsButtonElement;
+    new (): HTMLCwsButtonElement;
   };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
@@ -46,17 +48,19 @@ declare global {
     new (): HTMLMyComponentElement;
   };
   interface HTMLElementTagNameMap {
-    'foo-bar': HTMLFooBarElement;
+    'cws-button': HTMLCwsButtonElement;
     'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface FooBar extends JSXBase.HTMLAttributes<HTMLFooBarElement> {
-    /**
-    * The first name
-    */
-    'name'?: string;
+  interface CwsButton extends JSXBase.HTMLAttributes<HTMLCwsButtonElement> {
+    'autofocus'?: boolean;
+    'disabled'?: boolean;
+    'href'?: string;
+    'size'?: 'lg' | 'md' | 'sm';
+    'type'?: 'button' | 'submit' | 'reset';
+    'variant'?: 'primary' | 'secondary';
   }
   interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
     /**
@@ -74,7 +78,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
-    'foo-bar': FooBar;
+    'cws-button': CwsButton;
     'my-component': MyComponent;
   }
 }

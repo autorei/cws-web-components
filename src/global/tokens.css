@@ -1,3 +1,6 @@
+/* CUSTOM THEME FONT */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:300,400,700&display=swap');
+
 :root {
   /* GENERIC TOKENS */
   --spacing-stack-xxxs: 4px;
@@ -40,6 +43,8 @@
   --size-icon-lg: 40px;
   --size-icon-xl: 48px;
 
+  --shadow-inset-1: inset 0 0 0 2px rgba(0,0,0,0.2);
+
   --shadow-1: 0 4px 8px rgba(0,0,0,0.2);
   --shadow-2: 0 8px 16px rgba(0,0,0,0.2);
   --shadow-3: 0 16px 32px rgba(0,0,0,0.2);
@@ -78,12 +83,12 @@
   --font-size-xl: 24px;
   --font-size-xxl: 36px;
 
-  --font-weight-light: 200;
+  --font-weight-light: 300;
   --font-weight-regular: 400;
-  --font-weight-bold: 600;
+  --font-weight-bold: 700;
 
-  --font-family-1: 'Roboto';
-  --font-family-2: 'Roboto Condensed';
+  --font-family-1: 'Roboto', sans-serif;
+  --font-family-2: 'Roboto Condensed', sans-serif;
 
   --text-transform: uppercase;
   --text-decoration: underline;
@@ -98,6 +103,16 @@
   --color-primary-800: #004066;
   --color-primary-900: #00273D;
 
+  --color-primary-100-contrast: #202020;
+  --color-primary-200-contrast: #202020;
+  --color-primary-300-contrast: #FFFFFF;
+  --color-primary-400-contrast: #FFFFFF;
+  --color-primary-500-contrast: #FFFFFF;
+  --color-primary-600-contrast: #FFFFFF;
+  --color-primary-700-contrast: #FFFFFF;
+  --color-primary-800-contrast: #FFFFFF;
+  --color-primary-900-contrast: #FFFFFF;
+
   --color-secondary-100: #ECECEC;
   --color-secondary-200: #A0A0A0;
   --color-secondary-300: #7B7B7B;
@@ -107,6 +122,16 @@
   --color-secondary-700: #1F1F1F;
   --color-secondary-800: #161616;
   --color-secondary-900: #0E0E0E;
+
+  --color-secondary-100-contrast: #202020;
+  --color-secondary-200-contrast: #202020;
+  --color-secondary-300-contrast: #202020;
+  --color-secondary-400-contrast: #FFFFFF;
+  --color-secondary-500-contrast: #FFFFFF;
+  --color-secondary-600-contrast: #FFFFFF;
+  --color-secondary-700-contrast: #FFFFFF;
+  --color-secondary-800-contrast: #FFFFFF;
+  --color-secondary-900-contrast: #FFFFFF;
 
   --color-contrast-light: #FFFFFF;
   --color-contrast-dark: #202020;
@@ -136,4 +161,14 @@
   --color-success-300: #07B45D;
   --color-success-400: #06944D;
   --color-success-500: #034222;
+
+  /* COMPONENTS */
+  --button-width-sm: 64px;
+  --button-height-sm: 32px;
+
+  --button-width-md: 112px;
+  --button-height-md: 38px;
+
+  --button-width-lg: 216px;
+  --button-height-lg: 56px;
 }
