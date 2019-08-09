@@ -1,5 +1,4 @@
-# http://editorconfig.org
-
+# editorconfig.org
 root = true
 
 [*]
@@ -7,9 +6,19 @@ charset = utf-8
 indent_style = space
 indent_size = 2
 end_of_line = lf
-insert_final_newline = true
 trim_trailing_whitespace = true
+insert_final_newline = true
+max_line_length = 100
 
 [*.md]
-insert_final_newline = false
+max_line_length = 0
 trim_trailing_whitespace = false
+
+[{*.json, *.svg}]
+indent_style = space
+indent_size = 2
+
+# Matches the exact package.json, or *rc
+[{package.json,*.yml,*rc}]
+indent_style = space
+indent_size = 2
