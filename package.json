@@ -1,7 +1,9 @@
 {
   "name": "cws-web-components",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "CWS Web Components",
+  "author": "cws.digital",
+  "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -30,7 +32,6 @@
     "jest-cli": "24.8.0",
     "puppeteer": "1.17.0"
   },
-  "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.6"
   }
