@@ -14,6 +14,11 @@ const name = `${prefix}${av[3]}`;
 
 const componentClassName = name.replace(prefix, '').split('-').map(p => capitalize(p)).join('');
 
+if (name.indexOf('cws-') !== 0) {
+  console.error(`Is required to prefix the component with 'cws-'. Ex: 'cws-${name}'`);
+  return
+}
+
 const jsTemplate = `
 import { Component, Prop, h } from '@stencil/core';
 
@@ -84,7 +89,7 @@ try {
   fs.writeFileSync(`${outPath}/${name}.css`, cssTemplate.trim());
   fs.writeFileSync(`${outPath}/${name}.e2e.ts`, e2eTemplate.trim());
 
-  console.error('Component generated');
+  console.log('Component generated');
 } catch (e) {
   console.error('Unable to create source files');
   throw e;
