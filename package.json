@@ -26,17 +26,23 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
+    "test.lint.js": "eslint --ext=js --ext=tsx --ext=ts ./src",
     "generate": "node scripts/stencil-generate.js"
   },
   "devDependencies": {
-    "@stencil/core": "1.2.3",
     "@types/jest": "24.0.15",
     "@types/puppeteer": "1.12.4",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-cws": "^0.2.0",
+    "eslint-plugin-jsx": "^0.1.0",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
     "puppeteer": "1.17.0"
   },
   "dependencies": {
+    "@stencil/core": "1.2.3",
     "classnames": "^2.2.6"
   }
 }

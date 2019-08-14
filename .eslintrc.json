@@ -1,0 +1,17 @@
+{
+    "extends": "eslint-config-cws",
+    "env": {
+      "browser": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint", "eslint-plugin-jsx"],
+    "rules": {
+      "jsx/mark-used-vars": 1,
+      "no-unused-vars": [
+        "error",
+        {
+          "vars": "h"
+        }
+      ]
+    }
+}

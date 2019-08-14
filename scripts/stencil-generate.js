@@ -2,95 +2,98 @@
  * based on https://gist.github.com/elebetsamer/35aabac4e9e3df7e102574e4192680f1
  */
 
-const fs = require('fs');
+const fs = require('fs')
 
-const capitalize = s => s.charAt(0).toUpperCase() + s.substr(1);
+const capitalize = s => s.charAt(0).toUpperCase() + s.substr(1)
 
-const av = process.argv;
+const av = process.argv
 
-const type = av[2];
-const prefix = av[4] || '';
-const name = `${prefix}${av[3]}`;
+// const type = av[2]
+const prefix = av[4] || ''
+const name = `${prefix}${av[3]}`
 
-const componentClassName = name.replace(prefix, '').split('-').map(p => capitalize(p)).join('');
+const componentClassName = name.replace(prefix, '').split('-').map(p => capitalize(p)).join('')
 
 if (name.indexOf('cws-') !== 0) {
-  console.error(`Is required to prefix the component with 'cws-'. Ex: 'cws-${name}'`);
+  console.error(`Is required to prefix the component with 'cws-'. Ex: 'cws-${name}'`)
   return
 }
 
 const jsTemplate = `
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core'
 
 @Component({
   tag: '${name}',
   styleUrl: '${name}.css',
 })
 
-export class ${componentClassName} {
+class ${componentClassName} {
   /**
    * The first name <-- this commentary is necessary to generate docs
    */
-  @Prop() name: string;
+  @Prop() name: string
 
   render() {
-    return <div>Hello, World! I'm {this.name}</div>;
+    return <div>Hello, World! I'm {this.name}</div>
   }
 }
+
+export default ${componentClassName}
 
 `
 
 const cssTemplate = `
 ${name} {
-  display: block;
+  display: block
 }
 
 `
 
 const e2eTemplate = `
-import { newE2EPage } from '@stencil/core/testing';
+/* eslint-env jest */
+import { newE2EPage } from '@stencil/core/testing'
 
 describe('${name}', () => {
   it('renders', async () => {
-    const page = await newE2EPage();
+    const page = await newE2EPage()
 
-    await page.setContent('<${name}></${name}>');
-    const element = await page.find('${name}');
-    expect(element).toHaveClass('hydrated');
-  });
+    await page.setContent('<${name}></${name}>')
+    const element = await page.find('${name}')
+    expect(element).toHaveClass('hydrated')
+  })
 
   it('renders changes to the name data', async () => {
-    const page = await newE2EPage();
+    const page = await newE2EPage()
 
-    await page.setContent('<${name}></${name}>');
-    const component = await page.find('${name}');
-    const element = await page.find('${name} >>> div');
-    expect(element.textContent).toEqual(\`Hello, World! I'm \`);
+    await page.setContent('<${name}></${name}>')
+    const component = await page.find('${name}')
+    const element = await page.find('${name} >>> div')
+    expect(element.textContent).toEqual(\`Hello, World! I'm \`)
 
-    component.setProperty('name', 'James');
-    await page.waitForChanges();
-    expect(element.textContent).toEqual(\`Hello, World! I'm James\`);
-  });
-});
+    component.setProperty('name', 'James')
+    await page.waitForChanges()
+    expect(element.textContent).toEqual(\`Hello, World! I'm James\`)
+  })
+})
 
 `
 
-const outPath = `src/components/${name}`;
+const outPath = `src/components/${name}`
 
 try {
-  fs.mkdirSync(outPath);
+  fs.mkdirSync(outPath)
 } catch (e) {
   console.error('Unable to create component')
-  throw e;
+  throw e
 }
 
 try {
-  fs.writeFileSync(`${outPath}/${name}.tsx`, jsTemplate.trim());
-  fs.writeFileSync(`${outPath}/${name}.css`, cssTemplate.trim());
-  fs.writeFileSync(`${outPath}/${name}.e2e.ts`, e2eTemplate.trim());
+  fs.writeFileSync(`${outPath}/${name}.tsx`, jsTemplate.trim())
+  fs.writeFileSync(`${outPath}/${name}.css`, cssTemplate.trim())
+  fs.writeFileSync(`${outPath}/${name}.e2e.ts`, e2eTemplate.trim())
 
-  console.log('Component generated');
+  console.log('Component generated')
 } catch (e) {
-  console.error('Unable to create source files');
-  throw e;
+  console.error('Unable to create source files')
+  throw e
 }
