@@ -6,7 +6,7 @@ import classNames from 'classnames'
   styleUrl: 'cws-button.css',
 })
 
-class CwsButton {
+export class CwsButton {
   /**
    * Button style
    */
@@ -62,5 +62,3 @@ class CwsButton {
     )
   }
 }
-
-export default CwsButton

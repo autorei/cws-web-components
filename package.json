@@ -25,8 +25,8 @@
     "docs": "stencil build --docs-readme",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "test.lint.js": "eslint --ext=js --ext=tsx --ext=ts ./src",
+    "test:watch": "stencil test --spec --e2e --watchAll",
+    "test:lint:js": "eslint --ext=js --ext=tsx --ext=ts ./src",
     "generate": "node scripts/stencil-generate.js"
   },
   "devDependencies": {
@@ -36,6 +36,7 @@
     "@typescript-eslint/parser": "^2.0.0",
     "eslint": "^6.1.0",
     "eslint-config-cws": "^0.2.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx": "^0.1.0",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
