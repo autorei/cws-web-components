@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core'
 import classNames from 'classnames'
+import formatUrl from '../../utils/format-url'
 
 @Component({
   tag: 'cws-button',
@@ -48,12 +49,18 @@ export class CwsButton {
       },
     )
 
+    const formatatedHref = this.href ? formatUrl(this.href) : null
+    const currentDomain = window.location.host
+    const hrefIsExternal = formatatedHref ? formatatedHref.indexOf(currentDomain) === -1 : null
+
     return (
       <TagType
         type={!this.href ? this.type : null}
         disabled={!this.href ? this.disabled : null}
         autoFocus={this.autofocus}
-        href={this.href}
+        href={formatatedHref}
+        target={hrefIsExternal ? '_blank' : null}
+        rel={hrefIsExternal ? 'nofollow' : null}
         class={buttonClasses}
       >
         <slot />
