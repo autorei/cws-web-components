@@ -3,7 +3,11 @@ body {
   font-family: var(--font-family-1);
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: var(--spacing-stack-xxs) 0 var(--spacing-stack-xxxs);
 }
 
@@ -35,7 +39,7 @@ h5 {
   display: grid;
   grid-gap: var(--spacing-stack-xxs);
   grid-auto-flow: column;
-  margin-bottom: var(--spacing-stack-md)
+  margin-bottom: var(--spacing-stack-md);
 }
 
 .component-block {

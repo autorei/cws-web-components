@@ -5,7 +5,6 @@ import classNames from 'classnames'
   tag: 'cws-button',
   styleUrl: 'cws-button.css',
 })
-
 export class CwsButton {
   /**
    * Button style
@@ -45,8 +44,8 @@ export class CwsButton {
       `cws-button--${this.size}`,
       `cws-button--${this.variant}`,
       {
-        'cws-button--disabled': this.disabled
-      }
+        'cws-button--disabled': this.disabled,
+      },
     )
 
     return (
