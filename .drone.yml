@@ -1,0 +1,11 @@
+pipeline:
+  build:
+    image: node:10.2.1
+    when:
+      branch: *
+      event: push
+    commands:
+      - npm install
+      - npm run test
+    volumes:
+      - /tmp/nodejs/:/root/
