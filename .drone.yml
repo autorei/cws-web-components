@@ -1,8 +1,7 @@
 pipeline:
   build:
-    image: node:10.2.1
+    image: buildkite/puppeteer
     when:
-      branch: *
       event: push
     commands:
       - npm install
