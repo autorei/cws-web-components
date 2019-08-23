@@ -12,7 +12,11 @@ const av = process.argv
 const prefix = av[4] || ''
 const name = `${prefix}${av[3]}`
 
-const componentClassName = name.replace(prefix, '').split('-').map(p => capitalize(p)).join('')
+const componentClassName = name
+  .replace(prefix, '')
+  .split('-')
+  .map(p => capitalize(p))
+  .join('')
 
 if (name.indexOf('cws-') !== 0) {
   console.error(`Is required to prefix the component with 'cws-'. Ex: 'cws-${name}'`)
@@ -27,7 +31,7 @@ import { Component, Prop, h } from '@stencil/core'
   styleUrl: '${name}.css',
 })
 
-class ${componentClassName} {
+export class ${componentClassName} {
   /**
    * The first name <-- this commentary is necessary to generate docs
    */
@@ -37,8 +41,6 @@ class ${componentClassName} {
     return <div>Hello, World! I'm {this.name}</div>
   }
 }
-
-export default ${componentClassName}
 
 `
 
