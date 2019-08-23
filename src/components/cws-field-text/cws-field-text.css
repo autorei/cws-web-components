@@ -1,0 +1,81 @@
+.cws-field-text-wrap {
+  position: relative;
+}
+
+.cws-field-text-input {
+  border-color: var(--color-neutral-400);
+  border-style: solid;
+  border-radius: var(--border-radius-xs);
+  border-width: var(--border-width-thin);
+  color: var(--color-secondary-500);
+  display: block;
+  font-size: var(--font-size-lg);
+  padding: 12.5px var(--spacing-inset-sm);
+}
+
+.cws-field-text-input:focus {
+  border-color: var(--color-primary-500);
+  border-width: var(--border-width-thin);
+  outline: none;
+}
+
+.cws-field-text-input:disabled {
+  background-color: var(--color-neutral-300);
+}
+
+.cws-field-text-label {
+  color: var(--color-neutral-600);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-light);
+  left: 18px;
+  pointer-events: none;
+  position: absolute;
+  top: 15px;
+  transition: 0.3s ease all;
+}
+
+.cws-field-text-input:focus ~ .cws-field-text-label {
+  background: var(--color-contrast-light);
+  color: var(--color-primary-500);
+  display: flex;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+  justify-content: center;
+  left: 10px;
+  top: -7px;
+  width: 40px;
+}
+
+.cws-field-text-helper {
+  padding: 0 8px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.cws-field-text-helper-message {
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-600);
+  font-weight: var(--font-weight-light);
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  will-change: opacity;
+}
+
+.cws-field-text-helper-message::before {
+  display: inline-block;
+  width: 0;
+  height: 16px;
+  content: '';
+  vertical-align: 0;
+}
+
+.cws-field-text-helper-message--active {
+  transition: none;
+  opacity: 1;
+  will-change: initial;
+}
+
+.cws-field-text-helper-message.error {
+  color: var(--color-error-300);
+}
