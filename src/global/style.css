@@ -8,7 +8,7 @@ h2,
 h3,
 h4,
 h5 {
-  margin: var(--spacing-stack-xxs) 0 var(--spacing-stack-xxxs);
+  margin: var(--spacing-inline-xxs) 0 var(--spacing-inline-xxxs);
 }
 
 h1 {
@@ -32,22 +32,22 @@ h5 {
 }
 
 .component-container {
-  padding: var(--spacing-stack-xxs);
+  padding: var(--spacing-inline-xxs);
 }
 
 .component-variant {
   display: grid;
-  grid-gap: var(--spacing-stack-xxs);
+  grid-gap: var(--spacing-inline-xxs);
   grid-auto-flow: column;
-  margin-bottom: var(--spacing-stack-md);
+  margin-bottom: var(--spacing-inline-md);
 }
 
 .component-block {
   border: 1px dashed #c6c6c6;
-  padding: var(--spacing-stack-xxs);
+  padding: var(--spacing-inline-xxs);
 }
 
 .component-examples {
   display: grid;
-  grid-gap: var(--spacing-stack-xxs);
+  grid-gap: var(--spacing-inline-xxs);
 }

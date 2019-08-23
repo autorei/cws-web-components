@@ -1,4 +1,5 @@
-import { Component, Prop, h } from '@stencil/core'
+import { Component, Prop, State, h } from '@stencil/core'
+import classNames from 'classnames'
 
 @Component({
   tag: 'cws-field-text',
@@ -6,30 +7,53 @@ import { Component, Prop, h } from '@stencil/core'
 })
 export class CwsFieldText {
   /**
-   * Input value
+   * Input initial value
    */
-  @Prop({ mutable: true }) value: string
+  @State() value: string = ''
 
   /**
-   * Disabled state
+   * Input disabled state
    */
   @Prop() disabled: boolean = false
 
   /**
-   * Label
+   * Field label
    */
   @Prop() label: string
 
+  /**
+   * Field error state
+   */
+  @Prop() error: boolean = false
+
+  /**
+   * Hint message
+   */
+  @Prop() hint?: string
+
+  handleChange(event) {
+    this.value = event.target.value
+  }
+
   render() {
     return (
-      <div class="cws-field-text">
+      <div
+        class={classNames('cws-field-text', {
+          'cws-field-text--filled': this.value !== '',
+          'cws-field-text--error': this.error,
+        })}
+      >
         <div class="cws-field-text-wrap">
-          <input class="cws-field-text-input" value={this.value} disabled={this.disabled} />
+          <input
+            class="cws-field-text-input"
+            value={this.value}
+            disabled={this.disabled}
+            onInput={event => this.handleChange(event)}
+          />
           <label class="cws-field-text-label">{this.label}</label>
         </div>
-        <div class="cws-field-text-helper">
-          <span class="cws-field-text-helper-message">Texto de ajuda</span>
-          <span class="cws-field-text-helper-message error">Mensagem Erro</span>
+        <div class="cws-field-text-hint">
+          {this.hint && <span class="cws-field-text-hint-message">{this.hint}</span>}
         </div>
       </div>
     )

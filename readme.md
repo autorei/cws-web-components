@@ -8,20 +8,23 @@ This is the [CWS](https://cws.digital) Web Components library
 
 ### Script tag
 
-- Put a script tag  `<script src='https://unpkg.com/cws-web-components@latest/dist/cws-web-components.js'></script>` in the head of your index.html
+- Put a script tag `<script src='https://unpkg.com/cws-web-components@latest/dist/cws-web-components.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
+
 - Run `npm install cws-web-components --save`
 - Put a script `<script src='node_modules/cws-web-components/dist/cws-web-components.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
+
 - Run `npm install cws-web-components --save`
 - Add an import to the npm packages `import cws-web-components;`
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Required Tokens (CSS vars)
+
 All components was built using CSS vars to be styled. So to use this library, these css varibles must exist in your application.
 
 <details>
@@ -33,16 +36,6 @@ All components was built using CSS vars to be styled. So to use this library, th
 
     :root {
       /* GENERIC TOKENS */
-      --spacing-stack-xxxs: 4px;
-      --spacing-stack-xxs: 8px;
-      --spacing-stack-xs: 16px;
-      --spacing-stack-sm: 24px;
-      --spacing-stack-md: 32px;
-      --spacing-stack-lg: 40px;
-      --spacing-stack-xl: 48px;
-      --spacing-stack-xxl: 56px;
-      --spacing-stack-xxxl: 64px;
-
       --spacing-squish-xs: 8px 16px;
       --spacing-squish-sm: 8px 24px;
       --spacing-squish-md: 16px 24px;
@@ -203,7 +196,7 @@ All components was built using CSS vars to be styled. So to use this library, th
       --button-height-lg: 56px;
     }
 
-  ```
+````
 </details>
 
 ## Available Scripts
@@ -215,7 +208,7 @@ Start development server
 Example to generate a new `cws-field` web component:
 ```bash
 npm run generate component cws-field
-```
+````
 
 It will create all file structure inside `src/components/cws-field` to start development a new web component
 
@@ -225,6 +218,7 @@ When creating new component tags, is required to use `cws-` prefix.
 Ex: `cws-button`, `cws-field`, `cws-icon`, `cws-accordion`...
 
 ### `npm run build`
+
 Build the components to deploy
 
 ### `npm test`

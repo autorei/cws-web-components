@@ -4,11 +4,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description    | Type      | Default     |
-| ---------- | ---------- | -------------- | --------- | ----------- |
-| `disabled` | `disabled` | Disabled state | `boolean` | `false`     |
-| `label`    | `label`    | Label          | `string`  | `undefined` |
-| `value`    | `value`    | Input value    | `string`  | `undefined` |
+| Property   | Attribute  | Description          | Type      | Default     |
+| ---------- | ---------- | -------------------- | --------- | ----------- |
+| `disabled` | `disabled` | Input disabled state | `boolean` | `false`     |
+| `hint`     | `hint`     | Hint message         | `string`  | `undefined` |
+| `label`    | `label`    | Field label          | `string`  | `undefined` |
 
 ---
 

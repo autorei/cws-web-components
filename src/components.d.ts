@@ -37,17 +37,21 @@ export namespace Components {
   }
   interface CwsFieldText {
     /**
-    * Disabled state
+    * Input disabled state
     */
     'disabled': boolean;
     /**
-    * Label
+    * Field error state
+    */
+    'error': boolean;
+    /**
+    * Hint message
+    */
+    'hint'?: string;
+    /**
+    * Field label
     */
     'label': string;
-    /**
-    * Input value
-    */
-    'value': string;
   }
 }
 
@@ -100,17 +104,21 @@ declare namespace LocalJSX {
   }
   interface CwsFieldText extends JSXBase.HTMLAttributes<HTMLCwsFieldTextElement> {
     /**
-    * Disabled state
+    * Input disabled state
     */
     'disabled'?: boolean;
     /**
-    * Label
+    * Field error state
+    */
+    'error'?: boolean;
+    /**
+    * Hint message
+    */
+    'hint'?: string;
+    /**
+    * Field label
     */
     'label'?: string;
-    /**
-    * Input value
-    */
-    'value'?: string;
   }
 
   interface IntrinsicElements {
