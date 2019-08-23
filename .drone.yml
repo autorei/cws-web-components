@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: tujoworker/docker-node-puppeteer
+    image: buildkite/puppeteer
     when:
       event: push
     commands:
