@@ -39,8 +39,9 @@ export class CwsFieldText {
     return (
       <div
         class={classNames('cws-field-text', {
-          'cws-field-text--filled': this.value !== '',
-          'cws-field-text--error': this.error,
+          'cws-field-text--has-hint': Boolean(this.hint),
+          'cws-field-text--has-value': this.value !== '',
+          'cws-field-text--is-error': this.error,
         })}
       >
         <div class="cws-field-text-wrap">
@@ -52,9 +53,7 @@ export class CwsFieldText {
           />
           <label class="cws-field-text-label">{this.label}</label>
         </div>
-        <div class="cws-field-text-hint">
-          {this.hint && <span class="cws-field-text-hint-message">{this.hint}</span>}
-        </div>
+        <span class="cws-field-text-hint">{this.hint}</span>
       </div>
     )
   }

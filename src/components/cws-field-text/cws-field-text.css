@@ -1,5 +1,6 @@
 .cws-field-text {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   padding-top: var(--font-size-sm);
 }
 
@@ -41,7 +42,7 @@
   transition: 150ms linear all;
 }
 
-.cws-field-text--filled .cws-field-text-label,
+.cws-field-text--has-value .cws-field-text-label,
 .cws-field-text-input:focus ~ .cws-field-text-label {
   background: var(--color-neutral-100);
   font-size: var(--font-size-sm);
@@ -56,35 +57,22 @@
 }
 
 .cws-field-text-hint {
-  padding: 0 8px;
-  display: flex;
-  justify-content: space-between;
+  display: block;
   box-sizing: border-box;
-}
-
-.cws-field-text-hint-message {
+  height: 20px;
   font-size: var(--font-size-sm);
   color: var(--color-neutral-600);
-  font-weight: var(--font-weight-light);
-  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 1;
+  font-weight: var(--font-weight-thin);
+  padding: var(--spacing-inline-xxxs);
+  opacity: 0;
+  transition: 150ms opacity cubic-bezier(0.4, 0, 0.2, 1);
   will-change: opacity;
 }
 
-.cws-field-text-hint-message::before {
-  display: inline-block;
-  width: 0;
-  height: 16px;
-  content: '';
-  vertical-align: 0;
-}
-
-.cws-field-text-hint-message--active {
-  transition: none;
+.cws-field-text--has-hint .cws-field-text-hint {
   opacity: 1;
-  will-change: initial;
 }
 
-.cws-field-text-hint-message.error {
+.cws-field-text--error .cws-field-text-hint {
   color: var(--color-error-300);
 }
