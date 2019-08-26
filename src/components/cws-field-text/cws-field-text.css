@@ -73,6 +73,14 @@
   opacity: 1;
 }
 
-.cws-field-text--error .cws-field-text-hint {
+.cws-field-text--is-error .cws-field-text-hint,
+.cws-field-text--is-error .cws-field-text-input ~ .cws-field-text-label,
+.cws-field-text--is-error .cws-field-text-input ~ .cws-field-text-label:valid {
   color: var(--color-error-300);
+  opacity: 1;
+}
+
+.cws-field-text--is-error .cws-field-text-input,
+.cws-field-text--is-error .cws-field-text-input:valid {
+  border-color: var(--color-error-300);
 }
