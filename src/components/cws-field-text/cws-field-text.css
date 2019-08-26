@@ -28,6 +28,7 @@
 
 .cws-field-text-input:disabled {
   background-color: var(--color-neutral-300);
+  cursor: not-allowed;
 }
 
 .cws-field-text-label {
