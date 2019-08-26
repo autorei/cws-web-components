@@ -52,6 +52,10 @@ export namespace Components {
     * Field label
     */
     'label': string;
+    /**
+    * Field required state
+    */
+    'required': boolean;
   }
 }
 
@@ -119,6 +123,10 @@ declare namespace LocalJSX {
     * Field label
     */
     'label'?: string;
+    /**
+    * Field required state
+    */
+    'required'?: boolean;
   }
 
   interface IntrinsicElements {

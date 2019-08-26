@@ -31,6 +31,11 @@ export class CwsFieldText {
    */
   @Prop() hint?: string
 
+  /**
+   * Field required state
+   */
+  @Prop() required: boolean = false
+
   handleChange(event) {
     this.value = event.target.value
   }
@@ -49,9 +54,13 @@ export class CwsFieldText {
             class="cws-field-text-input"
             value={this.value}
             disabled={this.disabled}
+            required={this.required}
             onInput={event => this.handleChange(event)}
           />
-          <label class="cws-field-text-label">{this.label}</label>
+          <label class="cws-field-text-label">
+            {this.label}
+            {this.required && '*'}
+          </label>
         </div>
         <span class="cws-field-text-hint">{this.hint}</span>
       </div>
