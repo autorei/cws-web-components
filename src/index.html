@@ -75,9 +75,35 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="component-container">
+    <h1>cws-field-text</h1>
+    <a href="http://https://github.com/autorei/cws-web-components/tree/master/src/components/cws-field-text">src/components/cws-field-text</a>
 
-    <cws-field-text label="Name"></cws-field-text>
-    <cws-field-text label="Email" hint="Fill with a valid email, please"></cws-field-text>
+    <h2>Text Input Label</h2>
+
+    <div class="component-variant">
+      <div class="component-block">
+        <h3>Initial</h3>
+        <cws-field-text label="Label"></cws-field-text>
+      </div>
+      <div class="component-block">
+        <h3>Required</h3>
+        <cws-field-text label="Label" required></cws-field-text>
+      </div>
+      <div class="component-block">
+        <h3>Error</h3>
+        <cws-field-text label="Label" error=true hint="Messagem Erro"></cws-field-text>
+      </div>
+      <div class="component-block">
+        <h3>Helper Text</h3>
+        <cws-field-text label="Label" hint="Texto de ajuda"></cws-field-text>
+      </div>
+      <div class="component-block">
+        <h3>Disabled</h3>
+        <cws-field-text label="Label" disabled></cws-field-text>
+      </div>
+    </div>
   </div>
 </body>
 </html>
