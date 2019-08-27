@@ -14,32 +14,32 @@ describe('cws-field-text', () => {
     const page = await newE2EPage()
 
     await page.setContent('<cws-field-text></cws-field-text>')
-    const component = await page.find('cws-field-text')
+    const input = await page.find('cws-field-text input')
 
     await page.waitForChanges()
-    expect(component.getAttribute('name')).toBeNull()
+    expect(input.getAttribute('name')).toBeNull()
   })
 
   it('renders changes to the name prop', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<cws-field-text name="input"></cws-field-text>')
+    await page.setContent('<cws-field-text name="email"></cws-field-text>')
     const component = await page.find('cws-field-text')
-    expect(component.getAttribute('name')).toContain('input')
+    const input = await page.find('cws-field-text input')
+    expect(input.getAttribute('name')).toEqual('email')
 
-    component.setAttribute('name', 'cws-input')
+    component.setAttribute('name', 'phone')
     await page.waitForChanges()
-    expect(component.getAttribute('name')).toContain('cws-input')
+    expect(input.getAttribute('name')).toEqual('phone')
   })
 
   it('renders without label prop', async () => {
     const page = await newE2EPage()
 
     await page.setContent('<cws-field-text></cws-field-text>')
-    const component = await page.find('cws-field-text')
+    const element = await page.find('cws-field-text label')
 
-    await page.waitForChanges()
-    expect(component.getAttribute('label')).toBeNull()
+    expect(element).toBeNull()
   })
 
   it('renders changes to the label prop', async () => {
@@ -59,10 +59,10 @@ describe('cws-field-text', () => {
     const page = await newE2EPage()
 
     await page.setContent('<cws-field-text></cws-field-text>')
-    const component = await page.find('cws-field-text')
+    const element = await page.find('cws-field-text .cws-field-text-hint')
 
     await page.waitForChanges()
-    expect(component.getAttribute('hint')).toBeNull()
+    expect(element.textContent).toEqual('')
   })
 
   it('renders changes to the hint prop', async () => {
@@ -83,26 +83,43 @@ describe('cws-field-text', () => {
 
     await page.setContent('<cws-field-text></cws-field-text>')
     const component = await page.find('cws-field-text')
-    expect(component.getAttribute('error')).toBeNull()
+    const element = await page.find('cws-field-text > .cws-field-text')
+    expect(element.getAttribute('class')).not.toContain('cws-field-text--is-error')
 
     component.setAttribute('error', true)
     await page.waitForChanges()
-    expect(component.getAttribute('error')).toBeTruthy()
+    expect(element.getAttribute('class')).toContain('cws-field-text--is-error')
   })
 
   it('renders default value prop', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<cws-field-text></cws-field-text>')
+    await page.setContent('<cws-field-text value="Lorem ipsum"></cws-field-text>')
 
-    const input = await page.find('cws-field-text .cws-field-text-input')
-    const inputValue = await input.getProperty('value')
-    expect(inputValue).toEqual('')
+    const component = await page.find('cws-field-text')
+    const input = await page.find('cws-field-text input')
+    let componentValue = await component.getProperty('value')
+    expect(componentValue).toEqual('Lorem ipsum')
+
+    input.press('Backspace')
+    input.press('Backspace')
+    input.press('Backspace')
+    input.press('Backspace')
+    input.press('Backspace')
+    input.press('Backspace')
+    input.press('Backspace')
+    input.press('Backspace')
+    input.press('Backspace')
+    input.press('Backspace')
+    input.press('Backspace')
 
     await input.press('H')
     await input.press('E')
     await input.press('L')
     await input.press('L')
     await input.press('O')
+
+    componentValue = await component.getProperty('value')
+    expect(componentValue).toEqual('HELLO')
   })
 })

@@ -1,4 +1,4 @@
-import { Component, Prop, State, h } from '@stencil/core'
+import { Component, Prop, h } from '@stencil/core'
 import classNames from 'classnames'
 
 @Component({
@@ -9,12 +9,16 @@ export class CwsFieldText {
   /**
    * Input initial value
    */
-  @State() value: string = ''
+  @Prop({
+    mutable: true,
+    reflect: true,
+  })
+  value: string = ''
 
   /**
    * Input name
    */
-  @State() name: string
+  @Prop() name: string
 
   /**
    * Input disabled state
@@ -63,10 +67,12 @@ export class CwsFieldText {
             required={this.required}
             onInput={event => this.handleChange(event)}
           />
-          <label class="cws-field-text-label">
-            {this.label}
-            {this.required && '*'}
-          </label>
+          {this.label && (
+            <label class="cws-field-text-label">
+              {this.label}
+              {this.required && '*'}
+            </label>
+          )}
         </div>
         <span class="cws-field-text-hint">{this.hint}</span>
       </div>

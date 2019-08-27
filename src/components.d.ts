@@ -53,9 +53,17 @@ export namespace Components {
     */
     'label': string;
     /**
+    * Input name
+    */
+    'name': string;
+    /**
     * Field required state
     */
     'required': boolean;
+    /**
+    * Input initial value
+    */
+    'value': string;
   }
 }
 
@@ -124,9 +132,17 @@ declare namespace LocalJSX {
     */
     'label'?: string;
     /**
+    * Input name
+    */
+    'name'?: string;
+    /**
     * Field required state
     */
     'required'?: boolean;
+    /**
+    * Input initial value
+    */
+    'value'?: string;
   }
 
   interface IntrinsicElements {
