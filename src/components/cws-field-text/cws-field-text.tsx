@@ -12,6 +12,11 @@ export class CwsFieldText {
   @State() value: string = ''
 
   /**
+   * Input name
+   */
+  @State() name: string
+
+  /**
    * Input disabled state
    */
   @Prop() disabled: boolean = false
@@ -53,6 +58,7 @@ export class CwsFieldText {
           <input
             class="cws-field-text-input"
             value={this.value}
+            name={this.name}
             disabled={this.disabled}
             required={this.required}
             onInput={event => this.handleChange(event)}

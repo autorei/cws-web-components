@@ -24,7 +24,7 @@
     "build": "stencil build --docs",
     "docs": "stencil build --docs-readme",
     "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
+    "test": "stencil test --spec --e2e --coverage",
     "test:watch": "stencil test --spec --e2e --watchAll",
     "test:lint:js": "eslint --ext=js --ext=tsx --ext=ts ./src",
     "test:lint:css": "stylelint \"src/**/*.css\"",

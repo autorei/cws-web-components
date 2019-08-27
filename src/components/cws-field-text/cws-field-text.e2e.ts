@@ -5,21 +5,21 @@ describe('cws-field-text', () => {
   it('renders', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<cws-field-text></cws-field-text>')
+    await page.setContent('<cws-field-text label="Name" name="name"></cws-field-text>')
     const element = await page.find('cws-field-text')
     expect(element).toHaveClass('hydrated')
   })
 
-  it('renders changes to the name data', async () => {
+  it('renders changes to the label prop', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<cws-field-text></cws-field-text>')
+    await page.setContent('<cws-field-text label="Name"></cws-field-text>')
     const component = await page.find('cws-field-text')
-    const element = await page.find('cws-field-text >>> div')
-    expect(element.textContent).toEqual(`Hello, World! I'm `)
+    const element = await page.find('cws-field-text label')
+    expect(element.textContent).toEqual('Name')
 
-    component.setProperty('name', 'James')
+    component.setProperty('label', 'Email')
     await page.waitForChanges()
-    expect(element.textContent).toEqual(`Hello, World! I'm James`)
+    expect(element.textContent).toEqual('Email')
   })
 })
