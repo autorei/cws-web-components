@@ -33,6 +33,46 @@ describe('cws-field-text', () => {
     expect(input.getAttribute('name')).toEqual('phone')
   })
 
+  it('renders changes to the type prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-text type="text"></cws-field-text>')
+    const component = await page.find('cws-field-text')
+    const input = await page.find('cws-field-text input')
+
+    component.setAttribute('type', 'password')
+    await page.waitForChanges()
+    expect(input.getAttribute('type')).toEqual('password')
+
+    component.setAttribute('type', 'email')
+    await page.waitForChanges()
+    expect(input.getAttribute('type')).toEqual('email')
+  })
+
+  it('renders changes to the required prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-text required></cws-field-text>')
+    const element = await page.find('cws-field-text input')
+    expect(element).toHaveAttribute('required')
+  })
+
+  it('renders changes to the required prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-text required></cws-field-text>')
+    const element = await page.find('cws-field-text input')
+    expect(element).toHaveAttribute('required')
+  })
+
+  it('renders changes to the disabled prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-text disabled></cws-field-text>')
+    const element = await page.find('cws-field-text input')
+    expect(element).toHaveAttribute('disabled')
+  })
+
   it('renders without label prop', async () => {
     const page = await newE2EPage()
 
@@ -97,6 +137,11 @@ describe('cws-field-text', () => {
     await page.setContent('<cws-field-text value="Lorem ipsum"></cws-field-text>')
 
     const component = await page.find('cws-field-text')
+
+    const element = await page.find('cws-field-text > div')
+
+    expect(element).toHaveClass('cws-field-text--has-value')
+
     const input = await page.find('cws-field-text input')
     let componentValue = await component.getProperty('value')
     expect(componentValue).toEqual('Lorem ipsum')

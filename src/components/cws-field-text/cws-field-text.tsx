@@ -21,27 +21,32 @@ export class CwsFieldText {
   @Prop() name: string
 
   /**
+   * Input type
+   */
+  @Prop() type: 'text' | 'password' | 'email' = 'text'
+
+  /**
    * Input disabled state
    */
   @Prop() disabled: boolean = false
 
   /**
-   * Field label
+   * Input label
    */
   @Prop() label: string
 
   /**
-   * Field error state
+   * Input error state
    */
   @Prop() error: boolean = false
 
   /**
-   * Hint message
+   * Input hint message
    */
   @Prop() hint?: string
 
   /**
-   * Field required state
+   * Input required state
    */
   @Prop() required: boolean = false
 
@@ -62,6 +67,7 @@ export class CwsFieldText {
           <input
             class="cws-field-text-input"
             value={this.value}
+            type={this.type}
             name={this.name}
             disabled={this.disabled}
             required={this.required}

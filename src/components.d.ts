@@ -41,15 +41,15 @@ export namespace Components {
     */
     'disabled': boolean;
     /**
-    * Field error state
+    * Input error state
     */
     'error': boolean;
     /**
-    * Hint message
+    * Input hint message
     */
     'hint'?: string;
     /**
-    * Field label
+    * Input label
     */
     'label': string;
     /**
@@ -57,9 +57,13 @@ export namespace Components {
     */
     'name': string;
     /**
-    * Field required state
+    * Input required state
     */
     'required': boolean;
+    /**
+    * Input type
+    */
+    'type': 'text' | 'password' | 'email';
     /**
     * Input initial value
     */
@@ -120,15 +124,15 @@ declare namespace LocalJSX {
     */
     'disabled'?: boolean;
     /**
-    * Field error state
+    * Input error state
     */
     'error'?: boolean;
     /**
-    * Hint message
+    * Input hint message
     */
     'hint'?: string;
     /**
-    * Field label
+    * Input label
     */
     'label'?: string;
     /**
@@ -136,9 +140,13 @@ declare namespace LocalJSX {
     */
     'name'?: string;
     /**
-    * Field required state
+    * Input required state
     */
     'required'?: boolean;
+    /**
+    * Input type
+    */
+    'type'?: 'text' | 'password' | 'email';
     /**
     * Input initial value
     */
