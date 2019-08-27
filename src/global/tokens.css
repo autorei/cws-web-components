@@ -70,6 +70,8 @@
   --opacity-4: 0.4;
   --opacity-5: 0.64;
   --opacity-6: 0.8;
+  --opacity-7: 0.96;
+  --opacity-8: 1;
 
   /* grid */
   --grid-container: 1400px;
