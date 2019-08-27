@@ -4,85 +4,168 @@
  * It contains typing information for all components that exist in this project.
  */
 
-import { HTMLStencilElement, JSXBase } from '@stencil/core/internal'
+
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
+
 
 export namespace Components {
   interface CwsButton {
     /**
-     * Autofocus state
-     */
-    autofocus: boolean
+    * Autofocus state
+    */
+    'autofocus': boolean;
     /**
-     * Disabled state, not applicable if the component receive the `href` prop
-     */
-    disabled: boolean
+    * Disabled state, not applicable if the component receive the `href` prop
+    */
+    'disabled': boolean;
     /**
-     * href to redirect user. It render an anchor tag (`<a></a>`) instead of a button one
-     */
-    href?: string
+    * href to redirect user. It render an anchor tag (`<a></a>`) instead of a button one
+    */
+    'href'?: string;
     /**
-     * Button size
-     */
-    size: 'lg' | 'md' | 'sm'
+    * Button size
+    */
+    'size': 'lg' | 'md' | 'sm';
     /**
-     * Button type, not applicable if the component receive `href` prop
-     */
-    type: 'button' | 'submit' | 'reset'
+    * Button type, not applicable if the component receive `href` prop
+    */
+    'type': 'button' | 'submit' | 'reset';
     /**
-     * Button style
-     */
-    variant: 'primary' | 'secondary'
+    * Button style
+    */
+    'variant': 'primary' | 'secondary';
+  }
+  interface CwsFieldText {
+    /**
+    * Input disabled state
+    */
+    'disabled': boolean;
+    /**
+    * Input error state
+    */
+    'error': boolean;
+    /**
+    * Input hint message
+    */
+    'hint'?: string;
+    /**
+    * Input label
+    */
+    'label': string;
+    /**
+    * Input name
+    */
+    'name': string;
+    /**
+    * Input required state
+    */
+    'required': boolean;
+    /**
+    * Input type
+    */
+    'type': 'text' | 'password' | 'email';
+    /**
+    * Input initial value
+    */
+    'value': string;
   }
 }
 
 declare global {
+
+
   interface HTMLCwsButtonElement extends Components.CwsButton, HTMLStencilElement {}
   var HTMLCwsButtonElement: {
-    prototype: HTMLCwsButtonElement
-    new (): HTMLCwsButtonElement
-  }
+    prototype: HTMLCwsButtonElement;
+    new (): HTMLCwsButtonElement;
+  };
+
+  interface HTMLCwsFieldTextElement extends Components.CwsFieldText, HTMLStencilElement {}
+  var HTMLCwsFieldTextElement: {
+    prototype: HTMLCwsFieldTextElement;
+    new (): HTMLCwsFieldTextElement;
+  };
   interface HTMLElementTagNameMap {
-    'cws-button': HTMLCwsButtonElement
+    'cws-button': HTMLCwsButtonElement;
+    'cws-field-text': HTMLCwsFieldTextElement;
   }
 }
 
 declare namespace LocalJSX {
   interface CwsButton extends JSXBase.HTMLAttributes<HTMLCwsButtonElement> {
     /**
-     * Autofocus state
-     */
-    autofocus?: boolean
+    * Autofocus state
+    */
+    'autofocus'?: boolean;
     /**
-     * Disabled state, not applicable if the component receive the `href` prop
-     */
-    disabled?: boolean
+    * Disabled state, not applicable if the component receive the `href` prop
+    */
+    'disabled'?: boolean;
     /**
-     * href to redirect user. It render an anchor tag (`<a></a>`) instead of a button one
-     */
-    href?: string
+    * href to redirect user. It render an anchor tag (`<a></a>`) instead of a button one
+    */
+    'href'?: string;
     /**
-     * Button size
-     */
-    size?: 'lg' | 'md' | 'sm'
+    * Button size
+    */
+    'size'?: 'lg' | 'md' | 'sm';
     /**
-     * Button type, not applicable if the component receive `href` prop
-     */
-    type?: 'button' | 'submit' | 'reset'
+    * Button type, not applicable if the component receive `href` prop
+    */
+    'type'?: 'button' | 'submit' | 'reset';
     /**
-     * Button style
-     */
-    variant?: 'primary' | 'secondary'
+    * Button style
+    */
+    'variant'?: 'primary' | 'secondary';
+  }
+  interface CwsFieldText extends JSXBase.HTMLAttributes<HTMLCwsFieldTextElement> {
+    /**
+    * Input disabled state
+    */
+    'disabled'?: boolean;
+    /**
+    * Input error state
+    */
+    'error'?: boolean;
+    /**
+    * Input hint message
+    */
+    'hint'?: string;
+    /**
+    * Input label
+    */
+    'label'?: string;
+    /**
+    * Input name
+    */
+    'name'?: string;
+    /**
+    * Input required state
+    */
+    'required'?: boolean;
+    /**
+    * Input type
+    */
+    'type'?: 'text' | 'password' | 'email';
+    /**
+    * Input initial value
+    */
+    'value'?: string;
   }
 
   interface IntrinsicElements {
-    'cws-button': CwsButton
+    'cws-button': CwsButton;
+    'cws-field-text': CwsFieldText;
   }
 }
 
-export { LocalJSX as JSX }
+export { LocalJSX as JSX };
 
-declare module '@stencil/core' {
+
+declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
 }
+
+

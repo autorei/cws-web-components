@@ -1,0 +1,87 @@
+.cws-field-text {
+  display: inline-flex;
+  flex-direction: column;
+  padding-top: var(--font-size-sm);
+}
+
+.cws-field-text-wrap {
+  position: relative;
+}
+
+.cws-field-text-input {
+  color: var(--color-neutral-600);
+  display: block;
+  font-family: var(--font-family-1);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  padding: var(--spacing-squish-xs);
+  height: var(--field-min-height-md);
+  border: var(--border-width-thin) solid var(--color-neutral-400);
+  border-radius: var(--border-radius-xs);
+  box-sizing: border-box;
+}
+
+.cws-field-text-input:focus {
+  border-color: var(--color-primary-500);
+  outline: none;
+}
+
+.cws-field-text-input:disabled {
+  background-color: var(--color-neutral-300);
+  cursor: not-allowed;
+}
+
+.cws-field-text-label {
+  color: var(--color-neutral-600);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-light);
+  pointer-events: none;
+  position: absolute;
+  left: var(--spacing-inline-xs);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 150ms linear all;
+}
+
+.cws-field-text--has-value .cws-field-text-label,
+.cws-field-text-input:focus ~ .cws-field-text-label {
+  background: var(--color-neutral-100);
+  font-size: var(--font-size-sm);
+  padding: 0 var(--spacing-inline-xxxs);
+  left: calc(var(--spacing-inline-xs) - (var(--spacing-inline-xxxs) / 2));
+  top: -7px;
+  transform: translateY(0);
+}
+
+.cws-field-text-input:focus ~ .cws-field-text-label {
+  color: var(--color-primary-500);
+}
+
+.cws-field-text-hint {
+  display: block;
+  box-sizing: border-box;
+  height: 20px;
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-600);
+  font-weight: var(--font-weight-thin);
+  padding: var(--spacing-inline-xxxs);
+  opacity: var(--opacity-0);
+  transition: 150ms opacity cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.cws-field-text--has-hint .cws-field-text-hint {
+  opacity: 1;
+}
+
+.cws-field-text--is-error .cws-field-text-hint,
+.cws-field-text--is-error .cws-field-text-input ~ .cws-field-text-label,
+.cws-field-text--is-error .cws-field-text-input ~ .cws-field-text-label:valid {
+  color: var(--color-error-300);
+  opacity: var(--opacity-8);
+}
+
+.cws-field-text--is-error .cws-field-text-input,
+.cws-field-text--is-error .cws-field-text-input:valid {
+  border-color: var(--color-error-300);
+}

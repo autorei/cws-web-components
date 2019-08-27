@@ -4,31 +4,7 @@
 :root {
   /* GENERIC TOKENS */
 
-  /* stack spacing */
-  --spacing-stack-xxxs: 4px;
-  --spacing-stack-xxs: 8px;
-  --spacing-stack-xs: 16px;
-  --spacing-stack-sm: 24px;
-  --spacing-stack-md: 32px;
-  --spacing-stack-lg: 40px;
-  --spacing-stack-xl: 48px;
-  --spacing-stack-xxl: 56px;
-  --spacing-stack-xxxl: 64px;
-  --spacing-squish-xs: 8px 16px;
-  --spacing-squish-sm: 8px 24px;
-  --spacing-squish-md: 16px 24px;
-  --spacing-squish-lg: 16px 32px;
-  --spacing-squish-xl: 32px 48px;
-
-  /* inset spacing */
-  --spacing-inset-xxs: 4px;
-  --spacing-inset-xs: 8px;
-  --spacing-inset-sm: 16px;
-  --spacing-inset-md: 24px;
-  --spacing-inset-lg: 32px;
-  --spacing-inset-xl: 48px;
-
-  /* inline spacing */
+  /* inline spacing -> Margins and Paddings */
   --spacing-inline-xxxs: 4px;
   --spacing-inline-xxs: 8px;
   --spacing-inline-xs: 16px;
@@ -38,6 +14,21 @@
   --spacing-inline-xl: 48px;
   --spacing-inline-xxl: 56px;
   --spacing-inline-xxxl: 64px;
+
+  /* squish spacing -> Only for Paddings */
+  --spacing-squish-xs: 8px 16px;
+  --spacing-squish-sm: 8px 24px;
+  --spacing-squish-md: 16px 24px;
+  --spacing-squish-lg: 16px 32px;
+  --spacing-squish-xl: 32px 48px;
+
+  /* inset spacing -> Only for Paddings */
+  --spacing-inset-xxs: 4px;
+  --spacing-inset-xs: 8px;
+  --spacing-inset-sm: 16px;
+  --spacing-inset-md: 24px;
+  --spacing-inset-lg: 32px;
+  --spacing-inset-xl: 48px;
 
   /* icon size */
   --size-icon-xxs: 16px;
@@ -79,6 +70,8 @@
   --opacity-4: 0.4;
   --opacity-5: 0.64;
   --opacity-6: 0.8;
+  --opacity-7: 0.96;
+  --opacity-8: 1;
 
   /* grid */
   --grid-container: 1400px;
@@ -195,4 +188,9 @@
   --button-height-md: 38px;
   --button-width-lg: 216px;
   --button-height-lg: 56px;
+
+  /* field */
+  --field-min-height-sm: 36px;
+  --field-min-height-md: 48px;
+  --field-min-height-lg: 60px;
 }
