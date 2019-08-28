@@ -29,7 +29,7 @@
     "test:lint:js": "eslint --ext=js --ext=tsx --ext=ts ./src",
     "test:lint:css": "stylelint \"src/**/*.css\"",
     "prettier": "prettier --config ./.prettierrc.json --write \"src/**/*{.js,.ts,.tsx,.css}\"",
-    "generate": "node scripts/stencil-generate.js"
+    "generate": "node scripts/generate.js"
   },
   "devDependencies": {
     "@types/jest": "24.0.15",
@@ -60,15 +60,15 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx,css,json,md}": [
+    "src/**/*.{js,ts,tsx,css,json,md}": [
       "prettier --write",
       "git add"
     ],
-    "*.{js,ts,tsx}": [
+    "src/**/*.{js,ts,tsx}": [
       "eslint",
       "git add"
     ],
-    "*.css": [
+    "src/**/*.css": [
       "stylelint",
       "git add"
     ]
