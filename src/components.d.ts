@@ -35,6 +35,12 @@ export namespace Components {
     */
     'variant': 'primary' | 'secondary';
   }
+  interface CwsFieldSelect {
+    /**
+    * The first name <-- this commentary is necessary to generate docs
+    */
+    'name': string;
+  }
   interface CwsFieldText {
     /**
     * Input disabled state
@@ -80,6 +86,12 @@ declare global {
     new (): HTMLCwsButtonElement;
   };
 
+  interface HTMLCwsFieldSelectElement extends Components.CwsFieldSelect, HTMLStencilElement {}
+  var HTMLCwsFieldSelectElement: {
+    prototype: HTMLCwsFieldSelectElement;
+    new (): HTMLCwsFieldSelectElement;
+  };
+
   interface HTMLCwsFieldTextElement extends Components.CwsFieldText, HTMLStencilElement {}
   var HTMLCwsFieldTextElement: {
     prototype: HTMLCwsFieldTextElement;
@@ -87,6 +99,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'cws-button': HTMLCwsButtonElement;
+    'cws-field-select': HTMLCwsFieldSelectElement;
     'cws-field-text': HTMLCwsFieldTextElement;
   }
 }
@@ -117,6 +130,12 @@ declare namespace LocalJSX {
     * Button style
     */
     'variant'?: 'primary' | 'secondary';
+  }
+  interface CwsFieldSelect extends JSXBase.HTMLAttributes<HTMLCwsFieldSelectElement> {
+    /**
+    * The first name <-- this commentary is necessary to generate docs
+    */
+    'name'?: string;
   }
   interface CwsFieldText extends JSXBase.HTMLAttributes<HTMLCwsFieldTextElement> {
     /**
@@ -155,6 +174,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'cws-button': CwsButton;
+    'cws-field-select': CwsFieldSelect;
     'cws-field-text': CwsFieldText;
   }
 }
