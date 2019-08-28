@@ -37,9 +37,33 @@ export namespace Components {
   }
   interface CwsFieldSelect {
     /**
-    * The first name <-- this commentary is necessary to generate docs
+    * Input disabled prop
+    */
+    'disabled': boolean;
+    /**
+    * Input error prop
+    */
+    'error': boolean;
+    /**
+    * Input helper message
+    */
+    'hint'?: string;
+    /**
+    * Input label prop
+    */
+    'label': string;
+    /**
+    * Input name prop
     */
     'name': string;
+    /**
+    * Input required prop
+    */
+    'required': boolean;
+    /**
+    * Input value
+    */
+    'value': string;
   }
   interface CwsFieldText {
     /**
@@ -133,9 +157,33 @@ declare namespace LocalJSX {
   }
   interface CwsFieldSelect extends JSXBase.HTMLAttributes<HTMLCwsFieldSelectElement> {
     /**
-    * The first name <-- this commentary is necessary to generate docs
+    * Input disabled prop
+    */
+    'disabled'?: boolean;
+    /**
+    * Input error prop
+    */
+    'error'?: boolean;
+    /**
+    * Input helper message
+    */
+    'hint'?: string;
+    /**
+    * Input label prop
+    */
+    'label'?: string;
+    /**
+    * Input name prop
     */
     'name'?: string;
+    /**
+    * Input required prop
+    */
+    'required'?: boolean;
+    /**
+    * Input value
+    */
+    'value'?: string;
   }
   interface CwsFieldText extends JSXBase.HTMLAttributes<HTMLCwsFieldTextElement> {
     /**
