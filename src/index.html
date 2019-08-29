@@ -176,7 +176,7 @@
       <div class="component-block">
         <h3>Initial</h3>
         <cws-field-select
-          label="Label"
+          label="Library"
           name="name"
         >
         </cws-field-select>
@@ -184,7 +184,7 @@
       <div class="component-block">
         <h3>Filled</h3>
         <cws-field-select
-          label="Label"
+          label="Library"
           name="name"
           value="Stencil"
         >
@@ -193,7 +193,7 @@
       <div class="component-block">
         <h3>Disabled</h3>
         <cws-field-select
-          label="Label"
+          label="Library"
           name="name"
           disabled
         >
@@ -206,11 +206,11 @@
 
     for (let index = 0; index < cwsSelect.length; index++) {
       var arr = [
-        {value:"Stencil",id:1},
-        {value:"Google",id:2},
-        {value:"React",id:3},
-        {value:"JavaScript",id:4},
-        {value:"Polymer",id:5},
+        { label: "Stencil", value: '1' },
+        { label: "Google", value: '2' },
+        { label: "React", value: '3' },
+        { label: "JavaScript", value: '4' },
+        { label: "Polymer", value: '5' },
       ]
       cwsSelect[index].items = arr
     }

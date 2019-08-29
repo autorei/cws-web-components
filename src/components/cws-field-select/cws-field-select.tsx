@@ -1,6 +1,11 @@
 import { Component, Prop, h, State } from '@stencil/core'
 import classNames from 'classnames'
 
+interface Item {
+  value: string
+  label: string
+}
+
 @Component({
   tag: 'cws-field-select',
   styleUrl: 'cws-field-select.css',
@@ -48,7 +53,7 @@ export class CwsFieldSelect {
   /**
    * Expected an array to populate select
    */
-  @Prop() items: any[]
+  @Prop() items: Item[]
 
   /**
    * State to show and hide select items
@@ -60,7 +65,7 @@ export class CwsFieldSelect {
    */
   @State() hoverItemIndex: number = 0
 
-  private filteredItems: any[] = []
+  private filteredItems: Item[] = []
 
   componentWillLoad() {
     this.items = this.items
@@ -72,7 +77,12 @@ export class CwsFieldSelect {
 
     let updatedList = this.filteredItems
     updatedList = updatedList.filter(item => {
-      return item.value.toLowerCase().search(this.value.toLowerCase()) !== -1
+      return (
+        item.label
+          .toString()
+          .toLowerCase()
+          .search(this.value.toString().toLowerCase()) !== -1
+      )
     })
 
     this.filteredItems = updatedList
@@ -88,7 +98,7 @@ export class CwsFieldSelect {
     this.showItems = showItems
   }
 
-  selectItem(item) {
+  selectItem(item: Item) {
     this.showItems = false
     this.value = item.value
     this.filteredItems = [...this.items]
@@ -98,7 +108,7 @@ export class CwsFieldSelect {
     this.hoverItemIndex = index
   }
 
-  handleKeyDown(event) {
+  handleKeyDown(event: { keyCode: number }) {
     const { keyCode } = event
     const itemsLength = this.filteredItems.length
     const currentItemIndex = this.hoverItemIndex
@@ -130,6 +140,10 @@ export class CwsFieldSelect {
   }
 
   render() {
+    const selectedItemIndex = this.items.findIndex(item => item.value === this.value)
+    const selectedItem = this.items[selectedItemIndex]
+    const selectedItemLabel = selectedItem ? selectedItem.label : ''
+
     return (
       <div
         class={classNames('cws-field-select', {
@@ -141,7 +155,7 @@ export class CwsFieldSelect {
         <div class="cws-field-select-wrap">
           <div class="cws-field-select-input">
             <input
-              value={this.value}
+              value={selectedItemLabel}
               name={this.name}
               disabled={this.disabled}
               required={this.required}
@@ -171,7 +185,7 @@ export class CwsFieldSelect {
               {this.filteredItems.map((item, index) => {
                 return (
                   <li
-                    id={item.id}
+                    key={item.value}
                     onClick={() => this.selectItem(item)}
                     onMouseEnter={() => this.hoverItem(index)}
                     class={classNames('cws-field-select-option', {
@@ -179,7 +193,7 @@ export class CwsFieldSelect {
                       'cws-field-select-option--is-over': this.hoverItemIndex === index,
                     })}
                   >
-                    {item.value}
+                    {item.label}
                   </li>
                 )
               })}
