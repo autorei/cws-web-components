@@ -120,9 +120,9 @@
   border-radius: var(--border-radius-xs);
   height: auto;
   max-height: 184px;
-  min-height: 46px;
   margin-top: var(--spacing-inline-xxs);
   overflow: auto;
+  display: none;
 }
 
 .cws-field-select--options .cws-field-select--options-value {
@@ -145,8 +145,6 @@
   background-color: var(--color-primary-100);
 }
 
-.cws-field-select--no-options {
-  display: inline-block;
-  font-size: var(--font-size-md);
-  padding: var(--spacing-inset-sm);
+.cws-field-select--opened {
+  display: block;
 }

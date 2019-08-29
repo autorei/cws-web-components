@@ -75,6 +75,7 @@ export class CwsFieldSelect {
 
   handleChange(event) {
     this.value = event.target.value
+    this.showItems = true
     this.searchItems()
   }
 
@@ -89,9 +90,14 @@ export class CwsFieldSelect {
   }
 
   // handleKeyPress(event) {
-  //   if (event.keyCode === 40) {
+  //   let key = event.keyCode
+
+  //   if (key === 13) {
+  //     console.log('enter')
+  //   }
+  //   if (key === 40) {
   //     console.log('down')
-  //   } else if (event.keyCode === 38) {
+  //   } else if (key === 38) {
   //     console.log('up')
   //   }
   // }
@@ -102,7 +108,7 @@ export class CwsFieldSelect {
         class={classNames('cws-field-select', {
           'cws-field-select--has-hint': Boolean(this.hint),
           'cws-field-select--has-value': this.value !== '',
-          'cws-field-select--is-error': this.error,
+          'cws-field-select--is-error': !this.filteredItems.length,
         })}
       >
         <div class="cws-field-select-wrap">
@@ -113,8 +119,8 @@ export class CwsFieldSelect {
               disabled={this.disabled}
               required={this.required}
               onInput={event => this.handleChange(event)}
-              onFocus={() => this.handleDropDown()}
-              // onKeyUp={event => this.handleKeyPress(event)}
+              onClick={() => this.handleDropDown()}
+              onKeyUp={event => this.handleKeyPress(event)}
             />
             <div class="cws-field-select--dropdown-icon">
               <span
@@ -133,26 +139,23 @@ export class CwsFieldSelect {
             )}
           </div>
           <ul
-            class="cws-field-select--options"
-            style={{ display: this.showItems ? 'block' : 'none' }}
+            class={classNames('cws-field-select--options', {
+              'cws-field-select--opened': this.showItems,
+            })}
           >
-            {this.filteredItems.length ? (
-              this.filteredItems.map(item => {
-                return (
-                  <li
-                    id={item.id}
-                    onClick={() => this.selectItem(item)}
-                    class={classNames('cws-field-select--options-value', {
-                      selected: this.value === item.value,
-                    })}
-                  >
-                    {item.value}
-                  </li>
-                )
-              })
-            ) : (
-              <span class="cws-field-select--no-options">Sem opções!</span>
-            )}
+            {this.filteredItems.map(item => {
+              return (
+                <li
+                  id={item.id}
+                  onClick={() => this.selectItem(item)}
+                  class={classNames('cws-field-select--options-value', {
+                    selected: this.value === item.value,
+                  })}
+                >
+                  {item.value}
+                </li>
+              )
+            })}
           </ul>
         </div>
         <span class="cws-field-select-hint">{this.hint}</span>

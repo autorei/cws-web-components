@@ -122,18 +122,39 @@
         >
         </cws-field-select>
       </div>
+      <div class="component-block">
+        <h3>Filled</h3>
+        <cws-field-select
+          label="Label"
+          name="name"
+          value="Stencil"
+        >
+        </cws-field-select>
+      </div>
+      <div class="component-block">
+        <h3>Disabled</h3>
+        <cws-field-select
+          label="Label"
+          name="name"
+          disabled
+        >
+        </cws-field-select>
+      </div>
     </div>
   </div>
   <script>
-    var cwsSelect = document.querySelector('cws-field-select');
-    var arr = [
-      {value:"Stencil",id:1},
-      {value:"Google",id:2},
-      {value:"React",id:3},
-      {value:"JavaScript",id:4},
-      {value:"Polymer",id:5},
-    ]
-    cwsSelect.items = arr;
+    var cwsSelect = document.querySelectorAll('cws-field-select');
+
+    for (let index = 0; index < cwsSelect.length; index++) {
+      var arr = [
+        {value:"Stencil",id:1},
+        {value:"Google",id:2},
+        {value:"React",id:3},
+        {value:"JavaScript",id:4},
+        {value:"Polymer",id:5},
+      ]
+      cwsSelect[index].items = arr
+    }
   </script>
 </body>
 </html>
