@@ -25,7 +25,7 @@ const generateIcons = async () => {
     }
 
     if (index + 1 === svgFiles.length) {
-      const jsIconsContent = `export default {${iconsExportContent}\n}`
+      const jsIconsContent = `/* This file is generated automatically by command: \`npm run generate icons\` */\n\nexport default {${iconsExportContent}\n}`
 
       try {
         fs.writeFileSync(`${iconsFolder}/index.ts`, jsIconsContent.trim())
