@@ -113,6 +113,7 @@ export class CwsFieldSelect {
     const itemsLength = this.filteredItems.length
     const currentItemIndex = this.hoverItemIndex
     let nextHoverItemIndex = currentItemIndex
+    this.handleDropDown(true)
 
     // Enter
     if (keyCode === 13) {
