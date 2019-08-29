@@ -120,7 +120,7 @@ export class CwsFieldSelect {
               required={this.required}
               onInput={event => this.handleChange(event)}
               onClick={() => this.handleDropDown()}
-              onKeyUp={event => this.handleKeyPress(event)}
+              // onKeyUp={event => this.handleKeyPress(event)}
             />
             <div class="cws-field-select--dropdown-icon">
               <span
