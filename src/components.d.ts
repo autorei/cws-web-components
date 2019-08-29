@@ -74,6 +74,10 @@ export namespace Components {
     * Icon slug
     */
     'icon'?: string;
+    /**
+    * Icon size
+    */
+    'size'?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   }
 }
 
@@ -170,6 +174,10 @@ declare namespace LocalJSX {
     * Icon slug
     */
     'icon'?: string;
+    /**
+    * Icon size
+    */
+    'size'?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   }
 
   interface IntrinsicElements {

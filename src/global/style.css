@@ -33,6 +33,8 @@ h5 {
 
 .component-container {
   padding: var(--spacing-inline-xxs);
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .component-variant {
@@ -50,4 +52,10 @@ h5 {
 .component-examples {
   display: grid;
   grid-gap: var(--spacing-inline-xxs);
+}
+
+.component-doc-link {
+  color: var(--color-secondary-500);
+  display: block;
+  margin-bottom: var(--spacing-inline-md);
 }

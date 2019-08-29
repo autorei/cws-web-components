@@ -1,5 +1,14 @@
 const fs = require('fs')
 
+// remove style and breaklines
+const formatSvg = (rawSvg) => {
+  return rawSvg
+    .replace(/(\r\n|\n|\r)/gm, '')
+    .replace(/\sstyle=\"[^\s]*\"\s/g, ' ')
+    .replace(/\sfill=\"[^\s]*\"\s/g, ' ')
+    .replace(/\>\s+\</g,'><')
+}
+
 const generateIcons = async () => {
   const iconsFolder = 'src/components/cws-icon/icons'
   const svgFiles = await fs.readdirSync(iconsFolder)
@@ -12,7 +21,7 @@ const generateIcons = async () => {
       const fileContent = await fs.readFileSync(`${iconsFolder}/${fileName}`, 'utf-8')
       const iconName = fileName.replace('.svg', '')
       iconsExportContent =
-        iconsExportContent + `\n  '${iconName}': '${fileContent.replace(/(\r\n|\n|\r)/gm, '')}',`
+        iconsExportContent + `\n  '${iconName}': '${formatSvg(fileContent)}',`
     }
 
     if (index + 1 === svgFiles.length) {

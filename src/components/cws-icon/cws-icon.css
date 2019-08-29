@@ -1,5 +1,33 @@
 .cws-icon {
-  display: block;
-  width: 24px;
-  height: 24px;
+  display: inline-block;
+}
+
+.cws-icon--xxs {
+  width: var(--size-icon-xxs);
+  height: var(--size-icon-xxs);
+}
+
+.cws-icon--xs {
+  width: var(--size-icon-xs);
+  height: var(--size-icon-xs);
+}
+
+.cws-icon--sm {
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+}
+
+.cws-icon--md {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+}
+
+.cws-icon--lg {
+  width: var(--size-icon-lg);
+  height: var(--size-icon-lg);
+}
+
+.cws-icon--xl {
+  width: var(--size-icon-xl);
+  height: var(--size-icon-xl);
 }

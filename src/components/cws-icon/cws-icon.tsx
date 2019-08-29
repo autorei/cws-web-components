@@ -12,18 +12,23 @@ export class CwsIcon {
    */
   @Prop() icon?: string
 
+  /**
+   * Icon size
+   */
+  @Prop() size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'sm'
+
   render() {
     if (this.icon) {
       return (
         <div
-          class={classNames('cws-icon', `cws-icon--${this.icon}`)}
+          class={classNames('cws-icon', `cws-icon--${this.icon}`, `cws-icon--${this.size}`)}
           innerHTML={icons[this.icon]}
         />
       )
     }
 
     return (
-      <div class="cws-icon">
+      <div class={classNames('cws-icon', `cws-icon--${this.size}`)}>
         <slot />
       </div>
     )
