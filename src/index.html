@@ -118,10 +118,21 @@
         <h3>Initial</h3>
         <cws-field-select
           label="Label"
-          name="name">
+          name="name"
+        >
         </cws-field-select>
       </div>
     </div>
   </div>
+  <script>
+    var cwsSelect = document.querySelector('cws-field-select');
+    var arr = [
+      {value:"Stencil",id:1},
+      {value:"Google",id:2},
+      {value:"React",id:3},
+      {value:"JavaScript",id:4}
+    ]
+    cwsSelect.items = arr;
+  </script>
 </body>
 </html>

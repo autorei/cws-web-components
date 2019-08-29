@@ -46,25 +46,14 @@ export class CwsFieldSelect {
   @Prop() required: boolean = false
 
   /**
-   * Array to recieve select items
+   * Expected an array to populate select
    */
-  @State() items: any
+  @Prop() items: [] = []
 
   /**
    * State to show and hide select items
    */
   @State() showItems: boolean = false
-
-  componentWillLoad() {
-    this.items = [
-      { value: 'Inactive Item', id: 1 },
-      { value: 'Hover Item', id: 2 },
-      { value: 'Selected Item', id: 3 },
-      { value: 'Inactive Item', id: 4 },
-    ]
-  }
-
-  selectedItem = this.items && this.items[0]
 
   handleChange(event) {
     this.value = event.target.value
@@ -75,8 +64,8 @@ export class CwsFieldSelect {
   }
 
   selectItem(item) {
-    this.selectedItem = item
     this.showItems = false
+    this.value = item.value
   }
 
   render() {
@@ -97,6 +86,7 @@ export class CwsFieldSelect {
               required={this.required}
               onInput={event => this.handleChange(event)}
               onClick={() => this.handleDropDown()}
+              // onFocus={() => this.handleDropDown()}
               // onBlur={() => this.handleDropDown()}
             />
             <div class="cws-field-select--dropdown-icon">
@@ -124,7 +114,9 @@ export class CwsFieldSelect {
                 <li
                   id={item.id}
                   onClick={() => this.selectItem(item)}
-                  class={this.selectedItem === item && 'selected'}
+                  class={classNames('cws-field-select--options-value', {
+                    selected: this.value === item.value,
+                  })}
                 >
                   {item.value}
                 </li>

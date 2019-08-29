@@ -118,17 +118,25 @@
 .cws-field-select--options {
   border: var(--border-width-thin) solid var(--color-neutral-400);
   border-radius: var(--border-radius-xs);
+  cursor: pointer;
   margin-top: var(--spacing-inline-xxs);
 }
 
-.cws-field-select--options li {
+.cws-field-select--options .cws-field-select--options-value {
   font-size: var(--font-size-md);
   color: var(--color-neutral-700);
   font-weight: var(--font-weight-regular);
   padding: var(--spacing-squish-xs);
 }
 
-.cws-field-select--options li:hover {
+.cws-field-select--options .cws-field-select--options-value.selected,
+.cws-field-select--options .cws-field-select--options-value.selected:hover {
+  background-color: var(--color-primary-500);
+  color: var(--color-primary-500-contrast);
+  font-weight: var(--font-weight-regular);
+}
+
+.cws-field-select--options .cws-field-select--options-value:hover {
   font-weight: var(--font-weight-bold);
   background-color: var(--color-primary-100);
 }

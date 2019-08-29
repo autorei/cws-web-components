@@ -49,6 +49,10 @@ export namespace Components {
     */
     'hint'?: string;
     /**
+    * Expected an array to populate select
+    */
+    'items': [];
+    /**
     * Input label prop
     */
     'label': string;
@@ -168,6 +172,10 @@ declare namespace LocalJSX {
     * Input helper message
     */
     'hint'?: string;
+    /**
+    * Expected an array to populate select
+    */
+    'items'?: [];
     /**
     * Input label prop
     */
