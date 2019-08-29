@@ -118,15 +118,19 @@
 .cws-field-select--options {
   border: var(--border-width-thin) solid var(--color-neutral-400);
   border-radius: var(--border-radius-xs);
-  cursor: pointer;
+  height: auto;
+  max-height: 184px;
+  min-height: 46px;
   margin-top: var(--spacing-inline-xxs);
+  overflow: auto;
 }
 
 .cws-field-select--options .cws-field-select--options-value {
   font-size: var(--font-size-md);
   color: var(--color-neutral-700);
+  cursor: pointer;
   font-weight: var(--font-weight-regular);
-  padding: var(--spacing-squish-xs);
+  padding: var(--spacing-inset-sm);
 }
 
 .cws-field-select--options .cws-field-select--options-value.selected,
@@ -139,4 +143,10 @@
 .cws-field-select--options .cws-field-select--options-value:hover {
   font-weight: var(--font-weight-bold);
   background-color: var(--color-primary-100);
+}
+
+.cws-field-select--no-options {
+  display: inline-block;
+  font-size: var(--font-size-md);
+  padding: var(--spacing-inset-sm);
 }

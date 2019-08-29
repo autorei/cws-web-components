@@ -51,7 +51,7 @@ export namespace Components {
     /**
     * Expected an array to populate select
     */
-    'items': [];
+    'items': any[];
     /**
     * Input label prop
     */
@@ -175,7 +175,7 @@ declare namespace LocalJSX {
     /**
     * Expected an array to populate select
     */
-    'items'?: [];
+    'items'?: any[];
     /**
     * Input label prop
     */
