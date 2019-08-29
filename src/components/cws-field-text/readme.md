@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute  | Description          | Type                              | Default     |
@@ -15,6 +16,7 @@
 | `type`     | `type`     | Input type           | `"email" \| "password" \| "text"` | `'text'`    |
 | `value`    | `value`    | Input initial value  | `string`                          | `''`        |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

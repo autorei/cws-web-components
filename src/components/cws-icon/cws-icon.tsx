@@ -28,7 +28,7 @@ export class CwsIcon {
     }
 
     return (
-      <div class={classNames('cws-icon', `cws-icon--${this.size}`)}>
+      <div class={classNames('cws-icon', `cws-icon--custom`, `cws-icon--${this.size}`)}>
         <slot />
       </div>
     )
