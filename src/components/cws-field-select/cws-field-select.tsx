@@ -55,6 +55,11 @@ export class CwsFieldSelect {
    */
   @State() showItems: boolean = false
 
+  /**
+   * State to hover item
+   */
+  @State() hoverItemIndex: number = 0
+
   private filteredItems: any[] = []
 
   componentWillLoad() {
@@ -79,8 +84,8 @@ export class CwsFieldSelect {
     this.searchItems()
   }
 
-  handleDropDown() {
-    this.showItems = !this.showItems
+  handleDropDown(showItems: boolean = !this.showItems) {
+    this.showItems = showItems
   }
 
   selectItem(item) {
@@ -89,18 +94,40 @@ export class CwsFieldSelect {
     this.filteredItems = [...this.items]
   }
 
-  // handleKeyPress(event) {
-  //   let key = event.keyCode
+  hoverItem(index: number) {
+    this.hoverItemIndex = index
+  }
 
-  //   if (key === 13) {
-  //     console.log('enter')
-  //   }
-  //   if (key === 40) {
-  //     console.log('down')
-  //   } else if (key === 38) {
-  //     console.log('up')
-  //   }
-  // }
+  handleKeyDown(event) {
+    const { keyCode } = event
+    const itemsLength = this.filteredItems.length
+    const currentItemIndex = this.hoverItemIndex
+    let nextHoverItemIndex = currentItemIndex
+
+    // Enter
+    if (keyCode === 13) {
+      this.value = this.filteredItems[this.hoverItemIndex].value
+      this.hoverItemIndex = 0
+      this.handleDropDown(false)
+      return
+    }
+
+    // Down
+    if (keyCode === 40) {
+      if (nextHoverItemIndex + 1 < itemsLength) {
+        nextHoverItemIndex = currentItemIndex + 1
+      }
+    }
+
+    // Up
+    if (keyCode === 38) {
+      if (nextHoverItemIndex - 1 >= 0) {
+        nextHoverItemIndex = currentItemIndex - 1
+      }
+    }
+
+    this.hoverItemIndex = nextHoverItemIndex
+  }
 
   render() {
     return (
@@ -119,14 +146,15 @@ export class CwsFieldSelect {
               disabled={this.disabled}
               required={this.required}
               onInput={event => this.handleChange(event)}
-              onClick={() => this.handleDropDown()}
-              // onKeyUp={event => this.handleKeyPress(event)}
+              onFocus={() => this.handleDropDown(true)}
+              onBlur={() => this.handleDropDown(false)}
+              onKeyDown={event => this.handleKeyDown(event)}
             />
             <div class="cws-field-select--dropdown-icon">
               <span
                 class={classNames('dropdown-icon', {
-                  'dropdown-icon--up': Boolean(this.showItems),
-                  'dropdown-icon--down': Boolean(!this.showItems),
+                  'dropdown-icon--up': this.showItems,
+                  'dropdown-icon--down': !this.showItems,
                 })}
               ></span>
             </div>
@@ -138,25 +166,25 @@ export class CwsFieldSelect {
               </label>
             )}
           </div>
-          <ul
-            class={classNames('cws-field-select--options', {
-              'cws-field-select--opened': this.showItems,
-            })}
-          >
-            {this.filteredItems.map(item => {
-              return (
-                <li
-                  id={item.id}
-                  onClick={() => this.selectItem(item)}
-                  class={classNames('cws-field-select--options-value', {
-                    selected: this.value === item.value,
-                  })}
-                >
-                  {item.value}
-                </li>
-              )
-            })}
-          </ul>
+          {this.showItems ? (
+            <ul class="cws-field-select-options">
+              {this.filteredItems.map((item, index) => {
+                return (
+                  <li
+                    id={item.id}
+                    onClick={() => this.selectItem(item)}
+                    onMouseEnter={() => this.hoverItem(index)}
+                    class={classNames('cws-field-select-option', {
+                      'cws-field-select-option--is-selected': this.value === item.value,
+                      'cws-field-select-option--is-over': this.hoverItemIndex === index,
+                    })}
+                  >
+                    {item.value}
+                  </li>
+                )
+              })}
+            </ul>
+          ) : null}
         </div>
         <span class="cws-field-select-hint">{this.hint}</span>
       </div>
