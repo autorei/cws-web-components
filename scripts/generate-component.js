@@ -1,29 +1,17 @@
-/*
- * based on https://gist.github.com/elebetsamer/35aabac4e9e3df7e102574e4192680f1
- */
-
 const fs = require('fs')
 
-const capitalize = s => s.charAt(0).toUpperCase() + s.substr(1)
+const generateCmponent = (name) => {
+  const componentClassName = name
+    .split('-')
+    .map(p => capitalize(p))
+    .join('')
 
-const av = process.argv
+  if (name.indexOf('cws-') !== 0) {
+    console.error(`Is required to prefix the component with 'cws-'. Ex: 'cws-${name}'`)
+    return
+  }
 
-// const type = av[2]
-const prefix = av[4] || ''
-const name = `${prefix}${av[3]}`
-
-const componentClassName = name
-  .replace(prefix, '')
-  .split('-')
-  .map(p => capitalize(p))
-  .join('')
-
-if (name.indexOf('cws-') !== 0) {
-  console.error(`Is required to prefix the component with 'cws-'. Ex: 'cws-${name}'`)
-  return
-}
-
-const jsTemplate = `
+  const jsTemplate = `
 import { Component, Prop, h } from '@stencil/core'
 
 @Component({
@@ -44,14 +32,14 @@ export class ${componentClassName} {
 
 `
 
-const cssTemplate = `
+  const cssTemplate = `
 ${name} {
   display: block
 }
 
 `
 
-const e2eTemplate = `
+  const e2eTemplate = `
 /* eslint-env jest */
 import { newE2EPage } from '@stencil/core/testing'
 
@@ -80,22 +68,25 @@ describe('${name}', () => {
 
 `
 
-const outPath = `src/components/${name}`
+  const outPath = `src/components/${name}`
 
-try {
-  fs.mkdirSync(outPath)
-} catch (e) {
-  console.error('Unable to create component')
-  throw e
+  try {
+    fs.mkdirSync(outPath)
+  } catch (e) {
+    console.error('Unable to create component')
+    throw e
+  }
+
+  try {
+    fs.writeFileSync(`${outPath}/${name}.tsx`, jsTemplate.trim())
+    fs.writeFileSync(`${outPath}/${name}.css`, cssTemplate.trim())
+    fs.writeFileSync(`${outPath}/${name}.e2e.ts`, e2eTemplate.trim())
+
+    console.log('Component generated')
+  } catch (e) {
+    console.error('Unable to create source files')
+    throw e
+  }
 }
 
-try {
-  fs.writeFileSync(`${outPath}/${name}.tsx`, jsTemplate.trim())
-  fs.writeFileSync(`${outPath}/${name}.css`, cssTemplate.trim())
-  fs.writeFileSync(`${outPath}/${name}.e2e.ts`, e2eTemplate.trim())
-
-  console.log('Component generated')
-} catch (e) {
-  console.error('Unable to create source files')
-  throw e
-}
+module.exports = generateCmponent

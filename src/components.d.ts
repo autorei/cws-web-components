@@ -69,6 +69,16 @@ export namespace Components {
     */
     'value': string;
   }
+  interface CwsIcon {
+    /**
+    * Icon slug
+    */
+    'icon'?: string;
+    /**
+    * Icon size
+    */
+    'size'?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  }
 }
 
 declare global {
@@ -85,9 +95,16 @@ declare global {
     prototype: HTMLCwsFieldTextElement;
     new (): HTMLCwsFieldTextElement;
   };
+
+  interface HTMLCwsIconElement extends Components.CwsIcon, HTMLStencilElement {}
+  var HTMLCwsIconElement: {
+    prototype: HTMLCwsIconElement;
+    new (): HTMLCwsIconElement;
+  };
   interface HTMLElementTagNameMap {
     'cws-button': HTMLCwsButtonElement;
     'cws-field-text': HTMLCwsFieldTextElement;
+    'cws-icon': HTMLCwsIconElement;
   }
 }
 
@@ -152,10 +169,21 @@ declare namespace LocalJSX {
     */
     'value'?: string;
   }
+  interface CwsIcon extends JSXBase.HTMLAttributes<HTMLCwsIconElement> {
+    /**
+    * Icon slug
+    */
+    'icon'?: string;
+    /**
+    * Icon size
+    */
+    'size'?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  }
 
   interface IntrinsicElements {
     'cws-button': CwsButton;
     'cws-field-text': CwsFieldText;
+    'cws-icon': CwsIcon;
   }
 }
 
