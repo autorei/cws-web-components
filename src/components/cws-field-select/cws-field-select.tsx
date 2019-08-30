@@ -141,12 +141,16 @@ export class CwsFieldSelect {
   }
 
   onInputBlur() {
-    this.handleDropDown(false)
-    const selectedItemIndex = this.items.findIndex(item => item.value === this.value)
+    // timeout workaround (aka gambiarra)
+    // to prevent close dropdown without setting value when click on item
+    window.setTimeout(() => {
+      this.handleDropDown(false)
+      const selectedItemIndex = this.items.findIndex(item => item.value === this.value)
 
-    if (this.clearIfInvalid && selectedItemIndex === -1) {
-      this.value = ''
-    }
+      if (this.clearIfInvalid && selectedItemIndex === -1) {
+        this.value = ''
+      }
+    }, 100)
   }
 
   onInputFocus() {
@@ -161,6 +165,10 @@ export class CwsFieldSelect {
 
   onCloseClick() {
     this.value = ''
+  }
+
+  onItemClick(item: Item) {
+    this.value = item.value
   }
 
   render() {
@@ -210,24 +218,21 @@ export class CwsFieldSelect {
           </div>
           {this.showItems ? (
             <ul class="cws-field-select-options">
-              {this.filteredItems.length ? (
-                this.filteredItems.map((item, index) => {
-                  return (
-                    <li
-                      key={item.value}
-                      onMouseEnter={() => this.hoverItem(index)}
-                      class={classNames('cws-field-select-option', {
-                        'cws-field-select-option--is-selected': this.value === item.value,
-                        'cws-field-select-option--is-over': this.hoverItemIndex === index,
-                      })}
-                    >
-                      {item.label}
-                    </li>
-                  )
-                })
-              ) : (
-                <li class="cws-field-select-no-option">Sem opções</li>
-              )}
+              {this.filteredItems.map((item, index) => {
+                return (
+                  <li
+                    key={item.value}
+                    onMouseEnter={() => this.hoverItem(index)}
+                    onClick={() => this.onItemClick(item)}
+                    class={classNames('cws-field-select-option', {
+                      'cws-field-select-option--is-selected': this.value === item.value,
+                      'cws-field-select-option--is-over': this.hoverItemIndex === index,
+                    })}
+                  >
+                    {item.label}
+                  </li>
+                )
+              })}
             </ul>
           ) : null}
         </div>
