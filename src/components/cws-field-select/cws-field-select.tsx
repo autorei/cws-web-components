@@ -168,18 +168,16 @@ export class CwsFieldSelect {
               onFocus={() => this.handleDropDown(true)}
               onKeyDown={event => this.handleKeyDown(event)}
             />
-            <div class="cws-field-select--dropdown-icon">
-              {this.value ? (
-                <span class="dropdown-icon icon-x">x</span>
-              ) : (
-                <span
-                  class={classNames('dropdown-icon', {
-                    'dropdown-icon--up': this.showItems,
-                    'dropdown-icon--down': !this.showItems,
-                  })}
-                ></span>
-              )}
-            </div>
+
+            <cws-icon
+              size="xxs"
+              class={classNames('cws-field-select-dropdown-icon', {
+                'cws-field-select-dropdown-icon--up': this.showItems,
+                'cws-field-select-dropdown-icon--down': !this.showItems,
+                'cws-field-select-dropdown-icon--close': Boolean(this.value),
+              })}
+              icon={this.value ? 'close' : 'arrow-down'}
+            />
 
             {this.label && (
               <label class="cws-field-select-label">
