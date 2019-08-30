@@ -238,7 +238,7 @@ export class CwsFieldSelect {
                   <li
                     key={item.value}
                     onMouseEnter={() => this.hoverItem(index)}
-                    onClick={() => this.onItemClick(item)}
+                    onMouseDown={() => this.onItemClick(item)}
                     class={classNames('cws-field-select-option', {
                       'cws-field-select-option--is-selected': this.value === item.value,
                       'cws-field-select-option--is-over': this.hoverItemIndex === index,
