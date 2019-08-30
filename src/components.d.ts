@@ -37,6 +37,10 @@ export namespace Components {
   }
   interface CwsFieldSelect {
     /**
+    * Clear field value if no item match with it
+    */
+    'clearIfInvalid': boolean;
+    /**
     * Input disabled prop
     */
     'disabled': boolean;
@@ -61,7 +65,7 @@ export namespace Components {
     */
     'name': string;
     /**
-    * Input required prop
+    * Select required prop
     */
     'required': boolean;
     /**
@@ -178,6 +182,10 @@ declare namespace LocalJSX {
   }
   interface CwsFieldSelect extends JSXBase.HTMLAttributes<HTMLCwsFieldSelectElement> {
     /**
+    * Clear field value if no item match with it
+    */
+    'clearIfInvalid'?: boolean;
+    /**
     * Input disabled prop
     */
     'disabled'?: boolean;
@@ -202,7 +210,7 @@ declare namespace LocalJSX {
     */
     'name'?: string;
     /**
-    * Input required prop
+    * Select required prop
     */
     'required'?: boolean;
     /**

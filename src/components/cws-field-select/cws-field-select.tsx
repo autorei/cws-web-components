@@ -46,9 +46,14 @@ export class CwsFieldSelect {
   @Prop() disabled: boolean = false
 
   /**
-   * Input required prop
+   * Select required prop
    */
   @Prop() required: boolean = false
+
+  /**
+   * Clear field value if no item match with it
+   */
+  @Prop() clearIfInvalid: boolean = true
 
   /**
    * Expected an array to populate select
@@ -86,15 +91,6 @@ export class CwsFieldSelect {
     })
 
     this.filteredItems = updatedList
-  }
-
-  handleChange(event) {
-    this.value = event.target.value
-    this.showItems = true
-    this.searchItems()
-    if (!this.filteredItems.length) {
-      this.value = ''
-    }
   }
 
   handleDropDown(showItems: boolean = !this.showItems) {
@@ -144,28 +140,49 @@ export class CwsFieldSelect {
     this.hoverItemIndex = nextHoverItemIndex
   }
 
+  onInputBlur() {
+    this.handleDropDown(false)
+    const selectedItemIndex = this.items.findIndex(item => item.value === this.value)
+
+    if (this.clearIfInvalid && selectedItemIndex === -1) {
+      this.value = ''
+    }
+  }
+
+  onInputFocus() {
+    this.handleDropDown(true)
+  }
+
+  onInputChange(event) {
+    this.value = event.target.value
+    this.showItems = true
+    this.searchItems()
+  }
+
   render() {
     const selectedItemIndex = this.items.findIndex(item => item.value === this.value)
     const selectedItem = this.items[selectedItemIndex]
-    const selectedItemLabel = selectedItem ? selectedItem.label : ''
+    const selectedItemLabel = selectedItem ? selectedItem.label : this.value
 
     return (
       <div
         class={classNames('cws-field-select', {
           'cws-field-select--has-hint': Boolean(this.hint),
           'cws-field-select--has-value': this.value !== '',
-          'cws-field-select--is-error': !this.filteredItems.length,
+          'cws-field-select--is-error': this.error,
         })}
       >
         <div class="cws-field-select-wrap">
-          <div class="cws-field-select-input">
+          <div class="cws-field-select-field">
             <input
+              class="cws-field-select-input"
               value={selectedItemLabel}
               name={this.name}
               disabled={this.disabled}
               required={this.required}
-              onInput={event => this.handleChange(event)}
-              onFocus={() => this.handleDropDown(true)}
+              onInput={event => this.onInputChange(event)}
+              onFocus={this.onInputFocus.bind(this)}
+              onBlur={this.onInputBlur.bind(this)}
               onKeyDown={event => this.handleKeyDown(event)}
             />
 
@@ -192,7 +209,6 @@ export class CwsFieldSelect {
                 return (
                   <li
                     key={item.value}
-                    onClick={() => this.selectItem(item)}
                     onMouseEnter={() => this.hoverItem(index)}
                     class={classNames('cws-field-select-option', {
                       'cws-field-select-option--is-selected': this.value === item.value,
