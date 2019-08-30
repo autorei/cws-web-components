@@ -70,6 +70,8 @@ export class CwsFieldSelect {
    */
   @State() hoverItemIndex: number = 0
 
+  private $optionsList: HTMLUListElement
+
   private filteredItems: Item[] = []
 
   componentWillLoad() {
@@ -107,6 +109,13 @@ export class CwsFieldSelect {
     this.hoverItemIndex = index
   }
 
+  scrollList() {
+    const $optionItem: HTMLLIElement = this.$optionsList.querySelector(
+      `li:nth-child(${this.hoverItemIndex + 1})`,
+    )
+    this.$optionsList.scrollTop = $optionItem.offsetTop - $optionItem.offsetHeight || 0
+  }
+
   handleKeyDown(event: { keyCode: number }) {
     const { keyCode } = event
     const itemsLength = this.filteredItems.length
@@ -138,6 +147,7 @@ export class CwsFieldSelect {
     }
 
     this.hoverItemIndex = nextHoverItemIndex
+    this.scrollList()
   }
 
   onInputBlur() {
@@ -217,7 +227,12 @@ export class CwsFieldSelect {
             )}
           </div>
           {this.showItems ? (
-            <ul class="cws-field-select-options">
+            <ul
+              ref={$element => {
+                this.$optionsList = $element
+              }}
+              class="cws-field-select-options"
+            >
               {this.filteredItems.map((item, index) => {
                 return (
                   <li

@@ -139,6 +139,51 @@
   </div>
 
   <div class="component-container">
+    <h1>cws-field-select</h1>
+    <a
+      href="https://github.com/autorei/cws-web-components/tree/master/src/components/cws-field-select">src/components/cws-field-select</a>
+
+    <h2>Select Input Label</h2>
+
+    <div class="component-variant">
+      <div class="component-block">
+        <h3>Initial</h3>
+        <cws-field-select label="Library" name="name" clear-if-invalid="false">
+        </cws-field-select>
+      </div>
+      <div class="component-block">
+        <h3>Filled</h3>
+        <cws-field-select label="Library" name="name" value="1">
+        </cws-field-select>
+      </div>
+      <div class="component-block">
+        <h3>Error</h3>
+        <cws-field-select label="Library" name="name" error>
+        </cws-field-select>
+      </div>
+      <div class="component-block">
+        <h3>Disabled</h3>
+        <cws-field-select label="Library" name="name" disabled>
+        </cws-field-select>
+      </div>
+    </div>
+  </div>
+  <script>
+    var cwsSelect = document.querySelectorAll('cws-field-select');
+
+    for (let index = 0; index < cwsSelect.length; index++) {
+      var arr = [
+        { label: "Stencil", value: '1' },
+        { label: "Google", value: '2' },
+        { label: "React", value: '3' },
+        { label: "JavaScript", value: '4' },
+        { label: "Polymer", value: '5' },
+      ]
+      cwsSelect[index].items = arr
+    }
+  </script>
+
+  <div class="component-container">
     <h1>cws-field-text</h1>
     <a class="component-doc-link" target="_blank" href="https://github.com/autorei/cws-web-components/tree/master/src/components/cws-field-text">src/components/cws-field-text</a>
 
@@ -165,65 +210,5 @@
       </div>
     </div>
   </div>
-
-  <div class="component-container">
-    <h1>cws-field-select</h1>
-    <a href="https://github.com/autorei/cws-web-components/tree/master/src/components/cws-field-select">src/components/cws-field-select</a>
-
-    <h2>Select Input Label</h2>
-
-    <div class="component-variant">
-      <div class="component-block">
-        <h3>Initial</h3>
-        <cws-field-select
-          label="Library"
-          name="name"
-          clear-if-invalid="false"
-        >
-        </cws-field-select>
-      </div>
-      <div class="component-block">
-        <h3>Filled</h3>
-        <cws-field-select
-          label="Library"
-          name="name"
-          value="1"
-        >
-        </cws-field-select>
-      </div>
-      <div class="component-block">
-        <h3>Error</h3>
-        <cws-field-select
-          label="Library"
-          name="name"
-          error
-        >
-        </cws-field-select>
-      </div>
-      <div class="component-block">
-        <h3>Disabled</h3>
-        <cws-field-select
-          label="Library"
-          name="name"
-          disabled
-        >
-        </cws-field-select>
-      </div>
-    </div>
-  </div>
-  <script>
-    var cwsSelect = document.querySelectorAll('cws-field-select');
-
-    for (let index = 0; index < cwsSelect.length; index++) {
-      var arr = [
-        { label: "Stencil", value: '1' },
-        { label: "Google", value: '2' },
-        { label: "React", value: '3' },
-        { label: "JavaScript", value: '4' },
-        { label: "Polymer", value: '5' },
-      ]
-      cwsSelect[index].items = arr
-    }
-  </script>
 </body>
 </html>
