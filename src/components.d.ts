@@ -41,15 +41,15 @@ export namespace Components {
     */
     'clearIfInvalid': boolean;
     /**
-    * Input disabled prop
+    * Select disabled prop
     */
     'disabled': boolean;
     /**
-    * Input error prop
+    * Select error prop
     */
     'error': boolean;
     /**
-    * Input helper message
+    * Select helper message
     */
     'hint'?: string;
     /**
@@ -57,13 +57,17 @@ export namespace Components {
     */
     'items': Item[];
     /**
-    * Input label prop
+    * Select label prop
     */
     'label': string;
     /**
-    * Input name prop
+    * Select name prop
     */
     'name': string;
+    /**
+    * Select no option message message
+    */
+    'noOptionsMessage'?: string;
     /**
     * Select required prop
     */
@@ -186,15 +190,15 @@ declare namespace LocalJSX {
     */
     'clearIfInvalid'?: boolean;
     /**
-    * Input disabled prop
+    * Select disabled prop
     */
     'disabled'?: boolean;
     /**
-    * Input error prop
+    * Select error prop
     */
     'error'?: boolean;
     /**
-    * Input helper message
+    * Select helper message
     */
     'hint'?: string;
     /**
@@ -202,13 +206,17 @@ declare namespace LocalJSX {
     */
     'items'?: Item[];
     /**
-    * Input label prop
+    * Select label prop
     */
     'label'?: string;
     /**
-    * Input name prop
+    * Select name prop
     */
     'name'?: string;
+    /**
+    * Select no option message message
+    */
+    'noOptionsMessage'?: string;
     /**
     * Select required prop
     */

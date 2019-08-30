@@ -21,27 +21,32 @@ export class CwsFieldSelect {
   value: string = ''
 
   /**
-   * Input name prop
+   * Select name prop
    */
   @Prop() name: string = 'name'
 
   /**
-   * Input label prop
+   * Select label prop
    */
   @Prop() label: string = 'Label'
 
   /**
-   * Input helper message
+   * Select helper message
    */
   @Prop() hint?: string
 
   /**
-   * Input error prop
+   * Select no option message message
+   */
+  @Prop() noOptionsMessage?: string = 'Sem opções'
+
+  /**
+   * Select error prop
    */
   @Prop() error: boolean = false
 
   /**
-   * Input disabled prop
+   * Select disabled prop
    */
   @Prop() disabled: boolean = false
 
@@ -218,21 +223,25 @@ export class CwsFieldSelect {
           </div>
           {this.showItems ? (
             <ul class="cws-field-select-options">
-              {this.filteredItems.map((item, index) => {
-                return (
-                  <li
-                    key={item.value}
-                    onMouseEnter={() => this.hoverItem(index)}
-                    onClick={() => this.onItemClick(item)}
-                    class={classNames('cws-field-select-option', {
-                      'cws-field-select-option--is-selected': this.value === item.value,
-                      'cws-field-select-option--is-over': this.hoverItemIndex === index,
-                    })}
-                  >
-                    {item.label}
-                  </li>
-                )
-              })}
+              {this.filteredItems.length ? (
+                this.filteredItems.map((item, index) => {
+                  return (
+                    <li
+                      key={item.value}
+                      onMouseEnter={() => this.hoverItem(index)}
+                      onClick={() => this.onItemClick(item)}
+                      class={classNames('cws-field-select-option', {
+                        'cws-field-select-option--is-selected': this.value === item.value,
+                        'cws-field-select-option--is-over': this.hoverItemIndex === index,
+                      })}
+                    >
+                      {item.label}
+                    </li>
+                  )
+                })
+              ) : (
+                <li class="cws-field-select-no-option">{this.noOptionsMessage}</li>
+              )}
             </ul>
           ) : null}
         </div>
