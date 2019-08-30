@@ -216,7 +216,7 @@ export class CwsFieldSelect {
             <cws-icon
               size="xxs"
               class={classNames('cws-field-select-dropdown-icon', {
-                'cws-field-select-dropdown-icon--up': this.showItems,
+                'cws-field-select-dropdown-icon--up': this.showItems && !this.value,
                 'cws-field-select-dropdown-icon--down': !this.showItems,
                 'cws-field-select-dropdown-icon--close': Boolean(this.value),
               })}
