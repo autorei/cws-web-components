@@ -159,6 +159,10 @@ export class CwsFieldSelect {
     this.searchItems()
   }
 
+  onCloseClick() {
+    this.value = ''
+  }
+
   render() {
     const selectedItemIndex = this.items.findIndex(item => item.value === this.value)
     const selectedItem = this.items[selectedItemIndex]
@@ -193,6 +197,7 @@ export class CwsFieldSelect {
                 'cws-field-select-dropdown-icon--down': !this.showItems,
                 'cws-field-select-dropdown-icon--close': Boolean(this.value),
               })}
+              onClick={this.value ? this.onCloseClick.bind(this) : null}
               icon={this.value ? 'close' : 'arrow-down'}
             />
 
@@ -205,20 +210,24 @@ export class CwsFieldSelect {
           </div>
           {this.showItems ? (
             <ul class="cws-field-select-options">
-              {this.filteredItems.map((item, index) => {
-                return (
-                  <li
-                    key={item.value}
-                    onMouseEnter={() => this.hoverItem(index)}
-                    class={classNames('cws-field-select-option', {
-                      'cws-field-select-option--is-selected': this.value === item.value,
-                      'cws-field-select-option--is-over': this.hoverItemIndex === index,
-                    })}
-                  >
-                    {item.label}
-                  </li>
-                )
-              })}
+              {this.filteredItems.length ? (
+                this.filteredItems.map((item, index) => {
+                  return (
+                    <li
+                      key={item.value}
+                      onMouseEnter={() => this.hoverItem(index)}
+                      class={classNames('cws-field-select-option', {
+                        'cws-field-select-option--is-selected': this.value === item.value,
+                        'cws-field-select-option--is-over': this.hoverItemIndex === index,
+                      })}
+                    >
+                      {item.label}
+                    </li>
+                  )
+                })
+              ) : (
+                <li class="cws-field-select-no-option">Sem opções</li>
+              )}
             </ul>
           ) : null}
         </div>

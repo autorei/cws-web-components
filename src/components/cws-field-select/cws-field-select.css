@@ -90,6 +90,7 @@
 .cws-field-select-dropdown-icon {
   position: absolute;
   right: 8px;
+  height: 15px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -133,4 +134,12 @@
   background-color: var(--color-primary-500);
   color: var(--color-primary-500-contrast);
   font-weight: var(--font-weight-regular);
+}
+
+.cws-field-select-no-option {
+  font-size: var(--font-size-md);
+  color: var(--color-neutral-700);
+  cursor: auto;
+  font-weight: var(--font-weight-regular);
+  padding: var(--spacing-inset-sm);
 }
