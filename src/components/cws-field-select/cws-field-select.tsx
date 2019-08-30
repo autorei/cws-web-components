@@ -92,6 +92,9 @@ export class CwsFieldSelect {
     this.value = event.target.value
     this.showItems = true
     this.searchItems()
+    if (!this.filteredItems.length) {
+      this.value = ''
+    }
   }
 
   handleDropDown(showItems: boolean = !this.showItems) {
@@ -99,7 +102,7 @@ export class CwsFieldSelect {
   }
 
   selectItem(item: Item) {
-    this.showItems = false
+    this.handleDropDown(false)
     this.value = item.value
     this.filteredItems = [...this.items]
   }
@@ -118,6 +121,7 @@ export class CwsFieldSelect {
     // Enter
     if (keyCode === 13) {
       this.value = this.filteredItems[this.hoverItemIndex].value
+      this.filteredItems = [...this.items]
       this.hoverItemIndex = 0
       this.handleDropDown(false)
       return
@@ -162,16 +166,19 @@ export class CwsFieldSelect {
               required={this.required}
               onInput={event => this.handleChange(event)}
               onFocus={() => this.handleDropDown(true)}
-              onBlur={() => this.handleDropDown(false)}
               onKeyDown={event => this.handleKeyDown(event)}
             />
             <div class="cws-field-select--dropdown-icon">
-              <span
-                class={classNames('dropdown-icon', {
-                  'dropdown-icon--up': this.showItems,
-                  'dropdown-icon--down': !this.showItems,
-                })}
-              ></span>
+              {this.value ? (
+                <span class="dropdown-icon icon-x">x</span>
+              ) : (
+                <span
+                  class={classNames('dropdown-icon', {
+                    'dropdown-icon--up': this.showItems,
+                    'dropdown-icon--down': !this.showItems,
+                  })}
+                ></span>
+              )}
             </div>
 
             {this.label && (

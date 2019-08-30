@@ -4,7 +4,8 @@
   padding-top: var(--font-size-sm);
 }
 
-.cws-field-select-input {
+.cws-field-select-input,
+.cws-field-select-wrap {
   position: relative;
 }
 
@@ -96,6 +97,10 @@
   width: 30px;
 }
 
+.icon-x {
+  top: 8px;
+}
+
 .dropdown-icon {
   position: absolute;
   left: 8px;
@@ -116,12 +121,16 @@
 }
 
 .cws-field-select-options {
+  background-color: var(--color-contrast-light);
   border: var(--border-width-thin) solid var(--color-neutral-400);
   border-radius: var(--border-radius-xs);
   height: auto;
   max-height: 184px;
   margin-top: var(--spacing-inline-xxs);
   overflow: auto;
+  position: absolute;
+  width: 100%;
+  z-index: var(--depth-field-select-dropdown);
 }
 
 .cws-field-select-option {

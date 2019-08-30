@@ -193,4 +193,7 @@
   --field-min-height-sm: 36px;
   --field-min-height-md: 48px;
   --field-min-height-lg: 60px;
+
+  /* select */
+  --depth-field-select-dropdown: 1;
 }
