@@ -13,7 +13,7 @@
 | `disabled`       | `disabled`         | Input disabled prop                        | `boolean` | `false`     |
 | `error`          | `error`            | Input error prop                           | `boolean` | `false`     |
 | `hint`           | `hint`             | Input helper message                       | `string`  | `undefined` |
-| `items`          | --                 | Expected an array to populate select       | `Item[]`  | `undefined` |
+| `items`          | --                 | Expected an array to populate select       | `Item[]`  | `[]`        |
 | `label`          | `label`            | Input label prop                           | `string`  | `'Label'`   |
 | `name`           | `name`             | Input name prop                            | `string`  | `'name'`    |
 | `required`       | `required`         | Select required prop                       | `boolean` | `false`     |
