@@ -15,7 +15,7 @@ const MyApp = () => {
     this.selectCountry.items = [{ label: 'Brazil', value: 'br', label: 'United States', value: 'us'}]
   }, [])
 
-  return return <cws-field-select name="country" label="Country" ref={(ref) => this.select = ref} />
+  return <cws-field-select name="country" label="Country" ref={(ref) => this.selectCountry = ref} />
 }
 ```
 
@@ -25,7 +25,7 @@ import React, { useEffect } from 'react'
 import { CwsFieldSelect } from 'cws-web-components/react'
 
 const MyApp = () => {
-  return return <CwsFieldSelect name="country" label="Country" items={[{ label: 'Brazil', value: 'br', label: 'United States', value: 'us'}]} />
+  return <CwsFieldSelect name="country" label="Country" items={[{ label: 'Brazil', value: 'br', label: 'United States', value: 'us'}]} />
 }
 ```
 
