@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const generateCmponent = (name) => {
+const generateComponent = (name) => {
   const componentClassName = name
     .split('-')
     .map(p => capitalize(p))
@@ -89,4 +89,4 @@ describe('${name}', () => {
   }
 }
 
-module.exports = generateCmponent
+module.exports = generateComponent
