@@ -1,4 +1,4 @@
-import { Component, Prop, h, State } from '@stencil/core'
+import { h, Component, Prop, State, Watch } from '@stencil/core'
 import classNames from 'classnames'
 
 interface Item {
@@ -63,7 +63,7 @@ export class CwsFieldSelect {
   /**
    * Expected an array to populate select
    */
-  @Prop() items: Item[]
+  @Prop() items: Item[] = []
 
   /**
    * State to show and hide select items
@@ -79,8 +79,15 @@ export class CwsFieldSelect {
 
   private filteredItems: Item[] = []
 
+  @Watch('items')
+  watchItemsHandler(newValue: Item[], oldValue: Item[]) {
+    if (newValue !== oldValue) {
+      this.filteredItems = newValue
+      this.searchItems()
+    }
+  }
+
   componentWillLoad() {
-    this.items = this.items
     this.filteredItems = this.items
   }
 
@@ -115,10 +122,15 @@ export class CwsFieldSelect {
   }
 
   scrollList() {
+    console.log('this.$optionsList ->', this.$optionsList)
     const $optionItem: HTMLLIElement = this.$optionsList.querySelector(
       `li:nth-child(${this.hoverItemIndex + 1})`,
     )
-    this.$optionsList.scrollTop = $optionItem.offsetTop - $optionItem.offsetHeight || 0
+
+    console.log('$optionItem ->', $optionItem)
+    if ($optionItem) {
+      this.$optionsList.scrollTop = $optionItem.offsetTop - $optionItem.offsetHeight || 0
+    }
   }
 
   handleKeyDown(event: { keyCode: number }) {
@@ -142,6 +154,7 @@ export class CwsFieldSelect {
       if (nextHoverItemIndex + 1 < itemsLength) {
         nextHoverItemIndex = currentItemIndex + 1
       }
+      this.scrollList()
     }
 
     // Up
@@ -149,10 +162,10 @@ export class CwsFieldSelect {
       if (nextHoverItemIndex - 1 >= 0) {
         nextHoverItemIndex = currentItemIndex - 1
       }
+      this.scrollList()
     }
 
     this.hoverItemIndex = nextHoverItemIndex
-    this.scrollList()
   }
 
   onInputBlur() {
