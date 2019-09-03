@@ -1,4 +1,4 @@
-import { Component, Prop, h, State } from '@stencil/core'
+import { h, Component, Prop, State, Watch } from '@stencil/core'
 import classNames from 'classnames'
 
 interface Item {
@@ -74,8 +74,15 @@ export class CwsFieldSelect {
 
   private filteredItems: Item[] = []
 
+  @Watch('items')
+  watchItemsHandler(newValue: Item[], oldValue: Item[]) {
+    if (newValue !== oldValue) {
+      this.filteredItems = newValue
+      this.searchItems()
+    }
+  }
+
   componentWillLoad() {
-    this.items = this.items
     this.filteredItems = this.items
   }
 
