@@ -1,10 +1,11 @@
 {
   "name": "cws-web-components",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "CWS Web Components",
   "author": "cws.digital",
   "license": "MIT",
   "main": "dist/index.js",
+  "react": "react/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
@@ -18,10 +19,11 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "react/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
+    "build": "npm run generate-react-components && stencil build --docs",
     "docs": "stencil build --docs-readme",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e --coverage",
@@ -30,6 +32,7 @@
     "test:lint:css": "stylelint \"src/**/*.css\"",
     "prettier": "prettier --config ./.prettierrc.json --write \"src/**/*{.js,.ts,.tsx,.css}\"",
     "generate": "node scripts/generate.js",
+    "generate-react-components": "node scripts/generate-react-components.js",
     "prepublishOnly": "npm run generate icons && npm run build"
   },
   "devDependencies": {
@@ -45,6 +48,7 @@
     "jest": "^24.9.0",
     "jest-cli": "^24.9.0",
     "lint-staged": "^9.2.5",
+    "lodash": "^4.17.15",
     "prettier": "^1.18.2",
     "puppeteer": "^1.19.0",
     "stylelint": "^10.1.0",

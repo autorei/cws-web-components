@@ -1,1 +1,3 @@
 src/components.d.ts
+dist/
+react/
