@@ -1,3 +1,37 @@
+/*
+This generator exist to prevent verbose usage of web componentes inside React projects.
+
+# Example of using Web Components without this generator:
+```js
+import React, { useEffect } from 'react'
+import { applyPolyfills, defineCustomElements } from 'cws-web-components/loader'
+
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+})
+
+const MyApp = () => {
+  useEffect(() => {
+    this.selectCountry.items = [{ label: 'Brazil', value: 'br', label: 'United States', value: 'us'}]
+  }, [])
+
+  return return <cws-field-select name="country" label="Country" ref={(ref) => this.select = ref} />
+}
+```
+
+# Example of using Web Components after this generator:
+```js
+import React, { useEffect } from 'react'
+import { CwsFieldSelect } from 'cws-web-components/react'
+
+const MyApp = () => {
+  return return <CwsFieldSelect name="country" label="Country" items={[{ label: 'Brazil', value: 'br', label: 'United States', value: 'us'}]} />
+}
+```
+
+*/
+
+
 const fs = require('fs')
 const _ = require('lodash')
 
