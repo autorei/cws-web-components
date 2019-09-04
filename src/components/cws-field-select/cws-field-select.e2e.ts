@@ -198,10 +198,10 @@ describe('cws-field-select', () => {
       { label: 'Polymer', value: '5' },
     ]
 
-    component.setAttribute('items', arr)
+    component.setProperty('items', arr)
     await page.waitForChanges()
-    expect(component).toHaveAttribute('items')
-    expect(component.getAttribute('items')).toContain(arr)
+    const componentItems = await component.getProperty('items')
+    expect(componentItems).toEqual(arr)
   })
 
   it('showItems is true', async () => {
@@ -222,9 +222,22 @@ describe('cws-field-select', () => {
     expect(element).toBeTruthy()
   })
 
-  it('selected item option', async () => {
+  it('selected item option by keyboard', async () => {
     const page = await newE2EPage()
     await page.setContent('<cws-field-select></cws-field-select>')
+    const component = await page.find('cws-field-select')
+
+    const arr = [
+      { label: 'Stencil', value: '1' },
+      { label: 'Google', value: '2' },
+      { label: 'React', value: '3' },
+      { label: 'JavaScript', value: '4' },
+      { label: 'Polymer', value: '5' },
+    ]
+    component.setProperty('items', arr)
+    await page.waitForChanges()
+    const componentItems = await component.getProperty('items')
+    expect(componentItems).toEqual(arr)
 
     const componentInput = await page.find('cws-field-select input')
     await componentInput.focus()
@@ -235,5 +248,36 @@ describe('cws-field-select', () => {
 
     const element = await page.find('.cws-field-select-options')
     expect(element).toBeTruthy()
+
+    await componentInput.press('ArrowDown')
+    const liElement = await component.findAll('.cws-field-select-option')
+    const oldIndex = liElement.findIndex(item =>
+      item.classList.contains('cws-field-select-option--is-over'),
+    )
+    await componentInput.press('ArrowDown')
+    let newIndex = liElement.findIndex(item =>
+      item.classList.contains('cws-field-select-option--is-over'),
+    )
+    expect(newIndex).toBe(oldIndex + 1)
+
+    await componentInput.press('ArrowUp')
+    newIndex = liElement.findIndex(item =>
+      item.classList.contains('cws-field-select-option--is-over'),
+    )
+    expect(newIndex).toBe(oldIndex)
+
+    await componentInput.press('Enter')
+    expect(arrowIcon).toHaveClass('cws-field-select-dropdown-icon--down')
+
+    await componentInput.press('ArrowDown')
+    await page.waitForChanges()
+
+    const currentLi = await page.find('.cws-field-select-option--is-selected')
+    const currentValue = await componentInput.getProperty('value')
+    expect(currentValue).toBe(currentLi.innerText)
   })
+
+  it('selected item option by tab', async () => {})
+
+  it('close dropdown by esc ', async () => {})
 })
