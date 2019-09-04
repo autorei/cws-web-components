@@ -317,5 +317,34 @@ describe('cws-field-select', () => {
     expect(hasValue).toBeTruthy()
   })
 
-  it('close dropdown by esc ', async () => {})
+  it('close dropdown by esc ', async () => {
+    const page = await newE2EPage()
+    await page.setContent('<cws-field-select></cws-field-select>')
+    const component = await page.find('cws-field-select')
+
+    const arr = [
+      { label: 'Stencil', value: '1' },
+      { label: 'Google', value: '2' },
+      { label: 'React', value: '3' },
+      { label: 'JavaScript', value: '4' },
+      { label: 'Polymer', value: '5' },
+    ]
+    component.setProperty('items', arr)
+    await page.waitForChanges()
+    const componentItems = await component.getProperty('items')
+    expect(componentItems).toEqual(arr)
+
+    const componentInput = await page.find('cws-field-select input')
+    await componentInput.focus()
+
+    const arrowIcon = await page.find('cws-icon')
+    expect(arrowIcon).toHaveClass('cws-field-select-dropdown-icon--up')
+    expect(arrowIcon).not.toHaveClass('cws-field-select-dropdown-icon--down')
+
+    const element = await page.find('.cws-field-select-options')
+    expect(element).toBeTruthy()
+
+    await componentInput.press('Escape')
+    expect(arrowIcon).toHaveClass('cws-field-select-dropdown-icon--down')
+  })
 })
