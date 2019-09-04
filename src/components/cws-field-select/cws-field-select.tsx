@@ -95,14 +95,13 @@ export class CwsFieldSelect {
     this.filteredItems = [...this.items]
 
     let updatedList = this.filteredItems
-    updatedList = updatedList.filter(item => {
-      return (
+    updatedList = updatedList.filter(
+      item =>
         item.label
           .toString()
           .toLowerCase()
-          .search(this.value.toString().toLowerCase()) !== -1
-      )
-    })
+          .search(this.value.toString().toLowerCase()) !== -1,
+    )
 
     this.filteredItems = updatedList
   }
@@ -183,7 +182,6 @@ export class CwsFieldSelect {
   }
 
   onInputBlur() {
-    // timeout workaround (aka gambiarra)
     // to prevent close dropdown without setting value when click on item
     window.setTimeout(() => {
       this.handleDropDown(false)
