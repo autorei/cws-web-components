@@ -35,6 +35,48 @@ export namespace Components {
     */
     'variant': 'primary' | 'secondary';
   }
+  interface CwsFieldSelect {
+    /**
+    * Clear field value if no item match with it
+    */
+    'clearIfInvalid': boolean;
+    /**
+    * Select disabled prop
+    */
+    'disabled': boolean;
+    /**
+    * Select error prop
+    */
+    'error': boolean;
+    /**
+    * Select helper message
+    */
+    'hint'?: string;
+    /**
+    * Expected an array to populate select
+    */
+    'items': Item[];
+    /**
+    * Select label prop
+    */
+    'label': string;
+    /**
+    * Select name prop
+    */
+    'name': string;
+    /**
+    * Select no option message message
+    */
+    'noOptionsMessage'?: string;
+    /**
+    * Select required prop
+    */
+    'required': boolean;
+    /**
+    * Input value
+    */
+    'value': string;
+  }
   interface CwsFieldText {
     /**
     * Input disabled state
@@ -90,6 +132,12 @@ declare global {
     new (): HTMLCwsButtonElement;
   };
 
+  interface HTMLCwsFieldSelectElement extends Components.CwsFieldSelect, HTMLStencilElement {}
+  var HTMLCwsFieldSelectElement: {
+    prototype: HTMLCwsFieldSelectElement;
+    new (): HTMLCwsFieldSelectElement;
+  };
+
   interface HTMLCwsFieldTextElement extends Components.CwsFieldText, HTMLStencilElement {}
   var HTMLCwsFieldTextElement: {
     prototype: HTMLCwsFieldTextElement;
@@ -103,6 +151,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'cws-button': HTMLCwsButtonElement;
+    'cws-field-select': HTMLCwsFieldSelectElement;
     'cws-field-text': HTMLCwsFieldTextElement;
     'cws-icon': HTMLCwsIconElement;
   }
@@ -134,6 +183,48 @@ declare namespace LocalJSX {
     * Button style
     */
     'variant'?: 'primary' | 'secondary';
+  }
+  interface CwsFieldSelect extends JSXBase.HTMLAttributes<HTMLCwsFieldSelectElement> {
+    /**
+    * Clear field value if no item match with it
+    */
+    'clearIfInvalid'?: boolean;
+    /**
+    * Select disabled prop
+    */
+    'disabled'?: boolean;
+    /**
+    * Select error prop
+    */
+    'error'?: boolean;
+    /**
+    * Select helper message
+    */
+    'hint'?: string;
+    /**
+    * Expected an array to populate select
+    */
+    'items'?: Item[];
+    /**
+    * Select label prop
+    */
+    'label'?: string;
+    /**
+    * Select name prop
+    */
+    'name'?: string;
+    /**
+    * Select no option message message
+    */
+    'noOptionsMessage'?: string;
+    /**
+    * Select required prop
+    */
+    'required'?: boolean;
+    /**
+    * Input value
+    */
+    'value'?: string;
   }
   interface CwsFieldText extends JSXBase.HTMLAttributes<HTMLCwsFieldTextElement> {
     /**
@@ -182,6 +273,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'cws-button': CwsButton;
+    'cws-field-select': CwsFieldSelect;
     'cws-field-text': CwsFieldText;
     'cws-icon': CwsIcon;
   }

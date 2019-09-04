@@ -10,6 +10,7 @@
   font-weight: var(--font-weight-bold);
   cursor: pointer;
   white-space: nowrap;
+  width: inherit;
 }
 
 .cws-button:disabled,
