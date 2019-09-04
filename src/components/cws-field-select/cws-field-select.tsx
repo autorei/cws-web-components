@@ -122,12 +122,14 @@ export class CwsFieldSelect {
   }
 
   scrollList() {
-    console.log('this.$optionsList ->', this.$optionsList)
+    if (!this.$optionsList) {
+      return
+    }
+
     const $optionItem: HTMLLIElement = this.$optionsList.querySelector(
       `li:nth-child(${this.hoverItemIndex + 1})`,
     )
 
-    console.log('$optionItem ->', $optionItem)
     if ($optionItem) {
       this.$optionsList.scrollTop = $optionItem.offsetTop - $optionItem.offsetHeight || 0
     }
@@ -139,6 +141,18 @@ export class CwsFieldSelect {
     const currentItemIndex = this.hoverItemIndex
     let nextHoverItemIndex = currentItemIndex
     this.handleDropDown(true)
+
+    // Tab
+    if (keyCode === 9 && !this.clearIfInvalid && this.filteredItems[this.hoverItemIndex]) {
+      this.value = this.filteredItems[this.hoverItemIndex].value
+      return
+    }
+
+    // Esc
+    if (keyCode === 27) {
+      this.handleDropDown(false)
+      return
+    }
 
     // Enter
     if (keyCode === 13) {
@@ -189,6 +203,7 @@ export class CwsFieldSelect {
     this.value = event.target.value
     this.showItems = true
     this.searchItems()
+    this.hoverItemIndex = 0
   }
 
   onCloseClick() {
