@@ -1,9 +1,10 @@
 const fs = require('fs')
+const _ = require('lodash')
 
 const generateComponent = (name) => {
   const componentClassName = name
     .split('-')
-    .map(p => capitalize(p))
+    .map(p => _.capitalize(p))
     .join('')
 
   if (name.indexOf('cws-') !== 0) {
