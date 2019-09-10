@@ -85,3 +85,10 @@
   font-size: var(--font-size-md);
   padding: var(--spacing-squish-md);
 }
+
+.cws-button--inside {
+  width: var(--button-width-inside-field);
+  height: var(--button-height-inside-field);
+  font-size: var(--font-size-md);
+  padding: var(--spacing-squish-sm);
+}

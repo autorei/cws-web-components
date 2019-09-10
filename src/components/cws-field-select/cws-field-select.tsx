@@ -61,7 +61,7 @@ export class CwsFieldSelect {
   @Prop() clearIfInvalid: boolean = true
 
   /**
-   * Input width nline (default: blocked)
+   * Input width inline (default: blocked)
    */
   @Prop() inline: boolean = false
 

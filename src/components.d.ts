@@ -25,7 +25,7 @@ export namespace Components {
     /**
     * Button size
     */
-    'size': 'lg' | 'md' | 'sm';
+    'size': 'lg' | 'md' | 'sm' | 'inside';
     /**
     * Button type, not applicable if the component receive `href` prop
     */
@@ -34,6 +34,16 @@ export namespace Components {
     * Button style
     */
     'variant': 'primary' | 'secondary';
+  }
+  interface CwsFieldButton {
+    /**
+    * Input width inline (default: blocked)
+    */
+    'inline': boolean;
+    /**
+    * component Name
+    */
+    'name': string;
   }
   interface CwsFieldSelect {
     /**
@@ -52,6 +62,10 @@ export namespace Components {
     * Select helper message
     */
     'hint'?: string;
+    /**
+    * Input width inline (default: blocked)
+    */
+    'inline': boolean;
     /**
     * Expected an array to populate select
     */
@@ -90,6 +104,10 @@ export namespace Components {
     * Input hint message
     */
     'hint'?: string;
+    /**
+    * Input width inline (default: blocked)
+    */
+    'inline': boolean;
     /**
     * Input label
     */
@@ -132,6 +150,12 @@ declare global {
     new (): HTMLCwsButtonElement;
   };
 
+  interface HTMLCwsFieldButtonElement extends Components.CwsFieldButton, HTMLStencilElement {}
+  var HTMLCwsFieldButtonElement: {
+    prototype: HTMLCwsFieldButtonElement;
+    new (): HTMLCwsFieldButtonElement;
+  };
+
   interface HTMLCwsFieldSelectElement extends Components.CwsFieldSelect, HTMLStencilElement {}
   var HTMLCwsFieldSelectElement: {
     prototype: HTMLCwsFieldSelectElement;
@@ -151,6 +175,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'cws-button': HTMLCwsButtonElement;
+    'cws-field-button': HTMLCwsFieldButtonElement;
     'cws-field-select': HTMLCwsFieldSelectElement;
     'cws-field-text': HTMLCwsFieldTextElement;
     'cws-icon': HTMLCwsIconElement;
@@ -174,7 +199,7 @@ declare namespace LocalJSX {
     /**
     * Button size
     */
-    'size'?: 'lg' | 'md' | 'sm';
+    'size'?: 'lg' | 'md' | 'sm' | 'inside';
     /**
     * Button type, not applicable if the component receive `href` prop
     */
@@ -183,6 +208,16 @@ declare namespace LocalJSX {
     * Button style
     */
     'variant'?: 'primary' | 'secondary';
+  }
+  interface CwsFieldButton extends JSXBase.HTMLAttributes<HTMLCwsFieldButtonElement> {
+    /**
+    * Input width inline (default: blocked)
+    */
+    'inline'?: boolean;
+    /**
+    * component Name
+    */
+    'name'?: string;
   }
   interface CwsFieldSelect extends JSXBase.HTMLAttributes<HTMLCwsFieldSelectElement> {
     /**
@@ -201,6 +236,10 @@ declare namespace LocalJSX {
     * Select helper message
     */
     'hint'?: string;
+    /**
+    * Input width inline (default: blocked)
+    */
+    'inline'?: boolean;
     /**
     * Expected an array to populate select
     */
@@ -240,6 +279,10 @@ declare namespace LocalJSX {
     */
     'hint'?: string;
     /**
+    * Input width inline (default: blocked)
+    */
+    'inline'?: boolean;
+    /**
     * Input label
     */
     'label'?: string;
@@ -273,6 +316,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'cws-button': CwsButton;
+    'cws-field-button': CwsFieldButton;
     'cws-field-select': CwsFieldSelect;
     'cws-field-text': CwsFieldText;
     'cws-icon': CwsIcon;

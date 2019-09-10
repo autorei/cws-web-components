@@ -1,0 +1,16 @@
+.cws-field-button-wrapper {
+  display: flex;
+}
+
+.cws-field-button-wrapper.cws-field-button-inline {
+  display: inline-flex;
+}
+
+.cws-field-button-input {
+  flex: 1;
+}
+
+.cws-field-button-knob {
+  transform: translateX(-5px);
+  padding-top: var(--font-size-sm);
+}
