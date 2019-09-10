@@ -57,20 +57,20 @@ describe('cws-field-text', () => {
     expect(element).toHaveAttribute('required')
   })
 
-  it('renders changes to the required prop', async () => {
-    const page = await newE2EPage()
-
-    await page.setContent('<cws-field-text required></cws-field-text>')
-    const element = await page.find('cws-field-text input')
-    expect(element).toHaveAttribute('required')
-  })
-
   it('renders changes to the disabled prop', async () => {
     const page = await newE2EPage()
 
     await page.setContent('<cws-field-text disabled></cws-field-text>')
     const element = await page.find('cws-field-text input')
     expect(element).toHaveAttribute('disabled')
+  })
+
+  it('renders with inline prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-text inline></cws-field-text>')
+    const element = await page.find('cws-field-text')
+    expect(element).toHaveAttribute('inline')
   })
 
   it('renders without label prop', async () => {

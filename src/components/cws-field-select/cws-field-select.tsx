@@ -61,6 +61,11 @@ export class CwsFieldSelect {
   @Prop() clearIfInvalid: boolean = true
 
   /**
+   * Input width nline (default: blocked)
+   */
+  @Prop() inline: boolean = false
+
+  /**
    * Expected an array to populate select
    */
   @Prop() items: Item[] = []
@@ -220,6 +225,7 @@ export class CwsFieldSelect {
     return (
       <div
         class={classNames('cws-field-select', {
+          'cws-field-select-inline': this.inline,
           'cws-field-select--has-hint': Boolean(this.hint),
           'cws-field-select--has-value': this.value !== '',
           'cws-field-select--is-error': this.error,

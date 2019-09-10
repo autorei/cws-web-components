@@ -1,7 +1,11 @@
 .cws-field-select {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   padding-top: var(--font-size-sm);
+}
+
+.cws-field-select.cws-field-select-inline {
+  display: inline-flex;
 }
 
 .cws-field-select-field,
@@ -20,6 +24,11 @@
   border: var(--border-width-thin) solid var(--color-neutral-400);
   border-radius: var(--border-radius-xs);
   box-sizing: border-box;
+  width: 100%;
+}
+
+.cws-field-select-inline .cws-field-select-input {
+  width: auto;
 }
 
 .cws-field-select-input:focus {

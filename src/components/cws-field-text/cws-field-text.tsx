@@ -50,6 +50,11 @@ export class CwsFieldText {
    */
   @Prop() required: boolean = false
 
+  /**
+   * Input width inline (default: blocked)
+   */
+  @Prop() inline: boolean = false
+
   handleChange(event) {
     this.value = event.target.value
   }
@@ -58,6 +63,7 @@ export class CwsFieldText {
     return (
       <div
         class={classNames('cws-field-text', {
+          'cws-field-text-inline': this.inline,
           'cws-field-text--has-hint': Boolean(this.hint),
           'cws-field-text--has-value': this.value !== '',
           'cws-field-text--is-error': this.error,
