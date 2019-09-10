@@ -37,13 +37,61 @@ export namespace Components {
   }
   interface CwsFieldButton {
     /**
+    * Button Autofocus state
+    */
+    'autofocus': boolean;
+    /**
+    * Button label
+    */
+    'buttonLabel': string;
+    /**
+    * Button type, not applicable if the component receive `href` prop
+    */
+    'buttonType': 'button' | 'submit' | 'reset';
+    /**
+    * Input and Button disabled state
+    */
+    'disabled': boolean;
+    /**
+    * Input error state
+    */
+    'error': boolean;
+    /**
+    * Input hint message
+    */
+    'hint'?: string;
+    /**
+    * Button href to redirect user. It render an anchor tag (`<a></a>`) instead of a button one
+    */
+    'href'?: string;
+    /**
     * Input width inline (default: blocked)
     */
     'inline': boolean;
     /**
+    * Input type
+    */
+    'inputType': 'text' | 'password' | 'email';
+    /**
+    * Input label
+    */
+    'label': string;
+    /**
     * component Name
     */
     'name': string;
+    /**
+    * Input required state
+    */
+    'required': boolean;
+    /**
+    * component value
+    */
+    'value': string;
+    /**
+    * Button style
+    */
+    'variant': 'primary' | 'secondary';
   }
   interface CwsFieldSelect {
     /**
@@ -211,13 +259,61 @@ declare namespace LocalJSX {
   }
   interface CwsFieldButton extends JSXBase.HTMLAttributes<HTMLCwsFieldButtonElement> {
     /**
+    * Button Autofocus state
+    */
+    'autofocus'?: boolean;
+    /**
+    * Button label
+    */
+    'buttonLabel'?: string;
+    /**
+    * Button type, not applicable if the component receive `href` prop
+    */
+    'buttonType'?: 'button' | 'submit' | 'reset';
+    /**
+    * Input and Button disabled state
+    */
+    'disabled'?: boolean;
+    /**
+    * Input error state
+    */
+    'error'?: boolean;
+    /**
+    * Input hint message
+    */
+    'hint'?: string;
+    /**
+    * Button href to redirect user. It render an anchor tag (`<a></a>`) instead of a button one
+    */
+    'href'?: string;
+    /**
     * Input width inline (default: blocked)
     */
     'inline'?: boolean;
     /**
+    * Input type
+    */
+    'inputType'?: 'text' | 'password' | 'email';
+    /**
+    * Input label
+    */
+    'label'?: string;
+    /**
     * component Name
     */
     'name'?: string;
+    /**
+    * Input required state
+    */
+    'required'?: boolean;
+    /**
+    * component value
+    */
+    'value'?: string;
+    /**
+    * Button style
+    */
+    'variant'?: 'primary' | 'secondary';
   }
   interface CwsFieldSelect extends JSXBase.HTMLAttributes<HTMLCwsFieldSelectElement> {
     /**

@@ -8,6 +8,7 @@
 
 .cws-field-button-input {
   flex: 1;
+  min-width: var(--field-button-min-width);
 }
 
 .cws-field-button-knob {
