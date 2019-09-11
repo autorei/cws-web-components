@@ -25,7 +25,7 @@ export namespace Components {
     /**
     * Button size
     */
-    'size': 'lg' | 'md' | 'sm' | 'inside';
+    'size': 'lg' | 'md' | 'sm' | 'inside-field';
     /**
     * Button type, not applicable if the component receive `href` prop
     */
@@ -35,63 +35,11 @@ export namespace Components {
     */
     'variant': 'primary' | 'secondary';
   }
-  interface CwsFieldButton {
-    /**
-    * Button Autofocus state
-    */
-    'autofocus': boolean;
-    /**
-    * Button label
-    */
-    'buttonLabel': string;
-    /**
-    * Button type, not applicable if the component receive `href` prop
-    */
-    'buttonType': 'button' | 'submit' | 'reset';
-    /**
-    * Input and Button disabled state
-    */
-    'disabled': boolean;
-    /**
-    * Input error state
-    */
-    'error': boolean;
-    /**
-    * Input hint message
-    */
-    'hint'?: string;
-    /**
-    * Button href to redirect user. It render an anchor tag (`<a></a>`) instead of a button one
-    */
-    'href'?: string;
+  interface CwsFieldButtonWrapper {
     /**
     * Input width inline (default: blocked)
     */
     'inline': boolean;
-    /**
-    * Input type
-    */
-    'inputType': 'text' | 'password' | 'email';
-    /**
-    * Input label
-    */
-    'label': string;
-    /**
-    * component Name
-    */
-    'name': string;
-    /**
-    * Input required state
-    */
-    'required': boolean;
-    /**
-    * component value
-    */
-    'value': string;
-    /**
-    * Button style
-    */
-    'variant': 'primary' | 'secondary';
   }
   interface CwsFieldSelect {
     /**
@@ -198,10 +146,10 @@ declare global {
     new (): HTMLCwsButtonElement;
   };
 
-  interface HTMLCwsFieldButtonElement extends Components.CwsFieldButton, HTMLStencilElement {}
-  var HTMLCwsFieldButtonElement: {
-    prototype: HTMLCwsFieldButtonElement;
-    new (): HTMLCwsFieldButtonElement;
+  interface HTMLCwsFieldButtonWrapperElement extends Components.CwsFieldButtonWrapper, HTMLStencilElement {}
+  var HTMLCwsFieldButtonWrapperElement: {
+    prototype: HTMLCwsFieldButtonWrapperElement;
+    new (): HTMLCwsFieldButtonWrapperElement;
   };
 
   interface HTMLCwsFieldSelectElement extends Components.CwsFieldSelect, HTMLStencilElement {}
@@ -223,7 +171,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'cws-button': HTMLCwsButtonElement;
-    'cws-field-button': HTMLCwsFieldButtonElement;
+    'cws-field-button-wrapper': HTMLCwsFieldButtonWrapperElement;
     'cws-field-select': HTMLCwsFieldSelectElement;
     'cws-field-text': HTMLCwsFieldTextElement;
     'cws-icon': HTMLCwsIconElement;
@@ -247,7 +195,7 @@ declare namespace LocalJSX {
     /**
     * Button size
     */
-    'size'?: 'lg' | 'md' | 'sm' | 'inside';
+    'size'?: 'lg' | 'md' | 'sm' | 'inside-field';
     /**
     * Button type, not applicable if the component receive `href` prop
     */
@@ -257,63 +205,11 @@ declare namespace LocalJSX {
     */
     'variant'?: 'primary' | 'secondary';
   }
-  interface CwsFieldButton extends JSXBase.HTMLAttributes<HTMLCwsFieldButtonElement> {
-    /**
-    * Button Autofocus state
-    */
-    'autofocus'?: boolean;
-    /**
-    * Button label
-    */
-    'buttonLabel'?: string;
-    /**
-    * Button type, not applicable if the component receive `href` prop
-    */
-    'buttonType'?: 'button' | 'submit' | 'reset';
-    /**
-    * Input and Button disabled state
-    */
-    'disabled'?: boolean;
-    /**
-    * Input error state
-    */
-    'error'?: boolean;
-    /**
-    * Input hint message
-    */
-    'hint'?: string;
-    /**
-    * Button href to redirect user. It render an anchor tag (`<a></a>`) instead of a button one
-    */
-    'href'?: string;
+  interface CwsFieldButtonWrapper extends JSXBase.HTMLAttributes<HTMLCwsFieldButtonWrapperElement> {
     /**
     * Input width inline (default: blocked)
     */
     'inline'?: boolean;
-    /**
-    * Input type
-    */
-    'inputType'?: 'text' | 'password' | 'email';
-    /**
-    * Input label
-    */
-    'label'?: string;
-    /**
-    * component Name
-    */
-    'name'?: string;
-    /**
-    * Input required state
-    */
-    'required'?: boolean;
-    /**
-    * component value
-    */
-    'value'?: string;
-    /**
-    * Button style
-    */
-    'variant'?: 'primary' | 'secondary';
   }
   interface CwsFieldSelect extends JSXBase.HTMLAttributes<HTMLCwsFieldSelectElement> {
     /**
@@ -412,7 +308,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'cws-button': CwsButton;
-    'cws-field-button': CwsFieldButton;
+    'cws-field-button-wrapper': CwsFieldButtonWrapper;
     'cws-field-select': CwsFieldSelect;
     'cws-field-text': CwsFieldText;
     'cws-icon': CwsIcon;

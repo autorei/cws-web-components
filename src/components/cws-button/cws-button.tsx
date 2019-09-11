@@ -15,7 +15,7 @@ export class CwsButton {
   /**
    * Button size
    */
-  @Prop() size: 'lg' | 'md' | 'sm' | 'inside' = 'md'
+  @Prop() size: 'lg' | 'md' | 'sm' | 'inside-field' = 'md'
 
   /**
    * Button type, not applicable if the component receive `href` prop

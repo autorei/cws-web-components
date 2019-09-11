@@ -17,6 +17,7 @@
 .cws-button--disabled {
   pointer-events: none;
   opacity: var(--opacity-4);
+  background-color: var(--color-neutral-500);
 }
 
 .cws-button:focus {
@@ -86,7 +87,7 @@
   padding: var(--spacing-squish-md);
 }
 
-.cws-button--inside {
+.cws-button--inside-field {
   width: var(--field-button-width);
   height: var(--field-button-height);
   font-size: var(--font-size-md);
