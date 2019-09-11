@@ -35,6 +35,24 @@ export namespace Components {
     */
     'variant': 'primary' | 'secondary';
   }
+  interface CwsFieldNumber {
+    /**
+    * Max number lenth prop
+    */
+    'maxLength': number;
+    /**
+    * Name component prop
+    */
+    'name': string;
+    /**
+    * If true, the input will not have negative numbers.
+    */
+    'onlyPositiveNumbers': boolean;
+    /**
+    * value prop
+    */
+    'value': string;
+  }
   interface CwsFieldSelect {
     /**
     * Clear field value if no item match with it
@@ -132,6 +150,12 @@ declare global {
     new (): HTMLCwsButtonElement;
   };
 
+  interface HTMLCwsFieldNumberElement extends Components.CwsFieldNumber, HTMLStencilElement {}
+  var HTMLCwsFieldNumberElement: {
+    prototype: HTMLCwsFieldNumberElement;
+    new (): HTMLCwsFieldNumberElement;
+  };
+
   interface HTMLCwsFieldSelectElement extends Components.CwsFieldSelect, HTMLStencilElement {}
   var HTMLCwsFieldSelectElement: {
     prototype: HTMLCwsFieldSelectElement;
@@ -151,6 +175,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'cws-button': HTMLCwsButtonElement;
+    'cws-field-number': HTMLCwsFieldNumberElement;
     'cws-field-select': HTMLCwsFieldSelectElement;
     'cws-field-text': HTMLCwsFieldTextElement;
     'cws-icon': HTMLCwsIconElement;
@@ -183,6 +208,24 @@ declare namespace LocalJSX {
     * Button style
     */
     'variant'?: 'primary' | 'secondary';
+  }
+  interface CwsFieldNumber extends JSXBase.HTMLAttributes<HTMLCwsFieldNumberElement> {
+    /**
+    * Max number lenth prop
+    */
+    'maxLength'?: number;
+    /**
+    * Name component prop
+    */
+    'name'?: string;
+    /**
+    * If true, the input will not have negative numbers.
+    */
+    'onlyPositiveNumbers'?: boolean;
+    /**
+    * value prop
+    */
+    'value'?: string;
   }
   interface CwsFieldSelect extends JSXBase.HTMLAttributes<HTMLCwsFieldSelectElement> {
     /**
@@ -273,6 +316,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'cws-button': CwsButton;
+    'cws-field-number': CwsFieldNumber;
     'cws-field-select': CwsFieldSelect;
     'cws-field-text': CwsFieldText;
     'cws-icon': CwsIcon;
