@@ -8,71 +8,85 @@ export class CwsFieldNumber {
   /**
    * Name component prop
    */
-  @Prop() name: string
+  @Prop() name: string = 'name'
 
   /**
-   * value prop
+   * Value input prop
    */
   @Prop({
     mutable: true,
     reflect: true,
   })
-  value: string = '0'
+  value: number
 
   /**
-   * Max number lenth prop
+   * max input prop
    */
-  @Prop() maxLength: number = 4
+  @Prop() max: number
 
   /**
-   * If true, the input will not have negative numbers.
+   * min input prop
    */
-  @Prop() onlyPositiveNumbers: boolean = false
-
-  onlyNumbers = (value: string) => value.replace(/(^-{1})|(\d)|(\D)/g, '$1$2')
+  @Prop() min: number
 
   handleChange(e) {
-    this.value = this.onlyNumbers(e.target.value)
+    this.value = e.target.value
+    if (this.value > this.max) {
+      this.value = this.max
+    }
   }
 
   handleCounter(state: string) {
-    let newValue = parseInt(this.value, 10)
+    let newValue = this.value
 
     if (!this.value || !newValue) {
       newValue = 0
     }
 
-    if (newValue <= 0 && this.onlyPositiveNumbers) {
-      return
-    }
-
     if (state === 'increment') {
+      // if(this.min != '1') {
+      //   newValue = 0
+      // }
       newValue += 1
     }
 
     if (state === 'decrement') {
+      // if(this.min != 1) {
+      //   newValue = 1
+      // }
       newValue -= 1
     }
 
-    this.value = newValue.toString()
+    this.value = newValue
   }
 
   render() {
+    const inputValue = this.value > this.max ? this.max : this.value
+    console.log(inputValue)
     return (
       <div class="cws-field-number">
-        <span class="cws-field-number-button" onClick={() => this.handleCounter('decrement')}>
-          &ndash;
-        </span>
+        <cws-icon
+          class="cws-field-number-button"
+          size="xxs"
+          icon="minus"
+          onClick={() => this.handleCounter('decrement')}
+        />
         <input
           class="cws-field-number-counter"
-          maxlength={this.maxLength}
-          type="text"
-          value={this.value}
+          max={this.max}
+          min={this.min}
+          type="number"
+          value={inputValue}
           onInput={e => this.handleChange(e)}
+          onChange={e => this.handleChange(e)}
+          name={this.name}
         />
-        <span class="cws-field-number-button" onClick={() => this.handleCounter('increment')}>
-          +
-        </span>
+        <cws-icon
+          class="cws-field-number-button"
+          size="xxs"
+          icon="plus"
+          onClick={() => this.handleCounter('increment')}
+        />
       </div>
     )
   }

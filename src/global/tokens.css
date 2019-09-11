@@ -196,4 +196,7 @@
 
   /* select */
   --depth-field-select-dropdown: 1;
+
+  /* field number */
+  --spacing-inline-icons: 12px;
 }

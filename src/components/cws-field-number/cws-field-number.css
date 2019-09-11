@@ -1,11 +1,11 @@
 .cws-field-number {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   border: var(--border-width-thin) solid var(--color-neutral-400);
   border-radius: var(--border-radius-xxs);
   background-color: var(--color-neutral-100);
-  height: 40px;
+  height: var(--field-min-height-md);
 }
 
 .cws-field-number-counter {
@@ -17,12 +17,25 @@
   font-size: var(--font-size-md);
   letter-spacing: 0.2px;
   line-height: var(--spacing-inline-sm);
+  -moz-appearance: textfield;
+  flex: 1;
+}
+
+/* Webkit browsers like Safari and Chrome */
+.cws-field-number-counter::-webkit-inner-spin-button,
+.cws-field-number-counter::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .cws-field-number-button {
   display: block;
-  margin: 0 var(--spacing-inline-xs);
+  margin: 0 var(--spacing-inline-icons);
   color: var(--color-neutral-600);
   font-size: var(--font-size-lg);
   cursor: pointer;
+}
+
+.cws-field-number-button svg {
+  vertical-align: middle;
 }

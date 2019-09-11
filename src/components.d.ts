@@ -37,21 +37,21 @@ export namespace Components {
   }
   interface CwsFieldNumber {
     /**
-    * Max number lenth prop
+    * max input prop
     */
-    'maxLength': number;
+    'max': number;
+    /**
+    * min input prop
+    */
+    'min': number;
     /**
     * Name component prop
     */
     'name': string;
     /**
-    * If true, the input will not have negative numbers.
+    * Value input prop
     */
-    'onlyPositiveNumbers': boolean;
-    /**
-    * value prop
-    */
-    'value': string;
+    'value': number;
   }
   interface CwsFieldSelect {
     /**
@@ -211,21 +211,21 @@ declare namespace LocalJSX {
   }
   interface CwsFieldNumber extends JSXBase.HTMLAttributes<HTMLCwsFieldNumberElement> {
     /**
-    * Max number lenth prop
+    * max input prop
     */
-    'maxLength'?: number;
+    'max'?: number;
+    /**
+    * min input prop
+    */
+    'min'?: number;
     /**
     * Name component prop
     */
     'name'?: string;
     /**
-    * If true, the input will not have negative numbers.
+    * Value input prop
     */
-    'onlyPositiveNumbers'?: boolean;
-    /**
-    * value prop
-    */
-    'value'?: string;
+    'value'?: number;
   }
   interface CwsFieldSelect extends JSXBase.HTMLAttributes<HTMLCwsFieldSelectElement> {
     /**
