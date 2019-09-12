@@ -89,6 +89,7 @@ export class CwsFieldNumber {
       <div class={fieldNumberClasses}>
         <button
           class="cws-field-number-button"
+          data-test="decrement"
           onClick={() => this.handleCounter('decrement')}
           disabled={this.disabled || (this.disabledButton && this.value === this.min)}
         >
@@ -107,6 +108,7 @@ export class CwsFieldNumber {
         />
         <button
           class="cws-field-number-button"
+          data-test="increment"
           onClick={() => this.handleCounter('increment')}
           disabled={this.disabled || (this.disabledButton && this.value === this.max)}
         >
