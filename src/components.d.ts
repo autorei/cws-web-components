@@ -45,6 +45,10 @@ export namespace Components {
     */
     'disabledButton': boolean;
     /**
+    * Input height
+    */
+    'height': 'lg' | 'md' | 'sm';
+    /**
     * Set a max value input prop
     */
     'max': number;
@@ -226,6 +230,10 @@ declare namespace LocalJSX {
     * If true, disabled only buttons when input value is equal to min and max props
     */
     'disabledButton'?: boolean;
+    /**
+    * Input height
+    */
+    'height'?: 'lg' | 'md' | 'sm';
     /**
     * Set a max value input prop
     */

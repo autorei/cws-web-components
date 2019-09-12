@@ -4,7 +4,18 @@
   border: var(--border-width-thin) solid var(--color-neutral-400);
   border-radius: var(--border-radius-xxs);
   background-color: var(--color-neutral-100);
+}
+
+.cws-field-number--sm {
+  height: var(--field-min-height-sm);
+}
+
+.cws-field-number--md {
   height: var(--field-min-height-md);
+}
+
+.cws-field-number--lg {
+  height: var(--field-min-height-lg);
 }
 
 .cws-field-number-counter {
@@ -53,8 +64,4 @@
 
 .cws-field-number-button:disabled:last-child {
   border-left: var(--border-width-thin) solid var(--color-neutral-400);
-}
-
-.cws-field-number-button svg {
-  vertical-align: middle;
 }

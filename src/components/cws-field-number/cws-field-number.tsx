@@ -1,15 +1,11 @@
 import { Component, Prop, h } from '@stencil/core'
+import classNames from 'classnames'
 
 @Component({
   tag: 'cws-field-number',
   styleUrl: 'cws-field-number.css',
 })
 export class CwsFieldNumber {
-  /**
-   * Name component prop
-   */
-  @Prop() name: string = 'name'
-
   /**
    * Value input prop
    */
@@ -18,6 +14,16 @@ export class CwsFieldNumber {
     reflect: true,
   })
   value: number = 1
+
+  /**
+   * Name component prop
+   */
+  @Prop() name: string = 'name'
+
+  /**
+   * Input height
+   */
+  @Prop() height: 'lg' | 'md' | 'sm' = 'md'
 
   /**
    * Set a max value input prop
@@ -78,8 +84,9 @@ export class CwsFieldNumber {
   render() {
     const inputValue = this.value > this.max ? this.max : this.value
     const maskedValue = inputValue < 10 ? `0${inputValue}` : inputValue
+    const fieldNumberClasses = classNames('cws-field-number', `cws-field-number--${this.height}`)
     return (
-      <div class="cws-field-number">
+      <div class={fieldNumberClasses}>
         <button
           class="cws-field-number-button"
           onClick={() => this.handleCounter('decrement')}
