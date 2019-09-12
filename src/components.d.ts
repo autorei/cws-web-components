@@ -37,11 +37,19 @@ export namespace Components {
   }
   interface CwsFieldNumber {
     /**
-    * max input prop
+    * disabled input prop
+    */
+    'disabled': boolean;
+    /**
+    * If true, disabled only buttons when input value is equal to min and max props
+    */
+    'disabledButton': boolean;
+    /**
+    * Set a max value input prop
     */
     'max': number;
     /**
-    * min input prop
+    * Set a min value to input
     */
     'min': number;
     /**
@@ -211,11 +219,19 @@ declare namespace LocalJSX {
   }
   interface CwsFieldNumber extends JSXBase.HTMLAttributes<HTMLCwsFieldNumberElement> {
     /**
-    * max input prop
+    * disabled input prop
+    */
+    'disabled'?: boolean;
+    /**
+    * If true, disabled only buttons when input value is equal to min and max props
+    */
+    'disabledButton'?: boolean;
+    /**
+    * Set a max value input prop
     */
     'max'?: number;
     /**
-    * min input prop
+    * Set a min value to input
     */
     'min'?: number;
     /**

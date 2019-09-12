@@ -1,6 +1,5 @@
 .cws-field-number {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   border: var(--border-width-thin) solid var(--color-neutral-400);
   border-radius: var(--border-radius-xxs);
@@ -28,12 +27,32 @@
   margin: 0;
 }
 
+.cws-field-number-counter:disabled {
+  cursor: not-allowed;
+  background-color: var(--color-neutral-300);
+}
+
 .cws-field-number-button {
   display: block;
-  margin: 0 var(--spacing-inline-icons);
+  outline: none;
+  border: none;
+  padding: 0 var(--spacing-inline-icons);
   color: var(--color-neutral-600);
   font-size: var(--font-size-lg);
   cursor: pointer;
+}
+
+.cws-field-number-button:disabled {
+  cursor: not-allowed;
+  background-color: var(--color-neutral-300);
+}
+
+.cws-field-number-button:disabled:first-child {
+  border-right: var(--border-width-thin) solid var(--color-neutral-400);
+}
+
+.cws-field-number-button:disabled:last-child {
+  border-left: var(--border-width-thin) solid var(--color-neutral-400);
 }
 
 .cws-field-number-button svg {
