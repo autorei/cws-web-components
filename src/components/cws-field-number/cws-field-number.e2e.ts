@@ -122,4 +122,63 @@ describe('cws-field-number', () => {
     await element.press('2')
     expect(btnElement[1]).toHaveAttribute('disabled')
   })
+
+  it('renders without and changes the error prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-number></cws-field-number>')
+    const component = await page.find('cws-field-number')
+    const element = await page.find('cws-field-number .cws-field-number')
+    expect(element.getAttribute('class')).not.toContain('cws-field-number--is-error')
+
+    component.setAttribute('error', true)
+    await page.waitForChanges()
+    expect(element.getAttribute('class')).toContain('cws-field-number--is-error')
+  })
+
+  it('renders without hint prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-number></cws-field-number>')
+    const element = await page.find('cws-field-number .cws-field-number-hint')
+
+    await page.waitForChanges()
+    expect(element.textContent).toEqual('')
+  })
+
+  it('renders changes to the hint prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-number hint="Message"></cws-field-number>')
+    const component = await page.find('cws-field-number')
+    const element = await page.find('cws-field-number .cws-field-number-hint')
+    expect(element.textContent).toEqual('Message')
+
+    component.setAttribute('hint', 'Helper Message')
+    await page.waitForChanges()
+    expect(element.textContent).toEqual('Helper Message')
+  })
+
+  it('renders without label prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-number></cws-field-number>')
+    const element = await page.find('cws-field-number .cws-field-number-label')
+
+    await page.waitForChanges()
+    expect(element.textContent).toEqual('')
+  })
+
+  it('renders changes to the label prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-number label="Quantidade"></cws-field-number>')
+    const component = await page.find('cws-field-number')
+    const element = await page.find('cws-field-number .cws-field-number-label')
+    expect(element.textContent).toEqual('Quantidade')
+
+    component.setAttribute('label', 'Numero')
+    await page.waitForChanges()
+    expect(element.textContent).toEqual('Numero')
+  })
 })

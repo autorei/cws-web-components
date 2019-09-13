@@ -1,4 +1,4 @@
-.cws-field-number {
+.cws-field-number-wrapper {
   display: flex;
   justify-content: space-between;
   border: var(--border-width-thin) solid var(--color-neutral-400);
@@ -6,16 +6,30 @@
   background-color: var(--color-neutral-100);
 }
 
-.cws-field-number--sm {
+.cws-field-number--is-error .cws-field-number-wrapper {
+  border-color: var(--color-error-300);
+}
+
+.cws-field-number--sm > div {
   height: var(--field-min-height-sm);
 }
 
-.cws-field-number--md {
+.cws-field-number--md > div {
   height: var(--field-min-height-md);
 }
 
-.cws-field-number--lg {
+.cws-field-number--lg > div {
   height: var(--field-min-height-lg);
+}
+
+.cws-field-number-label {
+  display: block;
+  box-sizing: border-box;
+  height: 20px;
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-600);
+  font-weight: var(--font-weight-thin);
+  padding: var(--spacing-inline-xxxs);
 }
 
 .cws-field-number-counter {
@@ -43,6 +57,10 @@
   background-color: var(--color-neutral-300);
 }
 
+.cws-field-number--is-error .cws-field-number-counter {
+  color: var(--color-error-300);
+}
+
 .cws-field-number-button {
   display: block;
   outline: none;
@@ -64,4 +82,25 @@
 
 .cws-field-number-button:disabled:last-child {
   border-left: var(--border-width-thin) solid var(--color-neutral-400);
+}
+
+.cws-field-number-hint {
+  display: block;
+  box-sizing: border-box;
+  height: 20px;
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-600);
+  font-weight: var(--font-weight-thin);
+  padding: var(--spacing-inline-xxxs);
+  opacity: var(--opacity-0);
+  transition: 150ms opacity cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.cws-field-number--is-error .cws-field-number-hint {
+  color: var(--color-error-300);
+}
+
+.cws-field-number--has-hint .cws-field-number-hint {
+  opacity: 1;
 }

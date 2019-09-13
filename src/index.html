@@ -217,8 +217,8 @@
 
     <div class="component-variant">
       <div class="component-block">
-        <h3>Initial (Size LG)</h3>
-        <cws-field-number name="name" height="lg"></cws-field-number>
+        <h3>Initial (Size LG) and Label</h3>
+        <cws-field-number name="name" height="lg" label="Quantidade"></cws-field-number>
       </div>
       <div class="component-block">
         <h3>Initial (Size MD)</h3>
@@ -228,15 +228,23 @@
         <h3>Initial (Size SM)</h3>
         <cws-field-number name="name" height="sm"></cws-field-number>
       </div>
+      <div class="component-block">
+        <h3>Helper text</h3>
+        <cws-field-number name="name" hint="Texto de ajuda"></cws-field-number>
+      </div>
     </div>
     <div class="component-variant">
+      <div class="component-block">
+        <h3>Error</h3>
+        <cws-field-number name="name" min="1" max="999" error hint="Mensagem erro"></cws-field-number>
+      </div>
       <div class="component-block">
         <h3>Max 999</h3>
         <cws-field-number name="name" min="1" max="999"></cws-field-number>
       </div>
       <div class="component-block">
         <h3>Disabled</h3>
-        <cws-field-number name="name" min="1" max="999" disabled></cws-field-number>
+        <cws-field-number name="name" min="1" max="5" disabled></cws-field-number>
       </div>
       <div class="component-block">
         <h3>Disabled button</h3>

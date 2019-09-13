@@ -45,9 +45,21 @@ export namespace Components {
     */
     'disabledButton': boolean;
     /**
+    * Component error state
+    */
+    'error': boolean;
+    /**
     * Input height
     */
     'height': 'lg' | 'md' | 'sm';
+    /**
+    * Input hint message
+    */
+    'hint'?: string;
+    /**
+    * Input hint message
+    */
+    'label'?: string;
     /**
     * Set a max value input prop
     */
@@ -231,9 +243,21 @@ declare namespace LocalJSX {
     */
     'disabledButton'?: boolean;
     /**
+    * Component error state
+    */
+    'error'?: boolean;
+    /**
     * Input height
     */
     'height'?: 'lg' | 'md' | 'sm';
+    /**
+    * Input hint message
+    */
+    'hint'?: string;
+    /**
+    * Input hint message
+    */
+    'label'?: string;
     /**
     * Set a max value input prop
     */

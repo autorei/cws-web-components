@@ -26,6 +26,21 @@ export class CwsFieldNumber {
   @Prop() height: 'lg' | 'md' | 'sm' = 'md'
 
   /**
+   * Component error state
+   */
+  @Prop() error: boolean = false
+
+  /**
+   * Input hint message
+   */
+  @Prop() hint?: string
+
+  /**
+   * Input hint message
+   */
+  @Prop() label?: string
+
+  /**
    * Set a max value input prop
    */
   @Prop() max?: number
@@ -84,36 +99,43 @@ export class CwsFieldNumber {
   render() {
     const inputValue = this.value > this.max ? this.max : this.value
     const maskedValue = inputValue < 10 ? `0${inputValue}` : inputValue
-    const fieldNumberClasses = classNames('cws-field-number', `cws-field-number--${this.height}`)
+    const fieldNumberClasses = classNames('cws-field-number', `cws-field-number--${this.height}`, {
+      'cws-field-number--is-error': this.error,
+      'cws-field-number--has-hint': Boolean(this.hint),
+    })
     return (
       <div class={fieldNumberClasses}>
-        <button
-          class="cws-field-number-button"
-          data-test="decrement"
-          onClick={() => this.handleCounter('decrement')}
-          disabled={this.disabled || (this.disabledButton && this.value === this.min)}
-        >
-          <cws-icon size="xxs" icon="minus" />
-        </button>
-        <input
-          class="cws-field-number-counter"
-          type="number"
-          name={this.name}
-          value={maskedValue}
-          max={this.max}
-          min={this.min}
-          disabled={this.disabled}
-          onInput={e => this.handleChange(e)}
-          onKeyDown={e => this.handleKeyDown(e)}
-        />
-        <button
-          class="cws-field-number-button"
-          data-test="increment"
-          onClick={() => this.handleCounter('increment')}
-          disabled={this.disabled || (this.disabledButton && this.value === this.max)}
-        >
-          <cws-icon size="xxs" icon="plus" />
-        </button>
+        <span class="cws-field-number-label">{this.label}</span>
+        <div class="cws-field-number-wrapper">
+          <button
+            class="cws-field-number-button"
+            data-test="decrement"
+            onClick={() => this.handleCounter('decrement')}
+            disabled={this.disabled || (this.disabledButton && this.value === this.min)}
+          >
+            <cws-icon size="xxs" icon="minus" />
+          </button>
+          <input
+            class="cws-field-number-counter"
+            type="number"
+            name={this.name}
+            value={maskedValue}
+            max={this.max}
+            min={this.min}
+            disabled={this.disabled}
+            onInput={e => this.handleChange(e)}
+            onKeyDown={e => this.handleKeyDown(e)}
+          />
+          <button
+            class="cws-field-number-button"
+            data-test="increment"
+            onClick={() => this.handleCounter('increment')}
+            disabled={this.disabled || (this.disabledButton && this.value === this.max)}
+          >
+            <cws-icon size="xxs" icon="plus" />
+          </button>
+        </div>
+        <span class="cws-field-number-hint">{this.hint}</span>
       </div>
     )
   }
