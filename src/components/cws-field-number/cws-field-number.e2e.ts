@@ -30,13 +30,27 @@ describe('cws-field-number', () => {
     expect(componentValue).toEqual(12)
   })
 
-  it('renders default name prop', async () => {
+  it('renders without name prop', async () => {
     const page = await newE2EPage()
 
     await page.setContent('<cws-field-number></cws-field-number>')
-    const element = await page.find('cws-field-number input')
+    const input = await page.find('cws-field-number input')
 
-    expect(element.getAttribute('name')).toEqual('name')
+    await page.waitForChanges()
+    expect(input.getAttribute('name')).toBeNull()
+  })
+
+  it('renders changes to the name prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-number name="numeric"></cws-field-number>')
+    const component = await page.find('cws-field-number')
+    const input = await page.find('cws-field-number input')
+    expect(input.getAttribute('name')).toEqual('numeric')
+
+    component.setAttribute('name', 'counter')
+    await page.waitForChanges()
+    expect(input.getAttribute('name')).toEqual('counter')
   })
 
   it('renders default height prop', async () => {
@@ -69,10 +83,10 @@ describe('cws-field-number', () => {
     expect(component.getAttribute('value')).toEqual('2')
   })
 
-  it('renders with default min prop', async () => {
+  it('renders with min prop', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<cws-field-number></cws-field-number>')
+    await page.setContent('<cws-field-number min="1"></cws-field-number>')
     const component = await page.find('cws-field-number')
     const element = await page.find('cws-field-number input')
     expect(element.getAttribute('min')).toEqual('1')
@@ -100,7 +114,6 @@ describe('cws-field-number', () => {
     const btnElement = await page.findAll('cws-field-number button')
     const componentValue = await component.getProperty('value')
     expect(componentValue).toEqual(1)
-    expect(btnElement[0]).toHaveAttribute('disabled')
 
     component.setAttribute('max', '2')
     await page.waitForChanges()

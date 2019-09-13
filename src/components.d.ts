@@ -51,11 +51,11 @@ export namespace Components {
     /**
     * Set a max value input prop
     */
-    'max': number;
+    'max'?: number;
     /**
     * Set a min value to input
     */
-    'min': number;
+    'min'?: number;
     /**
     * Name component prop
     */

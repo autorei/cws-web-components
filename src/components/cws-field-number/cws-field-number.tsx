@@ -18,7 +18,7 @@ export class CwsFieldNumber {
   /**
    * Name component prop
    */
-  @Prop() name: string = 'name'
+  @Prop() name: string
 
   /**
    * Input height
@@ -28,12 +28,12 @@ export class CwsFieldNumber {
   /**
    * Set a max value input prop
    */
-  @Prop() max: number
+  @Prop() max?: number
 
   /**
    * Set a min value to input
    */
-  @Prop() min: number = 1
+  @Prop() min?: number
 
   /**
    * disabled input prop
