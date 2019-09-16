@@ -1,0 +1,17 @@
+.cws-field-button-wrapper {
+  display: flex;
+}
+
+.cws-field-button-wrapper.cws-field-button-wrapper-inline {
+  display: inline-flex;
+}
+
+.cws-field-button-wrapper .cws-field-text {
+  flex: 1;
+  min-width: var(--field-button-min-width);
+}
+
+.cws-field-button-wrapper .cws-button {
+  transform: translateX(-5px);
+  margin-top: var(--font-size-sm);
+}

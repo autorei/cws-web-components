@@ -177,12 +177,20 @@ describe('cws-field-select', () => {
     expect(element).toHaveAttribute('required')
   })
 
-  it('renders with required prop', async () => {
+  it('renders with clear-if-invalid prop', async () => {
     const page = await newE2EPage()
 
     await page.setContent('<cws-field-select clearIfInvalid></cws-field-select>')
     const component = await page.find('cws-field-select')
     expect(component).toHaveAttribute('clearIfInvalid')
+  })
+
+  it('renders with inline prop', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<cws-field-select inline></cws-field-select>')
+    const element = await page.find('cws-field-select')
+    expect(element).toHaveAttribute('inline')
   })
 
   it('render with select items', async () => {

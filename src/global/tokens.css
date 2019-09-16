@@ -183,9 +183,9 @@
 
   /* button */
   --button-width-sm: 64px;
-  --button-height-sm: 32px;
+  --button-height-sm: 40px;
   --button-width-md: 112px;
-  --button-height-md: 38px;
+  --button-height-md: 48px;
   --button-width-lg: 216px;
   --button-height-lg: 56px;
 
@@ -193,7 +193,12 @@
   --field-min-height-sm: 36px;
   --field-min-height-md: 48px;
   --field-min-height-lg: 60px;
+  --field-min-width: 120px;
 
   /* select */
   --depth-field-select-dropdown: 1;
+
+  /* field button */
+  --field-button-width: 80px;
+  --field-button-height: 48px;
 }
