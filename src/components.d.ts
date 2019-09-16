@@ -25,7 +25,7 @@ export namespace Components {
     /**
     * Button size
     */
-    'size': 'lg' | 'md' | 'sm';
+    'size': 'lg' | 'md' | 'sm' | 'inside-field';
     /**
     * Button type, not applicable if the component receive `href` prop
     */
@@ -34,6 +34,12 @@ export namespace Components {
     * Button style
     */
     'variant': 'primary' | 'secondary';
+  }
+  interface CwsFieldButtonWrapper {
+    /**
+    * Input width inline (default: blocked)
+    */
+    'inline': boolean;
   }
   interface CwsFieldNumber {
     /**
@@ -95,6 +101,10 @@ export namespace Components {
     */
     'hint'?: string;
     /**
+    * Input width inline (default: blocked)
+    */
+    'inline': boolean;
+    /**
     * Expected an array to populate select
     */
     'items': Item[];
@@ -132,6 +142,10 @@ export namespace Components {
     * Input hint message
     */
     'hint'?: string;
+    /**
+    * Input width inline (default: blocked)
+    */
+    'inline': boolean;
     /**
     * Input label
     */
@@ -174,6 +188,12 @@ declare global {
     new (): HTMLCwsButtonElement;
   };
 
+  interface HTMLCwsFieldButtonWrapperElement extends Components.CwsFieldButtonWrapper, HTMLStencilElement {}
+  var HTMLCwsFieldButtonWrapperElement: {
+    prototype: HTMLCwsFieldButtonWrapperElement;
+    new (): HTMLCwsFieldButtonWrapperElement;
+  };
+
   interface HTMLCwsFieldNumberElement extends Components.CwsFieldNumber, HTMLStencilElement {}
   var HTMLCwsFieldNumberElement: {
     prototype: HTMLCwsFieldNumberElement;
@@ -199,6 +219,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'cws-button': HTMLCwsButtonElement;
+    'cws-field-button-wrapper': HTMLCwsFieldButtonWrapperElement;
     'cws-field-number': HTMLCwsFieldNumberElement;
     'cws-field-select': HTMLCwsFieldSelectElement;
     'cws-field-text': HTMLCwsFieldTextElement;
@@ -223,7 +244,7 @@ declare namespace LocalJSX {
     /**
     * Button size
     */
-    'size'?: 'lg' | 'md' | 'sm';
+    'size'?: 'lg' | 'md' | 'sm' | 'inside-field';
     /**
     * Button type, not applicable if the component receive `href` prop
     */
@@ -232,6 +253,12 @@ declare namespace LocalJSX {
     * Button style
     */
     'variant'?: 'primary' | 'secondary';
+  }
+  interface CwsFieldButtonWrapper extends JSXBase.HTMLAttributes<HTMLCwsFieldButtonWrapperElement> {
+    /**
+    * Input width inline (default: blocked)
+    */
+    'inline'?: boolean;
   }
   interface CwsFieldNumber extends JSXBase.HTMLAttributes<HTMLCwsFieldNumberElement> {
     /**
@@ -293,6 +320,10 @@ declare namespace LocalJSX {
     */
     'hint'?: string;
     /**
+    * Input width inline (default: blocked)
+    */
+    'inline'?: boolean;
+    /**
     * Expected an array to populate select
     */
     'items'?: Item[];
@@ -331,6 +362,10 @@ declare namespace LocalJSX {
     */
     'hint'?: string;
     /**
+    * Input width inline (default: blocked)
+    */
+    'inline'?: boolean;
+    /**
     * Input label
     */
     'label'?: string;
@@ -364,6 +399,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'cws-button': CwsButton;
+    'cws-field-button-wrapper': CwsFieldButtonWrapper;
     'cws-field-number': CwsFieldNumber;
     'cws-field-select': CwsFieldSelect;
     'cws-field-text': CwsFieldText;
