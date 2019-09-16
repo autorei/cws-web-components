@@ -13,6 +13,7 @@
 | `disabled`         | `disabled`           | Select disabled prop                       | `boolean` | `false`        |
 | `error`            | `error`              | Select error prop                          | `boolean` | `false`        |
 | `hint`             | `hint`               | Select helper message                      | `string`  | `undefined`    |
+| `inline`           | `inline`             | Input width inline (default: blocked)      | `boolean` | `false`        |
 | `items`            | --                   | Expected an array to populate select       | `Item[]`  | `[]`           |
 | `label`            | `label`              | Select label prop                          | `string`  | `'Label'`      |
 | `name`             | `name`               | Select name prop                           | `string`  | `'name'`       |
