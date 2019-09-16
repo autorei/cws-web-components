@@ -41,6 +41,48 @@ export namespace Components {
     */
     'inline': boolean;
   }
+  interface CwsFieldNumber {
+    /**
+    * disabled input prop
+    */
+    'disabled': boolean;
+    /**
+    * If true, disabled only buttons when input value is equal to min and max props
+    */
+    'disabledButton': boolean;
+    /**
+    * Component error state
+    */
+    'error': boolean;
+    /**
+    * Input height
+    */
+    'height': 'lg' | 'md' | 'sm';
+    /**
+    * Input hint message
+    */
+    'hint'?: string;
+    /**
+    * Input hint message
+    */
+    'label'?: string;
+    /**
+    * Set a max value input prop
+    */
+    'max'?: number;
+    /**
+    * Set a min value to input
+    */
+    'min'?: number;
+    /**
+    * Name component prop
+    */
+    'name': string;
+    /**
+    * Value input prop
+    */
+    'value': number;
+  }
   interface CwsFieldSelect {
     /**
     * Clear field value if no item match with it
@@ -152,6 +194,12 @@ declare global {
     new (): HTMLCwsFieldButtonWrapperElement;
   };
 
+  interface HTMLCwsFieldNumberElement extends Components.CwsFieldNumber, HTMLStencilElement {}
+  var HTMLCwsFieldNumberElement: {
+    prototype: HTMLCwsFieldNumberElement;
+    new (): HTMLCwsFieldNumberElement;
+  };
+
   interface HTMLCwsFieldSelectElement extends Components.CwsFieldSelect, HTMLStencilElement {}
   var HTMLCwsFieldSelectElement: {
     prototype: HTMLCwsFieldSelectElement;
@@ -172,6 +220,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'cws-button': HTMLCwsButtonElement;
     'cws-field-button-wrapper': HTMLCwsFieldButtonWrapperElement;
+    'cws-field-number': HTMLCwsFieldNumberElement;
     'cws-field-select': HTMLCwsFieldSelectElement;
     'cws-field-text': HTMLCwsFieldTextElement;
     'cws-icon': HTMLCwsIconElement;
@@ -210,6 +259,48 @@ declare namespace LocalJSX {
     * Input width inline (default: blocked)
     */
     'inline'?: boolean;
+  }
+  interface CwsFieldNumber extends JSXBase.HTMLAttributes<HTMLCwsFieldNumberElement> {
+    /**
+    * disabled input prop
+    */
+    'disabled'?: boolean;
+    /**
+    * If true, disabled only buttons when input value is equal to min and max props
+    */
+    'disabledButton'?: boolean;
+    /**
+    * Component error state
+    */
+    'error'?: boolean;
+    /**
+    * Input height
+    */
+    'height'?: 'lg' | 'md' | 'sm';
+    /**
+    * Input hint message
+    */
+    'hint'?: string;
+    /**
+    * Input hint message
+    */
+    'label'?: string;
+    /**
+    * Set a max value input prop
+    */
+    'max'?: number;
+    /**
+    * Set a min value to input
+    */
+    'min'?: number;
+    /**
+    * Name component prop
+    */
+    'name'?: string;
+    /**
+    * Value input prop
+    */
+    'value'?: number;
   }
   interface CwsFieldSelect extends JSXBase.HTMLAttributes<HTMLCwsFieldSelectElement> {
     /**
@@ -309,6 +400,7 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     'cws-button': CwsButton;
     'cws-field-button-wrapper': CwsFieldButtonWrapper;
+    'cws-field-number': CwsFieldNumber;
     'cws-field-select': CwsFieldSelect;
     'cws-field-text': CwsFieldText;
     'cws-icon': CwsIcon;

@@ -1,0 +1,106 @@
+.cws-field-number-wrapper {
+  display: flex;
+  justify-content: space-between;
+  border: var(--border-width-thin) solid var(--color-neutral-400);
+  border-radius: var(--border-radius-xxs);
+  background-color: var(--color-neutral-100);
+}
+
+.cws-field-number--is-error .cws-field-number-wrapper {
+  border-color: var(--color-error-300);
+}
+
+.cws-field-number--sm > div {
+  height: var(--field-min-height-sm);
+}
+
+.cws-field-number--md > div {
+  height: var(--field-min-height-md);
+}
+
+.cws-field-number--lg > div {
+  height: var(--field-min-height-lg);
+}
+
+.cws-field-number-label {
+  display: block;
+  box-sizing: border-box;
+  height: 20px;
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-600);
+  font-weight: var(--font-weight-thin);
+  padding: var(--spacing-inline-xxxs);
+}
+
+.cws-field-number-counter {
+  border: var(--border-width-none);
+  outline: none;
+  text-align: center;
+  overflow: hidden;
+  color: var(--color-neutral-700);
+  font-size: var(--font-size-md);
+  letter-spacing: 0.2px;
+  line-height: var(--spacing-inline-sm);
+  -moz-appearance: textfield;
+  flex: 1;
+}
+
+/* Webkit browsers like Safari and Chrome */
+.cws-field-number-counter::-webkit-inner-spin-button,
+.cws-field-number-counter::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cws-field-number-counter:disabled {
+  cursor: not-allowed;
+  background-color: var(--color-neutral-300);
+}
+
+.cws-field-number--is-error .cws-field-number-counter {
+  color: var(--color-error-300);
+}
+
+.cws-field-number-button {
+  display: block;
+  outline: none;
+  border: none;
+  padding: 0 var(--spacing-inline-icons);
+  color: var(--color-neutral-600);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+}
+
+.cws-field-number-button:disabled {
+  cursor: not-allowed;
+  background-color: var(--color-neutral-300);
+}
+
+.cws-field-number-button:disabled:first-child {
+  border-right: var(--border-width-thin) solid var(--color-neutral-400);
+}
+
+.cws-field-number-button:disabled:last-child {
+  border-left: var(--border-width-thin) solid var(--color-neutral-400);
+}
+
+.cws-field-number-hint {
+  display: block;
+  box-sizing: border-box;
+  height: 20px;
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-600);
+  font-weight: var(--font-weight-thin);
+  padding: var(--spacing-inline-xxxs);
+  opacity: var(--opacity-0);
+  transition: 150ms opacity cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.cws-field-number--is-error .cws-field-number-hint {
+  color: var(--color-error-300);
+}
+
+.cws-field-number--has-hint .cws-field-number-hint {
+  opacity: 1;
+}

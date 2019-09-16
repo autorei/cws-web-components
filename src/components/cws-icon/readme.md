@@ -17,11 +17,13 @@
 
 ### Used by
 
+ - [cws-field-number](../cws-field-number)
  - [cws-field-select](../cws-field-select)
 
 ### Graph
 ```mermaid
 graph TD;
+  cws-field-number --> cws-icon
   cws-field-select --> cws-icon
   style cws-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
