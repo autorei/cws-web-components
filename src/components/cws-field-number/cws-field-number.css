@@ -65,7 +65,8 @@
   display: block;
   outline: none;
   border: none;
-  padding: 0 var(--spacing-inline-icons);
+  padding: 0;
+  width: var(--field-number-button-width);
   color: var(--color-neutral-600);
   font-size: var(--font-size-lg);
   cursor: pointer;
