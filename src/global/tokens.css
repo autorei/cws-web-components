@@ -78,7 +78,7 @@
   --grid-column-width: 102px;
   --grid-column-gutter: 16px;
 
-  /* BRAND TOKENS */
+  /* BRAND TOKENS - these variables are setted by cws-theme-tokens too */
 
   /* font size */
   --font-size-xs: 10px;
@@ -101,10 +101,6 @@
   --text-transform: uppercase;
   --text-decoration: underline;
 
-  /* color contrast tones */
-  --color-contrast-light: #fff;
-  --color-contrast-dark: #202020;
-
   /* color primary */
   --color-primary-100: #e7f4fc;
   --color-primary-200: #8bcaf0;
@@ -117,15 +113,15 @@
   --color-primary-900: #00273d;
 
   /* color primary contrast */
-  --color-primary-100-contrast: var(--color-contrast-dark);
-  --color-primary-200-contrast: var(--color-contrast-dark);
-  --color-primary-300-contrast: var(--color-contrast-light);
-  --color-primary-400-contrast: var(--color-contrast-light);
-  --color-primary-500-contrast: var(--color-contrast-light);
-  --color-primary-600-contrast: var(--color-contrast-light);
-  --color-primary-700-contrast: var(--color-contrast-light);
-  --color-primary-800-contrast: var(--color-contrast-light);
-  --color-primary-900-contrast: var(--color-contrast-light);
+  --color-primary-100-contrast: #202020;
+  --color-primary-200-contrast: #202020;
+  --color-primary-300-contrast: #fff;
+  --color-primary-400-contrast: #fff;
+  --color-primary-500-contrast: #fff;
+  --color-primary-600-contrast: #fff;
+  --color-primary-700-contrast: #fff;
+  --color-primary-800-contrast: #fff;
+  --color-primary-900-contrast: #fff;
 
   /* color secondary */
   --color-secondary-100: #ececec;
@@ -139,47 +135,174 @@
   --color-secondary-900: #0e0e0e;
 
   /* color secondary contrast */
-  --color-secondary-100-contrast: var(--color-contrast-dark);
-  --color-secondary-200-contrast: var(--color-contrast-dark);
-  --color-secondary-300-contrast: var(--color-contrast-dark);
-  --color-secondary-400-contrast: var(--color-contrast-light);
-  --color-secondary-500-contrast: var(--color-contrast-light);
-  --color-secondary-600-contrast: var(--color-contrast-light);
-  --color-secondary-700-contrast: var(--color-contrast-light);
-  --color-secondary-800-contrast: var(--color-contrast-light);
-  --color-secondary-900-contrast: var(--color-contrast-light);
+  --color-secondary-100-contrast: #202020;
+  --color-secondary-200-contrast: #202020;
+  --color-secondary-300-contrast: #202020;
+  --color-secondary-400-contrast: #fff;
+  --color-secondary-500-contrast: #fff;
+  --color-secondary-600-contrast: #fff;
+  --color-secondary-700-contrast: #fff;
+  --color-secondary-800-contrast: #fff;
+  --color-secondary-900-contrast: #fff;
+
+  /* color tertiary */
+  --color-tertiary-100: #0877b9;
+  --color-tertiary-200: #086eac;
+  --color-tertiary-300: #07669e;
+  --color-tertiary-400: #075d91;
+  --color-tertiary-500: #065584;
+  --color-tertiary-600: #054c77;
+  --color-tertiary-700: #05446a;
+  --color-tertiary-800: #043b5c;
+  --color-tertiary-900: #04334f;
+
+  /* color tertiary contrast */
+  --color-tertiary-100-contrast: #fff;
+  --color-tertiary-200-contrast: #fff;
+  --color-tertiary-300-contrast: #fff;
+  --color-tertiary-400-contrast: #fff;
+  --color-tertiary-500-contrast: #fff;
+  --color-tertiary-600-contrast: #fff;
+  --color-tertiary-700-contrast: #fff;
+  --color-tertiary-800-contrast: #fff;
+  --color-tertiary-900-contrast: #fff;
+
+  /* color quartenary */
+  --color-quaternary-100: #5a5a5a;
+  --color-quaternary-200: #535353;
+  --color-quaternary-300: #4d4d4d;
+  --color-quaternary-400: #464646;
+  --color-quaternary-500: #404040;
+  --color-quaternary-600: #3a3a3a;
+  --color-quaternary-700: #333;
+  --color-quaternary-800: #2d2d2d;
+  --color-quaternary-900: #262626;
+
+  /* color quartenary contrast */
+  --color-quaternary-100-contrast: #fff;
+  --color-quaternary-200-contrast: #fff;
+  --color-quaternary-300-contrast: #fff;
+  --color-quaternary-400-contrast: #fff;
+  --color-quaternary-500-contrast: #fff;
+  --color-quaternary-600-contrast: #fff;
+  --color-quaternary-700-contrast: #fff;
+  --color-quaternary-800-contrast: #fff;
+  --color-quaternary-900-contrast: #fff;
 
   /* color neutral */
   --color-neutral-100: #fff;
-  --color-neutral-200: #fbfbfb;
-  --color-neutral-300: #f2f2f2;
-  --color-neutral-400: #e8e8e8;
+  --color-neutral-200: #ededed;
+  --color-neutral-300: #dadada;
+  --color-neutral-400: #c8c8c8;
   --color-neutral-500: #b6b6b6;
-  --color-neutral-600: #868686;
-  --color-neutral-700: #202020;
+  --color-neutral-600: #a4a4a4;
+  --color-neutral-700: #929292;
+  --color-neutral-800: #7f7f7f;
+  --color-neutral-900: #6d6d6d;
+
+  /* color neutral contrast */
+  --color-neutral-100-contrast: #000;
+  --color-neutral-200-contrast: #000;
+  --color-neutral-300-contrast: #000;
+  --color-neutral-400-contrast: #000;
+  --color-neutral-500-contrast: #000;
+  --color-neutral-600-contrast: #000;
+  --color-neutral-700-contrast: #000;
+  --color-neutral-800-contrast: #fff;
+  --color-neutral-900-contrast: #fff;
 
   /* color error */
-  --color-error-100: #fdecec;
-  --color-error-200: #f16161;
-  --color-error-300: #ea0808;
-  --color-error-400: #ab0606;
-  --color-error-500: #6b0404;
+  --color-error-100: #f95959;
+  --color-error-200: #f94242;
+  --color-error-300: #f82b2b;
+  --color-error-400: #f71313;
+  --color-error-500: #ea0808;
+  --color-error-600: #d30707;
+  --color-error-700: #bb0606;
+  --color-error-800: #a40606;
+  --color-error-900: #8c0505;
+
+  /* color error contrast */
+  --color-error-100-contrast: #000;
+  --color-error-200-contrast: #fff;
+  --color-error-300-contrast: #fff;
+  --color-error-400-contrast: #fff;
+  --color-error-500-contrast: #fff;
+  --color-error-600-contrast: #fff;
+  --color-error-700-contrast: #fff;
+  --color-error-800-contrast: #fff;
+  --color-error-900-contrast: #fff;
 
   /* color alert */
-  --color-alert-100: #f6e5b9;
-  --color-alert-200: #e9ba45;
-  --color-alert-300: #e1a100;
-  --color-alert-400: #a47600;
-  --color-alert-500: #523b00;
+  --color-alert-100: #ffc83c;
+  --color-alert-200: #ffc126;
+  --color-alert-300: #ffbb0f;
+  --color-alert-400: #f8b100;
+  --color-alert-500: #e1a100;
+  --color-alert-600: #cb9100;
+  --color-alert-700: #b48100;
+  --color-alert-800: #9d7100;
+  --color-alert-900: #876100;
+
+  /* color alert contrast */
+  --color-alert-100-contrast: #000;
+  --color-alert-200-contrast: #000;
+  --color-alert-300-contrast: #000;
+  --color-alert-400-contrast: #000;
+  --color-alert-500-contrast: #000;
+  --color-alert-600-contrast: #000;
+  --color-alert-700-contrast: #000;
+  --color-alert-800-contrast: #fff;
+  --color-alert-900-contrast: #fff;
 
   /* color success */
-  --color-success-100: #e8f8f0;
-  --color-success-200: #4ac889;
-  --color-success-300: #07b45d;
-  --color-success-400: #06944d;
-  --color-success-500: #034222;
+  --color-success-100: #10f682;
+  --color-success-200: #09ea79;
+  --color-success-300: #08d870;
+  --color-success-400: #08c666;
+  --color-success-500: #07b45d;
+  --color-success-600: #06a254;
+  --color-success-700: #06904a;
+  --color-success-800: #057e41;
+  --color-success-900: #046c38;
+
+  /* color success contrast */
+  --color-success-100-contrast: #000;
+  --color-success-200-contrast: #000;
+  --color-success-300-contrast: #000;
+  --color-success-400-contrast: #000;
+  --color-success-500-contrast: #fff;
+  --color-success-600-contrast: #fff;
+  --color-success-700-contrast: #fff;
+  --color-success-800-contrast: #fff;
+  --color-success-900-contrast: #fff;
+
+  /* color link */
+  --color-link-100: #39b5ff;
+  --color-link-200: #23adff;
+  --color-link-300: #0da5ff;
+  --color-link-400: #009af5;
+  --color-link-500: #008cdf;
+  --color-link-600: #007ec9;
+  --color-link-700: #0070b2;
+  --color-link-800: #00629c;
+  --color-link-900: #005486;
+
+  /* color link contrast */
+  --color-link-100-contrast: #000;
+  --color-link-200-contrast: #000;
+  --color-link-300-contrast: #000;
+  --color-link-400-contrast: #fff;
+  --color-link-500-contrast: #fff;
+  --color-link-600-contrast: #fff;
+  --color-link-700-contrast: #fff;
+  --color-link-800-contrast: #fff;
+  --color-link-900-contrast: #fff;
 
   /* COMPONENTS */
+
+  /* depths */
+  --depth-field-select-dropdown: 1;
 
   /* button */
   --button-width-sm: 64px;
@@ -194,9 +317,6 @@
   --field-min-height-md: 48px;
   --field-min-height-lg: 60px;
   --field-min-width: 120px;
-
-  /* select */
-  --depth-field-select-dropdown: 1;
 
   /* field number */
   --field-number-button-width: 36px;

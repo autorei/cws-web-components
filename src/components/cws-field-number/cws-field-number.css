@@ -67,6 +67,7 @@
   border: none;
   padding: 0;
   width: var(--field-number-button-width);
+  background: transparent;
   color: var(--color-neutral-600);
   font-size: var(--font-size-lg);
   cursor: pointer;
@@ -75,6 +76,10 @@
 .cws-field-number-button:disabled {
   cursor: not-allowed;
   background-color: var(--color-neutral-300);
+}
+
+.cws-field-number-button:active:not(:disabled) {
+  transform: scale(0.85);
 }
 
 .cws-field-number-button:disabled:first-child {

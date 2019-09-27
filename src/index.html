@@ -9,6 +9,66 @@
   <script type="module" src="/build/cws-web-components.esm.js"></script>
   <script nomodule src="/build/cws-web-components.js"></script>
 
+  <!-- CWS THEME TOKENS -->
+  <script src="https://unpkg.com/cws-theme-tokens@latest/dist/cws-theme-tokens.umd.min.js"></script>
+  <script>
+    const tokens = {
+      "fontSizeBase": "16px",
+      "fontSizeXs": "0.625em",
+      "fontSizeSm": "0.75em",
+      "fontSizeMd": "0.875em",
+      "fontSizeLg": "1em",
+      "fontSizeXl": "1.5em",
+      "fontSizeXxl": "2.25em",
+
+      "fontWeightLight": "300",
+      "fontWeightRegular": "400",
+      "fontWeightBold": "700",
+
+      "fontFamilyPrimary": "'Roboto', sans-serif",
+      "fontFamilySecondary": "'Roboto Condensed', sans-serif",
+
+      "textTransform": "uppercase",
+      "textDecoration": "underline",
+
+      "buttonWidthSm": "64px",
+      "buttonHeightSm": "40px",
+      "buttonWidthMd": "112px",
+      "buttonHeightMd": "48px",
+      "buttonWidthLg": "216px",
+      "buttonHeightLg": "56px",
+
+      "fieldMinHeightSm": "36px",
+      "fieldMinHeightMd": "48px",
+      "fieldMinHeightLg": "60px",
+      "fieldMinWidth": "120px",
+
+      "depthFieldSelectDropdown": "1",
+
+      "spacingInlineIcons": "12px",
+
+      "fieldButtonWidth": "80px",
+      "fieldButtonHeight": "48px",
+
+      "colorPrimary": "#008CDF",
+      "colorSecondary": "#303030",
+      "colorTertiary": '#065584',
+      "colorQuaternary": '#404040',
+      "colorNeutral": "#B6B6B6",
+      "colorError": "#EA0808",
+      "colorAlert": "#E1A100",
+      "colorSuccess": "#07B45D",
+      "colorLink": "#008cdf"
+    }
+
+    const settings = {
+      "colorContrastLight": '#FFFFFF',
+      "colorContrastDark": '#202020',
+    }
+
+    window.cwsThemeTokens(tokens, settings)
+  </script>
+
 </head>
 <body>
   <div class="component-container">
