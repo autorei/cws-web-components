@@ -27,7 +27,11 @@ This is the [CWS](https://cws.digital) Web Components library
 
 All components was built using CSS vars to be styled. So to use this library, these css varibles must exist in your application.
 
-To set these variables you can use [cws-theme-tokens](https://github.com/autorei/cws-theme-tokens) or create a stylsheed with all variables. [Click to see a tokens stylesheet sample.](https://github.com/autorei/cws-web-components/tree/master/src/global/tokens.css).
+[Click here to see all required tokens.](https://github.com/autorei/cws-web-components/tree/master/src/global/tokens.css).
+
+To set these variables you can:
+1. Create a CSS file with all default variables (like the example above);
+2. Use [cws-theme-tokens](https://github.com/autorei/cws-theme-tokens) to set dynamic CSS variables (from API, database etc.);
 
 ## Available Scripts
 
