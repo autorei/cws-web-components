@@ -25,7 +25,7 @@ This is the [CWS](https://cws.digital) Web Components library
 
 ### Required Tokens (CSS vars)
 
-All components was built using CSS vars to be styled. So to use this library, these css varibles must exist in your application.
+All components was built using CSS vars to be styled. So to use this library, all of these CSS varibles must exist in your application.
 
 [Click here to see all required tokens.](https://github.com/autorei/cws-web-components/tree/master/src/global/tokens.css).
 
