@@ -1,5 +1,4 @@
-/* CUSTOM THEME FONT */
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:300,400,700&display=swap');
+/* This file isn't required as the tokens was setted by cws-theme-tokens on index.html */
 
 :root {
   /* GENERIC TOKENS */
