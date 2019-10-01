@@ -15,7 +15,7 @@
 .cws-field-text-input {
   color: var(--color-neutral-600);
   display: block;
-  font-family: var(--font-family-1);
+  font-family: var(--font-family-primary);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-regular);
   padding: var(--spacing-squish-xs);
