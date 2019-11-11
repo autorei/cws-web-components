@@ -118,7 +118,6 @@ export class CwsFieldNumber {
 
   render() {
     const inputValue = this.handleMinAndMax(this.value)
-    // this.value > this.max ? this.max : this.value < this.min ? this.min : this.value
     const maskedValue = inputValue < 10 ? `0${inputValue}` : inputValue
     const fieldNumberClasses = classNames('cws-field-number', `cws-field-number--${this.height}`, {
       'cws-field-number--is-error': this.error,
