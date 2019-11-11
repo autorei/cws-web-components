@@ -60,16 +60,34 @@ export class CwsFieldNumber {
    */
   @Prop() disabledButton: boolean = false
 
+  handleMinAndMax(value) {
+    let newValue
+    if (value > this.max) {
+      newValue = this.max
+    } else if (value < this.min) {
+      newValue = this.min
+    } else {
+      newValue = value
+    }
+    return newValue
+  }
+
   handleChange(e) {
     this.value = e.target.value
     if (this.value >= this.max) {
       this.value = this.max
+    } else if (this.value <= this.min) {
+      this.value = this.min
     }
   }
 
   handleKeyDown(e) {
     if (this.value >= this.max) {
       if (e.code !== 'Backspace' && e.code !== 'ArrowDown') {
+        e.preventDefault()
+      }
+    } else if (this.value <= this.min) {
+      if (e.code !== 'Backspace' && e.code !== 'ArrowUp') {
         e.preventDefault()
       }
     }
@@ -92,12 +110,15 @@ export class CwsFieldNumber {
       }
       newValue -= 1
     }
-
+    if (newValue > this.max || newValue < this.min) {
+      return
+    }
     this.value = newValue
   }
 
   render() {
-    const inputValue = this.value > this.max ? this.max : this.value
+    const inputValue = this.handleMinAndMax(this.value)
+    // this.value > this.max ? this.max : this.value < this.min ? this.min : this.value
     const maskedValue = inputValue < 10 ? `0${inputValue}` : inputValue
     const fieldNumberClasses = classNames('cws-field-number', `cws-field-number--${this.height}`, {
       'cws-field-number--is-error': this.error,
