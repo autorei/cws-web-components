@@ -374,5 +374,30 @@
       </div>
     </div>
   </div>
+  <div class="component-container">
+    <h1>cws-modal</h1>
+    <a class="component-doc-link" target="_blank" href="https://github.com/autorei/cws-web-components/tree/master/src/components/cws-moddal">src/components/cws-modal</a>
+    <div class="component-variant">
+        <div class="component-block">
+          <h3>Modal Default</h3>
+          <cws-button id="open-modal" size="md" type="button">Open Modal</cws-button>
+        </div>
+        <cws-modal id="modal">
+          <h3>Modal de Conteúdo</h3>
+          <p>Lorem ipsum dolor sit conect armour</p>
+        </cws-modal>
+    </div>
+  </div>
+  <script>
+    const modal = document.getElementById('modal');
+    const open = document.getElementById('open-modal');
+    open.onclick = () => {
+      modal.open = true;
+    };
+
+    modal.addEventListener('click', () => {
+      modal.open = false;
+    });
+  </script>
 </body>
 </html>

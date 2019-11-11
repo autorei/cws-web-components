@@ -177,6 +177,20 @@ export namespace Components {
     */
     'size'?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   }
+  interface CwsModal {
+    /**
+    * The first name <-- this commentary is necessary to generate docs
+    */
+    'name': string;
+    /**
+    * The Open prop <-- If true, the modal is open.
+    */
+    'open': boolean;
+    /**
+    * The Transparent prop <-- If true, the modal is open with transparent mode.
+    */
+    'transparent': boolean;
+  }
 }
 
 declare global {
@@ -217,6 +231,12 @@ declare global {
     prototype: HTMLCwsIconElement;
     new (): HTMLCwsIconElement;
   };
+
+  interface HTMLCwsModalElement extends Components.CwsModal, HTMLStencilElement {}
+  var HTMLCwsModalElement: {
+    prototype: HTMLCwsModalElement;
+    new (): HTMLCwsModalElement;
+  };
   interface HTMLElementTagNameMap {
     'cws-button': HTMLCwsButtonElement;
     'cws-field-button-wrapper': HTMLCwsFieldButtonWrapperElement;
@@ -224,6 +244,7 @@ declare global {
     'cws-field-select': HTMLCwsFieldSelectElement;
     'cws-field-text': HTMLCwsFieldTextElement;
     'cws-icon': HTMLCwsIconElement;
+    'cws-modal': HTMLCwsModalElement;
   }
 }
 
@@ -396,6 +417,20 @@ declare namespace LocalJSX {
     */
     'size'?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   }
+  interface CwsModal extends JSXBase.HTMLAttributes<HTMLCwsModalElement> {
+    /**
+    * The first name <-- this commentary is necessary to generate docs
+    */
+    'name'?: string;
+    /**
+    * The Open prop <-- If true, the modal is open.
+    */
+    'open'?: boolean;
+    /**
+    * The Transparent prop <-- If true, the modal is open with transparent mode.
+    */
+    'transparent'?: boolean;
+  }
 
   interface IntrinsicElements {
     'cws-button': CwsButton;
@@ -404,6 +439,7 @@ declare namespace LocalJSX {
     'cws-field-select': CwsFieldSelect;
     'cws-field-text': CwsFieldText;
     'cws-icon': CwsIcon;
+    'cws-modal': CwsModal;
   }
 }
 
